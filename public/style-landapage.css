@@ -1,0 +1,61 @@
+/*  {
+"Black":"252422",
+"Oxford Blue":"14213d",
+"Orange (web)":"fca311",
+"Platinum":"e5e5e5",
+"White":"ffffff"}
+*/
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: url(/chatbackg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font-family: "Work Sans", sans-serif;
+}
+
+/* landpage nav */
+
+.landpage-nav {
+  width: 100vw;
+  height: 8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding: 0 8rem;
+
+  font-size: 4rem;
+}
+
+.landpage-nav p {
+  color: #14213d;
+}
+
+.sign-up-btn-landpage {
+  height: 3rem;
+  width: 18rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #fca311;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-up-btn-landpage:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  background-color: #f5ac37;
+}
