@@ -15,8 +15,13 @@
 body {
   width: 100vw;
   height: 100vh;
-  background: url(/chatbackg.png);
-  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background: url(/gradient-ultrawide.png);
+  background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -27,19 +32,18 @@ body {
 
 .landpage-nav {
   width: 100vw;
-  height: 8rem;
+  height: 6rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: auto;
   padding: 0 8rem;
-
-  font-size: 4rem;
 }
 
-.landpage-nav p {
+.brand-nav-p {
   color: #14213d;
+  font-size: 4rem;
 }
 
 .sign-up-btn-landpage {
@@ -47,15 +51,83 @@ body {
   width: 18rem;
   border: none;
   border-radius: 2rem;
-  background-color: #fca311;
+  background-color: #fa9c06;
   font-size: 1.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  text-decoration: none;
 }
 
 .sign-up-btn-landpage:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease;
-  background-color: #f5ac37;
+  background-color: #fca311;
+}
+
+a:visited,
+a:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hero section */
+
+.hero-section {
+  width: 85vw;
+  height: 85vh;
+  margin: auto;
+  /* background-color: #14213d; */
+
+  display: grid;
+  grid-template-rows: 35% 75%;
+  grid-template-columns: repeat(2, 50%);
+  place-items: center top;
+}
+
+.card-container {
+  grid-column: 1 / -1;
+  grid-row: 1 / 1;
+}
+
+.card-img-hero {
+  width: 100%;
+}
+
+.header-container {
+  grid-column: 1 / -1;
+  grid-row: 2 / -1;
+}
+
+h1 {
+  font-size: 4.5rem;
+  color: #14213d;
+}
+
+.hero-line {
+  font-weight: 500;
+  margin-top: 0.3rem;
+  color: #252422;
+}
+
+@media screen and (max-width: 650px) {
+  .landpage-nav {
+    width: 100vw;
+    height: 4rem;
+    padding: 0 2rem;
+    padding: 2rem 3rem;
+  }
+
+  .brand-nav-p {
+    /* color: #14213d; */
+    font-size: 2.2rem;
+    font-weight: 500;
+  }
+
+  .sign-up-btn-landpage {
+    height: 2rem;
+    width: 8rem;
+    font-size: 1.2rem;
+  }
 }

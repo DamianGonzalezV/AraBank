@@ -23,7 +23,7 @@ body {
   justify-content: center;
   align-content: center;
 
-  background: url(chatbackg.png);
+  background: url(/gradient-ultrawide-black.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -129,7 +129,7 @@ h1 {
 
 /* Mobile */
 
-@media screen and (width > 500px) {
+@media screen and (width > 350px) {
   .sign-up-section {
     height: 80%;
     width: 90%;
@@ -137,7 +137,7 @@ h1 {
 
   .sign-up-form-div {
     height: 70%;
-    width: 90%;
+    width: 75%;
     margin-top: 2rem;
   }
 }
@@ -145,7 +145,7 @@ h1 {
 @media screen and (width > 700px) {
   .sign-up-section {
     height: 80%;
-    width: 60%;
+    width: 75%;
   }
 
   .sign-up-form-div {
@@ -178,7 +178,18 @@ h1 {
 @media screen and (width > 1300px) {
   .sign-up-section {
     height: 80%;
-    width: 40%;
+    width: 30%;
+  }
+
+  .sign-up-form-div {
+    width: 75%;
+  }
+}
+
+@media screen and (width > 1600px) {
+  .sign-up-section {
+    height: 80%;
+    width: 25%;
   }
 
   .sign-up-form-div {

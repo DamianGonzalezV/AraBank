@@ -1,6 +1,8 @@
+/// <reference types="Cypress" />
+
 describe("Sign up page", () => {
   beforeEach(() => {
-    cy.visit("/");
+    cy.visit("/sign-up.html");
   });
   it("Should verify sign up visibility", () => {
     cy.get('[data-qa="sign-up-section"]').should("be.visible");
