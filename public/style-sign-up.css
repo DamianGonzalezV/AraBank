@@ -43,8 +43,12 @@ body {
   margin: auto;
   background-color: #252422;
   border-radius: 1rem;
-
   box-shadow: 3px 3px 4px #252422;
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  flex-wrap: nowrap;
+  flex-direction: column;
 }
 
 .logo-div {
@@ -54,10 +58,11 @@ body {
   /* background-color: rgba(255, 255, 255, 0.082); */
 }
 
-.circle-notch-icon {
+.icon {
   /* display: inline-block; */
-  font-size: 6.5rem;
-  color: #fca311;
+  font-size: 5.5rem;
+  color: #e5e5e5;
+  /* font-weight: 400; */
 }
 
 h1 {
@@ -74,7 +79,7 @@ h1 {
 }
 
 .sign-up-form-div {
-  height: 70%;
+  height: auto;
   width: 60%;
   margin-top: 2rem;
 }
@@ -84,16 +89,20 @@ h1 {
   width: 100%;
   height: 2.7rem;
   border: none;
-  border-radius: 0.1rem;
+  /* border-radius: 0.1rem; */
   padding: 0.5rem;
   font-size: 1.2rem;
   letter-spacing: 0.05rem;
+
+  background-color: #ffffff;
+  color: #252422;
 }
 
 .sign-up-form-div label {
-  color: #ffffff;
+  color: #252422cd;
   font-size: 1.2rem;
   font-weight: 500;
+  border-bottom: 2px solid #25242211;
 }
 
 .sign-up-form-div input {
@@ -102,10 +111,10 @@ h1 {
 
 .sign-up-btn {
   margin-top: 2rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 600;
-  width: 40%;
-  height: 2.5rem;
+  width: 50%;
+  height: 2.6rem;
   border: none;
   border-radius: 2rem;
   background-color: #fca311;
@@ -114,6 +123,13 @@ h1 {
 .sign-up-btn:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease;
+}
+
+.sign-up-terms {
+  color: #ffffff;
+  width: 70%;
+  font-weight: 400;
+  text-align: center;
 }
 
 /* LAND PAGE */
@@ -130,13 +146,7 @@ h1 {
 /* Mobile */
 
 @media screen and (width > 350px) {
-  .sign-up-section {
-    height: 80%;
-    width: 90%;
-  }
-
   .sign-up-form-div {
-    height: 70%;
     width: 75%;
     margin-top: 2rem;
   }
@@ -144,10 +154,8 @@ h1 {
 
 @media screen and (width > 700px) {
   .sign-up-section {
-    height: 80%;
-    width: 75%;
+    width: 60%;
   }
-
   .sign-up-form-div {
     width: 75%;
   }
@@ -155,7 +163,6 @@ h1 {
 
 @media screen and (width > 900px) {
   .sign-up-section {
-    height: 80%;
     width: 50%;
   }
 
@@ -166,7 +173,6 @@ h1 {
 
 @media screen and (width > 1100px) {
   .sign-up-section {
-    height: 80%;
     width: 50%;
   }
 
@@ -177,7 +183,6 @@ h1 {
 
 @media screen and (width > 1300px) {
   .sign-up-section {
-    height: 80%;
     width: 30%;
   }
 
@@ -188,7 +193,6 @@ h1 {
 
 @media screen and (width > 1600px) {
   .sign-up-section {
-    height: 80%;
     width: 25%;
   }
 
