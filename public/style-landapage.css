@@ -42,7 +42,7 @@ body {
 }
 
 .brand-nav-p {
-  color: #14213d;
+  color: #252422;
   font-size: 4rem;
 }
 
@@ -83,21 +83,32 @@ a:link {
   display: grid;
   grid-template-rows: 35% 75%;
   grid-template-columns: repeat(2, 50%);
-  place-items: center top;
+  place-items: center center;
 }
 
 .card-container {
   grid-column: 1 / -1;
   grid-row: 1 / 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-img-hero {
-  width: 100%;
+  width: 110%;
+  margin: auto;
 }
 
 .header-container {
   grid-column: 1 / -1;
   grid-row: 2 / -1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 h1 {
@@ -111,7 +122,7 @@ h1 {
   color: #252422;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (min-width: 300px) {
   .landpage-nav {
     width: 100vw;
     height: 4rem;
@@ -129,5 +140,84 @@ h1 {
     height: 2rem;
     width: 8rem;
     font-size: 1.2rem;
+  }
+
+  .hero-section {
+    grid-template-rows: 35% 65%;
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .brand-nav-p {
+    /* color: #14213d; */
+    font-size: 3.2rem;
+  }
+
+  .sign-up-btn-landpage {
+    height: 2.2rem;
+    width: 8rem;
+    font-size: 1.2rem;
+  }
+
+  .hero-section {
+    grid-template-rows: 50% 50%;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .sign-up-btn-landpage {
+    height: 3rem;
+    width: 12rem;
+    font-size: 1.4rem;
+  }
+
+  .hero-section {
+    grid-template-rows: 65% 35%;
+  }
+
+  .card-img-hero {
+    width: 95%;
+  }
+
+  .hero-line {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .hero-section {
+    width: 75vw;
+    height: 85vh;
+  }
+
+  .hero-section {
+    grid-template-rows: 70% 30%;
+  }
+
+  .card-img-hero {
+    width: 70%;
+  }
+
+  .hero-line {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .brand-nav-p {
+    /* color: #14213d; */
+    font-size: 3.6rem;
+  }
+  .hero-section {
+    grid-template-rows: 70% 30%;
+  }
+
+  .card-img-hero {
+    width: 80%;
+  }
+
+  .hero-line {
+    font-size: 1.5rem;
   }
 }
