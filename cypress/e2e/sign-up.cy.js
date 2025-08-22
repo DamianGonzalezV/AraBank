@@ -7,12 +7,14 @@ describe("Sign up page", () => {
   it("Should verify sign up visibility", () => {
     cy.get('[data-qa="sign-up-section"]').should("be.visible");
   });
+
   it("Should verify sign up page logo and h1", () => {
     cy.get('[data-qa="sign-up-section"]')
       .find("h1")
       .should("contain.text", "Åra Bank");
     cy.get('[data-qa="sign-up-section"]').find("i").should("exist");
   });
+
   it("Should verify sign up inputs and journey", () => {
     cy.get('[data-qa="sign-up-form"]')
       .find("label")
@@ -33,5 +35,10 @@ describe("Sign up page", () => {
       .last()
       .type("Jane_doe_ae@gmail.com");
     cy.get('[data-qa="sign-up-btn"]').click();
+  });
+
+  it("Should verify legal information", () => {
+    cy.get('[data-qa="sign-up-terms"]').should("include", /Terms/);
+    cy.get('[data-qa="sign-up-terms"]').should("include", /Privacy Policy/);
   });
 });
