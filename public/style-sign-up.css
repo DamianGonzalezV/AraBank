@@ -132,6 +132,10 @@ h1 {
   text-align: center;
 }
 
+.sign-up-empty {
+  color: red;
+}
+
 /* LAND PAGE */
 
 .landpage-nav {

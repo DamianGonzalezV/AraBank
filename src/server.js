@@ -2,6 +2,9 @@ import express from "express";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
+// Create an array of objects to store the user accounts info
+const userAccounts = [{}];
+
 // Create the app
 const app = express();
 
@@ -26,6 +29,14 @@ app.get("/", (req, res) => {
 
 app.get("/sign-up", (req, res) => {
   res.sendFile(path.join(__dirname, "../public", "sign-up.html"));
+});
+
+// New accounts API
+app.post("/api/signup", (req, res) => {
+  console.log(req.body);
+  userAccounts.push(req.body);
+  console.log(userAccounts);
+  res.sendStatus(200);
 });
 
 // Listen for request
