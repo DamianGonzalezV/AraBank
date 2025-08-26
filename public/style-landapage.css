@@ -49,9 +49,17 @@ body {
   font-size: 4rem;
 }
 
+.right-components-landpage {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .sign-up-btn-landpage {
   height: 3rem;
   width: 18rem;
+  margin-left: 1rem;
   border: none;
   border-radius: 2rem;
   background-color: #fa9c06;
@@ -63,16 +71,30 @@ body {
   text-decoration: none;
 }
 
-.sign-up-btn-landpage:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
-  background-color: #fca311;
-}
-
 a:visited,
 a:link {
   text-decoration: none;
   color: inherit;
+}
+
+.map-btn-landpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.2rem;
+  width: 2.2rem;
+  background-color: #fca311;
+  border-radius: 50%;
+
+  margin: auto;
+  font-size: 1.6rem;
+}
+
+.sign-up-btn-landpage:hover,
+.map-btn-landpage:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  background-color: #fca311;
 }
 
 /* Hero section */
@@ -174,6 +196,12 @@ h1 {
     height: 3rem;
     width: 12rem;
     font-size: 1.4rem;
+  }
+
+  .map-btn-landpage {
+    height: 3rem;
+    width: 3rem;
+    font-size: 2rem;
   }
 
   .hero-section {

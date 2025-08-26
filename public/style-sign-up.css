@@ -58,18 +58,12 @@ body {
   /* background-color: rgba(255, 255, 255, 0.082); */
 }
 
-.icon {
-  /* display: inline-block; */
-  font-size: 5.5rem;
+.brand-p {
   color: #e5e5e5;
-  /* font-weight: 400; */
-}
-
-h1 {
   font-size: 4rem;
-  font-weight: 500;
-  color: #ffffff;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.05rem;
 }
 
 .logo-div span {
