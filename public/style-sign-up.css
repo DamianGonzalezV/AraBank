@@ -61,7 +61,7 @@ body {
 .brand-p {
   color: #e5e5e5;
   font-size: 4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   font-weight: 400;
   letter-spacing: -0.05rem;
 }
@@ -72,10 +72,26 @@ body {
   font-weight: 400;
 }
 
+.log-in-toogle {
+  margin-top: 2rem;
+  color: #e5e5e5;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.log-in-toogle button {
+  border: none;
+  background-color: transparent;
+  color: #fca311;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
 .sign-up-form-div {
   height: auto;
   width: 60%;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .sign-up-form-div label,
@@ -128,6 +144,10 @@ body {
 
 .sign-up-empty {
   color: red;
+}
+
+hr {
+  width: 90%;
 }
 
 /* LAND PAGE */
