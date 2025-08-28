@@ -18,7 +18,7 @@ signUpBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   if (nameInput.value && usernameInput.value && emailInput.value) {
-    fetch("/api/signup", {
+    fetch("/auth/signup", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -34,7 +34,7 @@ signUpBtn.addEventListener("click", (e) => {
     });
 
     // send user to accounts page
-    window.location.href = "/login";
+    // window.location.href = "/login";
   } else {
     const emptyInputsHTML = `
     <span class="sign-up-empty" data-qa="sign-up-empty"

@@ -1,9 +1,10 @@
 import express from "express";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
+import authRoutes from "./authRoutes/authRoutes.js";
 
 // Create an array of objects to store the user accounts info
-const userAccounts = [{}];
+export const userAccounts = [];
 
 // Create the app
 const app = express();
@@ -31,15 +32,9 @@ app.get("/sign-up", (req, res) => {
   res.sendFile(path.join(__dirname, "../public", "sign-up.html"));
 });
 
-// New accounts API
-app.post("/api/signup", (req, res) => {
-  console.log(req.body);
-  userAccounts.push(req.body);
-  console.log(userAccounts);
-  res.sendStatus(200);
-});
+app.use("/auth", authRoutes);
 
 // Listen for request
 app.listen(PORT, () => {
-  console.log(`Server is running on port: ${PORT}`);
+  console.log(`Server is running on port: http://localhost:${PORT}`);
 });
