@@ -14,10 +14,10 @@ const toogleFormBtn = document.querySelector(".log-in-toogle-btn");
 const nameInput = document.querySelector("#name-input");
 const usernameInputSignup = document.querySelector("#username-input-signup");
 const emailInput = document.querySelector("#email-input");
+const passwordInputSignup = document.querySelector("#password-signup");
 
 // Login inputs
 const usernameInputLogin = document.querySelector("#username-input-login");
-const passwordInput = document.querySelector("#password");
 
 // Variables
 let toogleAtLoginStatus = false;
@@ -37,7 +37,12 @@ signUpBtn.addEventListener("click", (e) => {
   // console.log(nameInput.value);
   e.preventDefault();
 
-  if (nameInput.value && usernameInput.value && emailInput.value) {
+  if (
+    nameInput.value &&
+    usernameInputSignup.value &&
+    emailInput.value &&
+    passwordInputSignup
+  ) {
     fetch("/auth/signup", {
       method: "POST",
       headers: {
@@ -47,6 +52,7 @@ signUpBtn.addEventListener("click", (e) => {
         name: nameInput.value,
         username: usernameInputSignup.value,
         email: emailInput.value,
+        password: passwordInputSignup.value,
       }),
     }).then((response) => {
       console.log("status", response.status);
