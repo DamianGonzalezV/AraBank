@@ -76,7 +76,7 @@ body {
   border: none;
   background-color: transparent;
   margin: 1rem;
-  color: #fca311;
+  color: #ffffff;
   font-size: 1.2rem;
   font-weight: 400;
   text-decoration: underline;
@@ -100,6 +100,10 @@ body {
 
   background-color: #ffffff;
   color: #252422;
+}
+
+.sign-up-form-div label {
+  height: 2rem;
 }
 
 .sign-up-form-div label {
@@ -159,13 +163,17 @@ hr {
 /* Mobile */
 
 @media screen and (width > 350px) {
+  .sign-up-section {
+    height: 90%;
+    width: 90%;
+  }
   .sign-up-form-div {
     width: 75%;
     margin-top: 2rem;
   }
 }
 
-@media screen and (width > 700px) {
+@media screen and (width > 600px) {
   .sign-up-section {
     width: 60%;
   }
@@ -176,7 +184,7 @@ hr {
 
 @media screen and (width > 900px) {
   .sign-up-section {
-    width: 50%;
+    width: 45%;
   }
 
   .sign-up-form-div {
@@ -186,7 +194,7 @@ hr {
 
 @media screen and (width > 1100px) {
   .sign-up-section {
-    width: 50%;
+    width: 35%;
   }
 
   .sign-up-form-div {

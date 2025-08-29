@@ -12,8 +12,12 @@ const toogleFormBtn = document.querySelector(".log-in-toogle-btn");
 
 // Sign up inputs
 const nameInput = document.querySelector("#name-input");
-const usernameInput = document.querySelector("#username-input");
+const usernameInputSignup = document.querySelector("#username-input-signup");
 const emailInput = document.querySelector("#email-input");
+
+// Login inputs
+const usernameInputLogin = document.querySelector("#username-input-login");
+const passwordInput = document.querySelector("#password");
 
 // Variables
 let toogleAtLoginStatus = false;
@@ -41,7 +45,7 @@ signUpBtn.addEventListener("click", (e) => {
       },
       body: JSON.stringify({
         name: nameInput.value,
-        username: usernameInput.value,
+        username: usernameInputSignup.value,
         email: emailInput.value,
       }),
     }).then((response) => {
