@@ -59,7 +59,7 @@ body {
 }
 
 .brand-p {
-  color: #e5e5e5;
+  color: #fca311;
   font-size: 4rem;
   margin-bottom: 0.8rem;
   font-weight: 400;
@@ -68,22 +68,16 @@ body {
 
 .logo-div span {
   font-size: 1.2rem;
-  color: #fca311;
-  font-weight: 400;
-}
-
-.log-in-toogle {
-  margin-top: 2rem;
   color: #e5e5e5;
-  font-size: 1rem;
   font-weight: 400;
 }
 
-.log-in-toogle button {
+.log-in-toogle-btn {
   border: none;
   background-color: transparent;
+  margin: 1rem;
   color: #fca311;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 400;
   text-decoration: underline;
 }
@@ -119,7 +113,8 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.sign-up-btn {
+.sign-up-btn,
+.login-btn {
   margin-top: 2rem;
   font-size: 1.3rem;
   font-weight: 600;

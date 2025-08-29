@@ -19,9 +19,6 @@
       <div class="logo-div centered">
         <p class="brand-p">ÅraBank<i class="ph-thin ph-cards"></i></p>
         <span>Minimalist banking</span>
-        <p class="log-in-toogle">
-          Already have an account? <button>Log in</button>
-        </p>
       </div>
       <form
         id="sign-up-form"
@@ -36,6 +33,18 @@
         <input type="email" name="email" id="email-input" />
         <button class="sign-up-btn" data-qa="sign-up-btn">Sign up</button>
       </form>
+      <form
+        id="log-in-form"
+        class="sign-up-form-div centered hide"
+        data-qa="sign-up-form"
+      >
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username-input" />
+        <label for="password">Password</label>
+        <input type="password" />
+        <button class="login-btn" data-qa="login-btn">Log in</button>
+      </form>
+      <button class="log-in-toogle-btn">Change to log in here</button>
       <hr />
       <span class="sign-up-terms" data-qa="sign-up-terms"
         >By creating an account, you confirm that you are at least 18 years old
