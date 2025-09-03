@@ -3,9 +3,6 @@ import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./authRoutes/authRoutes.js";
 
-// Create an array of objects to store the user accounts info
-export const userAccounts = [];
-
 // Create the app
 const app = express();
 
