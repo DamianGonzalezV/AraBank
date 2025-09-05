@@ -16,12 +16,18 @@
   </head>
   <body>
     <nav class="landpage-nav" data-qa="landpage-nav">
-      <p class="brand-nav-p">ÅraBank<i class="ph-thin ph-cards"></i></p>
+      <p class="brand-nav-p" data-qa="brand-nav-p">
+        ÅraBank<i class="ph-thin ph-cards"></i>
+      </p>
       <div class="right-components-landpage">
-        <span class="map-btn-landpage">
-          <i class="ph-duotone ph-map-pin-simple"></i
-        ></span>
-        <a href="sign-up.html" class="sign-up-btn-landpage">
+        <button class="map-btn-landpage" data-qa="map-btn-landpage">
+          <i class="ph-duotone ph-map-pin-simple"></i>
+        </button>
+        <a
+          href="sign-up.html"
+          class="sign-up-btn-landpage"
+          data-qa="sign-up-btn-landpage"
+        >
           <span>Sign up</span><i class="ph ph-caret-right"></i>
         </a>
       </div>
@@ -31,8 +37,10 @@
         <img class="card-img-hero" src="/card.png" alt="card image floating" />
       </div>
       <div class="header-container">
-        <h1>Minimalist design. Maximum clarity.</h1>
-        <p class="hero-line">
+        <h1 class="hero-section-h1" data-qa="hero-section-h1">
+          Minimalist design. Maximum clarity.
+        </h1>
+        <p class="hero-line" data-qa="hero-line">
           Banking made simple — no clutter, no confusion, just your money.
         </p>
       </div>
