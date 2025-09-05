@@ -38,7 +38,7 @@ export default defineConfig({
     // Viewport of iPhone 14 Pro Max
     viewport: { width: 430, height: 932 },
 
-    testIdAttribute: 
+    testIdAttribute: "data-qa",
   },
 
   /* Configure projects for major browsers */
