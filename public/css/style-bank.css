@@ -7,7 +7,10 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-color: #252422;
+  background: url(../img/gradient-ultrawide-black.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +23,7 @@ body {
   height: 90vh;
   /* background-color: #e5e5e5; */
   display: grid;
-  grid-template-rows: 0.2fr 1.5fr 1fr 2fr 2fr;
+  grid-template-rows: 0.2fr 1fr 1fr 2fr 2fr;
   place-items: center;
   margin: auto;
   border-radius: 0.5rem;
@@ -30,7 +33,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .welcome-row p {
@@ -62,7 +65,8 @@ body {
   align-items: center;
 }
 
-.account-balance-add-button {
+.account-balance-request-button,
+.account-balance-send-button {
   width: 3.5rem;
   height: 3.5rem;
   background-color: #252422;
@@ -75,9 +79,23 @@ body {
   align-items: center;
 }
 
+.account-balance-request-button:hover,
+.account-balance-send-button:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease;
+  background-color: #e5e5e5;
+  border: #fca2114f;
+}
+
 .account-balance-add-icon {
   font-size: 2rem;
   color: #fca311;
+}
+
+.account-balance-add-icon:hover {
+  transform: scale(1.2);
+  transition: 0.3s ease-in;
+  color: #252422;
 }
 
 .account-balance-row-number {
