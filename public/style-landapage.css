@@ -85,6 +85,7 @@ a:link {
   width: 2.2rem;
   background-color: #fca311;
   border-radius: 50%;
+  border: none;
 
   margin: auto;
   font-size: 1.6rem;
@@ -154,7 +155,7 @@ h1 {
   }
 
   .brand-nav-p {
-    /* color: #14213d; */
+    color: #14213d;
     font-size: 2.2rem;
     font-weight: 500;
   }
