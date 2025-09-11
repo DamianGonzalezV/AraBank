@@ -8,7 +8,7 @@ db.exec(`
       name TEXT NOT NULL,
       username TEXT UNIQUE NOT NULL,
       email TEXT UNIQUE NOT NULL,
-      password TEXT UNIQUE NOT NULL
+      password TEXT NOT NULL
     )
 `);
 
