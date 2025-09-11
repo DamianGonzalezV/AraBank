@@ -95,14 +95,8 @@ loginBtn.addEventListener("click", (e) => {
         username: usernameInputLogin.value,
         password: passwordInputLogin.value,
       }),
-    })
-      .then((response) => response.body)
-      .then((data) => (activeUser = data.user));
+    }).then(function (response) {
+      console.log(response.status);
+    });
   }
-
-  // send user to accounts page
-  window.location.href = "/app.html";
-
-  // welcome user
-  welcomeMessageUser.textContent = `${activeUser}`;
 });

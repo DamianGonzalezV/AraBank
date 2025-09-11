@@ -26,13 +26,23 @@
         data-qa="sign-up-form"
       >
         <label for="name">Full name</label>
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" id="name" autocomplete="name" />
         <label for="username">Create a username</label>
-        <input type="text" name="username" id="username" />
+        <input
+          type="text"
+          name="username"
+          id="username"
+          autocomplete="username"
+        />
         <label for="email">Add your email</label>
-        <input type="email" name="email" id="email" />
+        <input type="email" name="email" id="email" autocomplete="email" />
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          autocomplete="new-password"
+        />
         <button class="sign-up-btn" data-qa="sign-up-btn">Sign up</button>
       </form>
       <form
