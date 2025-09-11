@@ -67,7 +67,7 @@ signUpBtn.addEventListener("click", (e) => {
     });
 
     // send user to accounts page
-    window.location.href = "/bank.html";
+    window.location.href = "/app.html";
   } else {
     const emptyInputsHTML = `
     <span class="sign-up-empty" data-qa="sign-up-empty"

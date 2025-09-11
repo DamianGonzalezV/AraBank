@@ -43,15 +43,20 @@ router.post("/login", (req, res) => {
     const user = getUser.all(username);
     console.log(user);
 
-    // hash provided password
-    // const hashedPassword = bcrypt.hashSync(password, 8);
+    // hash password
+    const validPassword = bcrypt.compareSync(password, user[0].password);
 
-    // Compare password
-
-    res.status(200).send({
-      message: `User ${user[0].username} logged in`,
-      user: `${user[0].username}`,
-    });
+    if (validPassword) {
+      console.log(`Password is validated`);
+      res.status(200).send({
+        message: `User ${user[0].username} logged in`,
+        user: `${user[0].username}`,
+      });
+    } else {
+      res.status(401).send({
+        message: "Unauthorized. Password is not valid.",
+      });
+    }
   } catch (err) {
     console.log(err);
   }

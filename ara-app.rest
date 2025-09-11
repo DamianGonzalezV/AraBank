@@ -1,5 +1,11 @@
-### GET /
+### GET / 
+GET http://localhost:6001
+
+### GET /sign-up.html
 GET http://localhost:6001/sign-up.html
+
+### GET /app.html
+GET http://localhost:6001/app.html
 
 ### POST /auth/signup
 POST http://localhost:6001/auth/signup
@@ -10,6 +16,15 @@ Content-Type: application/json
   "username": "Janedoe82v",
   "email": "janedoe82v@email.com",
   "password": "passwerna"
+}
+
+### POST /auth/login -> negative path (INVALID PASSWORD)
+POST http://localhost:6001/auth/login
+Content-Type: application/json
+
+{
+  "username": "Janedoe82v",
+  "password": "passwordfornegativepath"
 }
 
 ### POST /auth/login
