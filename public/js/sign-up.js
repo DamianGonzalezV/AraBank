@@ -64,10 +64,9 @@ signUpBtn.addEventListener("click", (e) => {
     }).then((response) => {
       console.log("status", response.status);
       console.log("Account is created!");
+      // send user to app
+      window.location.href = "/app.html";
     });
-
-    // send user to accounts page
-    window.location.href = "/app.html";
   } else {
     const emptyInputsHTML = `
     <span class="sign-up-empty" data-qa="sign-up-empty"
@@ -95,8 +94,13 @@ loginBtn.addEventListener("click", (e) => {
         username: usernameInputLogin.value,
         password: passwordInputLogin.value,
       }),
-    }).then(function (response) {
-      console.log(response.status);
-    });
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.user);
+        localStorage.setItem = data.user;
+        // send user to app
+        window.location.href = "/app.html";
+      });
   }
 });
