@@ -98,7 +98,7 @@ loginBtn.addEventListener("click", (e) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data.user);
-        localStorage.setItem = data.user;
+        localStorage.setItem("activeUser", data.user);
         // send user to app
         window.location.href = "/app.html";
       });
