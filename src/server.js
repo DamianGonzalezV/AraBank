@@ -18,15 +18,15 @@ const __dirname = dirname(__filename);
 // Middleware
 app.use(express.json());
 // Serve static CSS files
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "..", "public")));
 
 // Serve up the HTML file
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "..", "public", "landpage.html"));
 });
 
 app.get("/sign-up", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public", "sign-up.html"));
+  res.sendFile(path.join(__dirname, "..", "public", "sign-up.html"));
 });
 
 app.use("/auth", authRoutes);

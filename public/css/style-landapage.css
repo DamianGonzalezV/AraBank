@@ -20,7 +20,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: auto;
-  background: url(/gradient-ultrawide.png);
+  background: url(../img/gradient-ultrawide.png);
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;

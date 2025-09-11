@@ -50,6 +50,7 @@ router.post("/login", (req, res) => {
 
     res.status(200).send({
       message: `User ${user[0].username} logged in`,
+      user: `${user[0].username}`,
     });
   } catch (err) {
     console.log(err);

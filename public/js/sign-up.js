@@ -22,6 +22,9 @@ const loginBtn = document.querySelector(".login-btn");
 const usernameInputLogin = document.querySelector("#username-login");
 const passwordInputLogin = document.querySelector("#password-login");
 
+// Bank
+const welcomeMessageUser = document.querySelector(".active-user");
+
 // Variables
 let toggleAtLoginStatus = false;
 
@@ -76,6 +79,8 @@ signUpBtn.addEventListener("click", (e) => {
   }
 });
 
+let activeUser;
+
 // Log in logic
 loginBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -88,13 +93,16 @@ loginBtn.addEventListener("click", (e) => {
       },
       body: JSON.stringify({
         username: usernameInputLogin.value,
-        password: passwordInputSignup.value,
+        password: passwordInputLogin.value,
       }),
-    }).then((response) => {
-      console.log("status", response.status);
-    });
+    })
+      .then((response) => response.body)
+      .then((data) => (activeUser = data.user));
   }
 
   // send user to accounts page
-  window.location.href = "/bank.html";
+  window.location.href = "/app.html";
+
+  // welcome user
+  welcomeMessageUser.textContent = `${activeUser}`;
 });
