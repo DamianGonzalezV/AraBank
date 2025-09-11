@@ -11,10 +11,10 @@ const toogleFormLine = document.querySelector(".log-in-toogle-line");
 const toogleFormBtn = document.querySelector(".log-in-toogle-btn");
 
 // Sign up inputs
-const nameInput = document.querySelector("#name-input");
-const usernameInputSignup = document.querySelector("#username-input-signup");
-const emailInput = document.querySelector("#email-input");
-const passwordInputSignup = document.querySelector("#password-signup");
+const nameInput = document.querySelector("#name");
+const usernameInputSignup = document.querySelector("#username");
+const emailInput = document.querySelector("#email");
+const passwordInputSignup = document.querySelector("#password");
 
 // Login inputs
 const usernameInputLogin = document.querySelector("#username-input-login");
