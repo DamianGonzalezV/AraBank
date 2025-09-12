@@ -26,9 +26,20 @@ router.post("/signup", (req, res) => {
       `);
     const insertedUser = getUser.get(result.lastInsertRowid);
     console.log(`Inserted user: `, insertedUser);
-    res
-      .status(201)
-      .json({ message: `User: ${insertedUser.username} succesfully created` });
+
+    // Create JWT token
+    const token = jwt.sign(
+      { id: result.lastInsertRowid },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "24h",
+      }
+    );
+    // Send response
+    res.status(201).json({
+      message: `User: ${insertedUser.username} succesfully created`,
+      token: token,
+    });
   } catch (err) {
     console.log(err);
   }
@@ -48,9 +59,16 @@ router.post("/login", (req, res) => {
 
     if (validPassword) {
       console.log(`Password is validated`);
+
+      // create token
+      const token = jwt.sign({ id: user[0].id }, process.env.JWT_SECRET, {
+        expiresIn: "24H",
+      });
+      // send response
       res.status(200).json({
         message: `User ${user[0].username} logged in`,
         user: `${user[0].username}`,
+        token: token,
       });
     } else {
       res.status(401).json({
