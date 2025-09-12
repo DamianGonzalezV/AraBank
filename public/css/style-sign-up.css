@@ -165,9 +165,9 @@ hr {
 
 /* Mobile */
 
-@media screen and (width > 350px) {
+@media screen and (min-width: 300px) {
   .sign-up-section {
-    height: 90%;
+    height: 95%;
     width: 90%;
   }
   .sign-up-form-div {

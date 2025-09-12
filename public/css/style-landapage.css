@@ -20,7 +20,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: auto;
-  background: url(../img/gradient-ultrawide.png);
+  background: url(../img/gradient-ultrawide-black.png);
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
@@ -45,7 +45,7 @@ body {
 }
 
 .brand-nav-p {
-  color: #252422;
+  color: #e5e5e5;
   font-size: 4rem;
 }
 
@@ -139,23 +139,22 @@ a:link {
 
 h1 {
   font-size: 4.5rem;
-  color: #14213d;
+  color: #e5e5e5;
 }
 
 .hero-line {
   font-weight: 500;
-  margin-top: 0.3rem;
-  color: #252422;
+  margin-top: 1rem;
+  color: #fca311;
 }
 
 @media screen and (min-width: 300px) {
   .landpage-nav {
     height: 4rem;
-    padding: 2rem 3rem;
+    padding: 1rem 1rem;
   }
 
   .brand-nav-p {
-    color: #14213d;
     font-size: 2.2rem;
     font-weight: 500;
   }
