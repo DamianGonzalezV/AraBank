@@ -2,6 +2,7 @@ import express from "express";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./authRoutes/authRoutes.js";
+import { authMiddleware } from "./middleware/authMiddleware.js";
 
 // Create the app
 const app = express();

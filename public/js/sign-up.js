@@ -61,12 +61,15 @@ signUpBtn.addEventListener("click", (e) => {
         email: emailInput.value,
         password: passwordInputSignup.value,
       }),
-    }).then((response) => {
-      console.log("status", response.status);
-      console.log("Account is created!");
-      // send user to app
-      window.location.href = "/app.html";
-    });
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("status", data.status);
+        // Store the token
+        localStorage.setItem("token", data.token);
+        // send user to app
+        window.location.href = "/app.html";
+      });
   } else {
     const emptyInputsHTML = `
     <span class="sign-up-empty" data-qa="sign-up-empty"
@@ -99,6 +102,7 @@ loginBtn.addEventListener("click", (e) => {
       .then((data) => {
         console.log(data.user);
         localStorage.setItem("activeUser", data.user);
+        localStorage.setItem("token", data.token);
         // send user to app
         window.location.href = "/app.html";
       });
