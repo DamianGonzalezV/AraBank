@@ -16,6 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Middleware
+// This line tells Express to use the middleware that unpacks incoming JSON strings
 app.use(express.json());
 // Serve static CSS files
 app.use(express.static(path.join(__dirname, "..", "public")));

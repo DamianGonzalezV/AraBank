@@ -28,7 +28,7 @@ router.post("/signup", (req, res) => {
     console.log(`Inserted user: `, insertedUser);
     res
       .status(201)
-      .send({ message: `User: ${insertedUser.username} succesfully created` });
+      .json({ message: `User: ${insertedUser.username} succesfully created` });
   } catch (err) {
     console.log(err);
   }
@@ -48,12 +48,12 @@ router.post("/login", (req, res) => {
 
     if (validPassword) {
       console.log(`Password is validated`);
-      res.status(200).send({
+      res.status(200).json({
         message: `User ${user[0].username} logged in`,
         user: `${user[0].username}`,
       });
     } else {
-      res.status(401).send({
+      res.status(401).json({
         message: "Unauthorized. Password is not valid.",
       });
     }
