@@ -122,11 +122,69 @@ body {
   color: #252422d0;
 }
 
-.account-balance-row-extra {
+.account-balance-send,
+.account-balance-request {
   background: linear-gradient(#1b2d549f, #234a9ff8);
   width: 100%;
   height: 100%;
   border-bottom-right-radius: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Send */
+
+.account-balance-send form {
+  height: 80%;
+  width: 80%;
+
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
+.account-balance-send label,
+.account-balance-send input {
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 12px;
+}
+
+/* Request */
+
+.account-balance-request {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.clabe-number,
+.account-balance-request p {
+  font-size: 1.3rem;
+  color: #e5e5e5;
+}
+
+.copy-clabe-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  border: none;
+  background-color: #1f1c19;
+}
+
+.copy-clabe-btn:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease-in;
+}
+
+.ph-copy {
+  font-size: 2rem;
+  color: #fca311;
 }
 
 /* Mobile first */
@@ -135,4 +193,9 @@ body {
   .main-container {
     width: 800px;
   }
+}
+
+/* Hide */
+.hide {
+  display: none;
 }

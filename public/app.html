@@ -35,11 +35,14 @@
           </p>
         </div>
       </div>
-      <div class="account-balance-row-extra">
-        <div class="request">
-          <form action="">
+      <!-- Show send div when send button is clicked -->
+      <div class="account-balance-display account-balance-send hide">
+        <form action="" class="request">
+          <div class="send-container">
             <label for="contact">Send to</label>
             <input type="text" name="contact" id="contact" />
+          </div>
+          <div class="amount-container">
             <label for="amount">Amount</label>
             <input
               type="number"
@@ -47,10 +50,16 @@
               id="amount"
               placeholder="30.00"
             />
-          </form>
-        </div>
-        <div class="send"></div>
+          </div>
+        </form>
       </div>
+      <!-- Show CLABE when request money button is clicked -->
+      <div class="account-balance-display account-balance-request hide">
+        <p>CLABE</p>
+        <p class="clabe-number" data-qa="clabe-number">8000 0000 0000 0000</p>
+        <button class="copy-clabe-btn"><i class="ph-light ph-copy"></i></button>
+      </div>
+      <!-- Extra grid containers for features -->
       <div></div>
       <div></div>
       <div></div>
