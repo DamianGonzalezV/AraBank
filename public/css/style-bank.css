@@ -23,7 +23,7 @@ body {
   height: 90vh;
   /* background-color: #e5e5e5; */
   display: grid;
-  grid-template-rows: 0.2fr 1fr 1fr 2fr 2fr;
+  grid-template-rows: 0.2fr 1fr 0.6fr 2fr 2fr;
   place-items: center;
   margin: auto;
   border-radius: 0.5rem;
@@ -38,7 +38,7 @@ body {
 
 .welcome-row p {
   font-size: 1.5rem;
-  color: #e5e5e5;
+  color: #fca311;
 }
 
 .grid-row {
@@ -134,22 +134,42 @@ body {
   justify-content: center;
 }
 
+.send-container,
+.amount-container {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
 /* Send */
 
 .account-balance-send form {
-  height: 80%;
+  height: 100%;
   width: 80%;
-
   display: flex;
   margin: auto;
-  flex-direction: column;
+  flex-direction: row;
+  align-content: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 
 .account-balance-send label,
 .account-balance-send input {
+  width: 90%;
+  padding: 0.4rem 0.8rem;
   font-size: 1.2rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 1rem;
+}
+
+.account-balance-send label {
+  color: #e5e5e5;
+  margin-bottom: 0.6rem;
 }
 
 /* Request */
@@ -174,7 +194,7 @@ body {
   height: 3rem;
   width: 3rem;
   border: none;
-  background-color: #1f1c19;
+  background-color: #e5e5e5;
 }
 
 .copy-clabe-btn:hover {
@@ -184,7 +204,7 @@ body {
 
 .ph-copy {
   font-size: 2rem;
-  color: #fca311;
+  color: #1f1c19;
 }
 
 /* Mobile first */
