@@ -11,6 +11,14 @@ export default class User {
     this.password = password;
   }
 
+  uniqueValues() {
+    const prepareUnique = db.prepare(
+      `SELECT username, email FROM users WHERE username = ? OR email = ? `
+    );
+    const result = prepareUnique.get(this.user, this.email);
+    return result;
+  }
+
   generateSecurePassword(password) {
     this.password = bcrypt.hashSync(password, 8);
     return this.password;

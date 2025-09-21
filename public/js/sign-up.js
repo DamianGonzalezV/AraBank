@@ -62,14 +62,23 @@ signUpBtn.addEventListener("click", (e) => {
         password: passwordInputSignup.value,
       }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((error) => {
+            throw new Error(error.message);
+          });
+        }
+        return response.json();
+      })
       .then((data) => {
-        console.log("status", data.status);
+        console.log("message", data.message);
+
         // Store the token
         localStorage.setItem("token", data.token);
         // send user to app
         window.location.href = "/app.html";
-      });
+      })
+      .catch((err) => console.log(err));
   } else {
     const emptyInputsHTML = `
     <span class="sign-up-empty" data-qa="sign-up-empty"
