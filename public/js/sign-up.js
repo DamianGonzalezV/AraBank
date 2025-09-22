@@ -99,8 +99,6 @@ signUpBtn.addEventListener("click", (e) => {
   }
 });
 
-let activeUser;
-
 // Log in logic
 loginBtn.addEventListener("click", (e) => {
   e.preventDefault();

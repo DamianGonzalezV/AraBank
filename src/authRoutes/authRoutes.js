@@ -7,11 +7,11 @@ const router = express.Router();
 router.post("/signup", (req, res) => {
   const { name, username, email, password } = req.body;
 
-  // create instance
-  const user = new User(name, username, email, password);
-
   // generate password
-  const hashedPassword = user.generateSecurePassword(password);
+  const hashedPassword = User.generateSecurePassword(password);
+
+  // create instance
+  const user = new User(name, username, email, hashedPassword);
 
   try {
     // Verify uniqueness

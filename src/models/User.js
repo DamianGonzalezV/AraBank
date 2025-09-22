@@ -11,7 +11,7 @@ export default class User {
     this.password = password;
   }
 
-  generateSecurePassword(password) {
+  static generateSecurePassword(password) {
     this.password = bcrypt.hashSync(password, 8);
     return this.password;
   }
