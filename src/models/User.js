@@ -11,14 +11,6 @@ export default class User {
     this.password = password;
   }
 
-  uniqueValues() {
-    const prepareUnique = db.prepare(
-      `SELECT username, email FROM users WHERE username = ? OR email = ? `
-    );
-    const result = prepareUnique.all(this.username, this.email);
-    return result;
-  }
-
   generateSecurePassword(password) {
     this.password = bcrypt.hashSync(password, 8);
     return this.password;
@@ -55,5 +47,13 @@ export default class User {
 
   comparePassword(password) {
     return bcrypt.compareSync(password, this.password);
+  }
+
+  static unique(username) {
+    const prepareSearch = db.prepare(
+      `SELECT * FROM users WHERE username = ? OR email = ?`
+    );
+    const result = prepareSearch.all(username);
+    return result;
   }
 }

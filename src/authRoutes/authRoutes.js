@@ -14,13 +14,13 @@ router.post("/signup", (req, res) => {
   const hashedPassword = user.generateSecurePassword(password);
 
   try {
-    // Verify username and email are unique
-    // const uniqueValues = user.uniqueValues();
-    // if (uniqueValues) {
-    //   return res.status(400).json({
-    //     message: "username or email already exists",
-    //   });
-    // }
+    // Verify uniqueness
+    const unique = User.unique(username, email);
+    if (unique.length > 0) {
+      return res.status(400).json({
+        message: "Username or email already in use",
+      });
+    }
 
     // Insert user (returns userId)
     const insertedUser = user.insertUser(name, username, email, hashedPassword);
