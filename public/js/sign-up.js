@@ -27,6 +27,7 @@ const welcomeMessageUser = document.querySelector(".active-user");
 
 // Variables
 let toggleAtLoginStatus = false;
+let emptyInputsHTML;
 
 // Form toggle
 toggleFormBtn.addEventListener("click", () => {
@@ -78,9 +79,19 @@ signUpBtn.addEventListener("click", (e) => {
         // send user to app
         window.location.href = "/app.html";
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        if (err.message === "Username or email already in use") {
+          emptyInputsHTML = `
+            <span class="sign-up-empty" data-qa="sign-up-empty"
+            >${err}</span>
+          `;
+
+          signUpForm.insertAdjacentHTML("afterend", emptyInputsHTML);
+        }
+      });
   } else {
-    const emptyInputsHTML = `
+    emptyInputsHTML = `
     <span class="sign-up-empty" data-qa="sign-up-empty"
         >Please fill out all inputs!</span
       >

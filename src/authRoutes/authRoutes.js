@@ -15,7 +15,7 @@ router.post("/signup", (req, res) => {
 
   try {
     // Verify uniqueness
-    const unique = User.unique(username, email);
+    const unique = User.unique(username);
     if (unique.length > 0) {
       return res.status(400).json({
         message: "Username or email already in use",
