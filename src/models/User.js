@@ -15,7 +15,7 @@ export default class User {
     const prepareUnique = db.prepare(
       `SELECT username, email FROM users WHERE username = ? OR email = ? `
     );
-    const result = prepareUnique.get(this.user, this.email);
+    const result = prepareUnique.all(this.username, this.email);
     return result;
   }
 
@@ -42,5 +42,18 @@ export default class User {
     return jwt.sign({ id: this.userId }, process.env.JWT_SECRET, {
       expiresIn: "24h",
     });
+  }
+
+  static getByUsername(username) {
+    const prepareUsername = db.prepare(
+      `SELECT * FROM users WHERE username = ?`
+    );
+    const result = prepareUsername.all(username);
+    console.log(result);
+    return result;
+  }
+
+  comparePassword(password) {
+    return bcrypt.compareSync(password, this.password);
   }
 }

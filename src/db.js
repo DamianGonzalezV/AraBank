@@ -12,6 +12,14 @@ db.exec(`
     )
 `);
 
+// Create table for account
+db.exec(`
+  CREATE TABLE account (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    total_balance INTEGER NOT NULL
+  )
+  `);
+
 // Create table for movements
 db.exec(`
     CREATE TABLE movements(

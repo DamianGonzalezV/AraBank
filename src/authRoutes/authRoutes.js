@@ -15,12 +15,12 @@ router.post("/signup", (req, res) => {
 
   try {
     // Verify username and email are unique
-    const uniqueValues = user.uniqueValues();
-    if (uniqueValues) {
-      return res.status(400).json({
-        message: "username or email already exists",
-      });
-    }
+    // const uniqueValues = user.uniqueValues();
+    // if (uniqueValues) {
+    //   return res.status(400).json({
+    //     message: "username or email already exists",
+    //   });
+    // }
 
     // Insert user (returns userId)
     const insertedUser = user.insertUser(name, username, email, hashedPassword);
@@ -41,39 +41,43 @@ router.post("/signup", (req, res) => {
   }
 });
 
-// router.post("/login", (req, res) => {
-//   const { username, password } = req.body;
+router.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  console.log(username, typeof username);
 
-//   try {
-//     // search for username in db
-//     const getUser = db.prepare("SELECT * FROM users WHERE username = ?");
-//     const user = getUser.all(username);
-//     console.log(user);
+  // find user by username
+  const result = User.getByUsername(username);
 
-//     // hash password
-//     const validPassword = bcrypt.compareSync(password, user[0].password);
+  const user = new User(
+    result[0].id,
+    result[0].name,
+    result[0].username,
+    result[0].email,
+    result[0].password
+  );
 
-//     if (validPassword) {
-//       console.log(`Password is validated`);
+  try {
+    // hash password
+    const validPassword = user.comparePassword(password);
 
-//       // create token
-//       const token = jwt.sign({ id: user[0].id }, process.env.JWT_SECRET, {
-//         expiresIn: "24H",
-//       });
-//       // send response
-//       res.status(200).json({
-//         message: `User ${user[0].username} logged in`,
-//         user: `${user[0].username}`,
-//         token: token,
-//       });
-//     } else {
-//       res.status(401).json({
-//         message: "Unauthorized. Password is not valid.",
-//       });
-//     }
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
+    if (validPassword) {
+      // create token
+      const token = user.createToken();
+
+      // send response
+      res.status(200).json({
+        message: `User ${user.username} logged in`,
+        user: `${user.username}`,
+        token: token,
+      });
+    } else {
+      res.status(401).json({
+        message: "Unauthorized. Password is not valid.",
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 export default router;
