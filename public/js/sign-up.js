@@ -27,7 +27,6 @@ const welcomeMessageUser = document.querySelector(".active-user");
 
 // Variables
 let toggleAtLoginStatus = false;
-let emptyInputsHTML;
 
 // Form toggle
 toggleFormBtn.addEventListener("click", () => {
@@ -39,6 +38,16 @@ toggleFormBtn.addEventListener("click", () => {
     ? "Change to sign up here"
     : "Change to log in here";
 });
+
+// Insert HTML for errors
+function insertHTMLerror(err) {
+  let emptyInputsHTML = `
+            <span class="sign-up-empty" data-qa="sign-up-empty"
+            >${err}</span>
+          `;
+
+  signUpForm.insertAdjacentHTML("afterend", emptyInputsHTML);
+}
 
 // Sign up logic
 signUpBtn.addEventListener("click", (e) => {
@@ -82,22 +91,11 @@ signUpBtn.addEventListener("click", (e) => {
       .catch((err) => {
         console.log(err);
         if (err.message === "Username or email already in use") {
-          emptyInputsHTML = `
-            <span class="sign-up-empty" data-qa="sign-up-empty"
-            >${err}</span>
-          `;
-
-          signUpForm.insertAdjacentHTML("afterend", emptyInputsHTML);
+          insertHTMLerror(err);
         }
       });
   } else {
-    emptyInputsHTML = `
-    <span class="sign-up-empty" data-qa="sign-up-empty"
-        >Please fill out all inputs!</span
-      >
-    `;
-
-    signUpForm.insertAdjacentHTML("afterend", emptyInputsHTML);
+    insertHTMLerror("Please fill out all inputs!");
   }
 });
 
