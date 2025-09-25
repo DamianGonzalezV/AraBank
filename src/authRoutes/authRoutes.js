@@ -9,9 +9,11 @@ router.post("/signup", (req, res) => {
 
   // generate password
   const hashedPassword = User.generateSecurePassword(password);
+  console.log(`Hashed: ${hashedPassword}`);
 
   // create instance
   const user = new User(name, username, email, hashedPassword);
+  console.log(user);
 
   try {
     // Verify uniqueness
@@ -23,13 +25,16 @@ router.post("/signup", (req, res) => {
     }
 
     // Insert user (returns userId)
-    const insertedUser = user.insertUser(name, username, email, hashedPassword);
+    const insertedUser = user.insertUser();
+    console.log(insertedUser);
 
     // Confirm insert into DB
     const getUserId = user.getUser(insertedUser);
+    console.log(getUserId);
 
     // Create JWT token
-    const token = user.createToken(getUserId);
+    const token = user.createToken();
+    console.log(token);
 
     // Send response
     res.status(201).json({
@@ -47,6 +52,7 @@ router.post("/login", (req, res) => {
 
   // find user by username
   const result = User.getByUsername(username);
+  console.log(result);
 
   const user = new User(
     result[0].id,
@@ -59,6 +65,7 @@ router.post("/login", (req, res) => {
   try {
     // hash password
     const validPassword = user.comparePassword(password);
+    console.log(validPassword);
 
     if (validPassword) {
       // create token

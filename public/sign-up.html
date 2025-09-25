@@ -36,7 +36,7 @@
         />
         <label for="email">Add your email</label>
         <input type="email" name="email" id="email" autocomplete="email" />
-        <label for="password">Password</label>
+        <label for="password">Add a password</label>
         <input
           type="password"
           name="password"
@@ -51,12 +51,19 @@
         data-qa="sign-up-form"
       >
         <label for="username">Username</label>
-        <input type="text" name="username" id="username-login" />
+        <input
+          type="text"
+          name="username"
+          id="username-login"
+          data-qa="username-login"
+        />
         <label for="password">Password</label>
-        <input type="password" id="password-login" />
+        <input type="password" id="password-login" data-qa="password-login" />
         <button class="login-btn" data-qa="login-btn">Log in</button>
       </form>
-      <button class="log-in-toggle-btn">Change to log in here</button>
+      <button class="log-in-toggle-btn" data-qa="log-in-toggle-btn">
+        Change to log in here
+      </button>
       <hr />
       <span class="sign-up-terms" data-qa="sign-up-terms"
         >By creating an account, you confirm that you are at least 18 years old

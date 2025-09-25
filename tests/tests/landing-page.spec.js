@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { LandingPage } from "../public/POMs/LandingPage";
+import { LandingPage } from "../page-objects/LandingPage";
 
 test.skip("Should render Landing Page", async ({ page }) => {
   const landingPage = new LandingPage(page);
