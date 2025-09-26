@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { SignUp } from "../page-objects/SignUp";
+import { Registration } from "../page-objects/SignUp";
 import { beforeEach } from "node:test";
 
 test.describe("Registration and Login Flow", () => {
@@ -11,7 +11,7 @@ test.describe("Registration and Login Flow", () => {
   test("Should fill sign up form inputs and labels and click sign up button", async ({
     page,
   }) => {
-    const signUp = new SignUp(page);
+    const signUp = new Registration(page);
     await signUp.visitSignUp();
 
     await signUp.registerUser(
@@ -27,24 +27,18 @@ test.describe("Registration and Login Flow", () => {
     await expect(signUp.password).toHaveValue("securepassword1547!");
   });
 
-  test("Should log a user", async ({ page }) => {
-    const signUpPage = new SignUp(page);
-  });
-
   test("Should change the screen to login", async ({ page }) => {
-    const landingPage = new SignUp(page);
-    await landingPage.visitSignUp();
+    const signUp = new Registration(page);
+    await signUp.visitSignUp();
 
-    await landingPage.changeToLogin();
-    await expect(landingPage.signUpToggleButton).toHaveText(
+    await signUp.changeToLogin();
+    await expect(signUp.signUpToggleButton).toHaveText(
       "Change to sign up here"
     );
-    await expect(landingPage.loginButton).toBeVisible();
+    await expect(signUp.loginButton).toBeVisible();
 
-    await landingPage.changeToSignUp();
-    await expect(landingPage.loginToggleButton).toHaveText(
-      "Change to log in here"
-    );
-    await expect(landingPage.signUpButton).toBeVisible();
+    await signUp.changeToSignUp();
+    await expect(signUp.loginToggleButton).toHaveText("Change to log in here");
+    await expect(signUp.signUpButton).toBeVisible();
   });
 });

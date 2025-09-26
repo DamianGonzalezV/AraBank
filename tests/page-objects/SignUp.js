@@ -1,4 +1,4 @@
-export class SignUp {
+export class Registration {
   constructor(page) {
     this.page = page;
 
@@ -34,6 +34,12 @@ export class SignUp {
     await this.email.fill(email);
     await this.password.fill(password);
     await this.signUpButton.click();
+  }
+
+  async loginUser(username, password) {
+    await this.usernameLogin.fill(username);
+    await this.passwordLogin.fill(password);
+    await this.loginButton.click();
   }
 
   async changeToLogin() {
