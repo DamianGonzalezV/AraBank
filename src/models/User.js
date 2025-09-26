@@ -46,20 +46,20 @@ export default class User {
     const prepareUsername = db.prepare(
       `SELECT * FROM users WHERE username = ?`
     );
-    const result = prepareUsername.all(username);
-    console.log(result);
-    return result;
+    return prepareUsername.get(username);
   }
 
   comparePassword(password) {
+    console.log(`User model: ${password}, ${this.password}`);
     return bcrypt.compareSync(password, this.password);
   }
 
-  static unique(username) {
+  static unique(username, email) {
     const prepareSearch = db.prepare(
       `SELECT * FROM users WHERE username = ? OR email = ?`
     );
-    const result = prepareSearch.all(username);
+    console.log(username, email);
+    const result = prepareSearch.all(username, email);
     return result;
   }
 }

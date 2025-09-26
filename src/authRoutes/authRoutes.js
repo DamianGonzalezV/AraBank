@@ -6,10 +6,10 @@ const router = express.Router();
 // New accounts API
 router.post("/signup", (req, res) => {
   const { name, username, email, password } = req.body;
+  console.log(name, email);
 
   // generate password
   const hashedPassword = User.generateSecurePassword(password);
-  console.log(`Hashed: ${hashedPassword}`);
 
   // create instance
   const user = new User(name, username, email, hashedPassword);
@@ -17,7 +17,7 @@ router.post("/signup", (req, res) => {
 
   try {
     // Verify uniqueness
-    const unique = User.unique(username);
+    const unique = User.unique(username, email);
     if (unique.length > 0) {
       return res.status(400).json({
         message: "Username or email already in use",
@@ -26,15 +26,12 @@ router.post("/signup", (req, res) => {
 
     // Insert user (returns userId)
     const insertedUser = user.insertUser();
-    console.log(insertedUser);
 
     // Confirm insert into DB
     const getUserId = user.getUser(insertedUser);
-    console.log(getUserId);
 
     // Create JWT token
     const token = user.createToken();
-    console.log(token);
 
     // Send response
     res.status(201).json({
@@ -54,16 +51,22 @@ router.post("/login", (req, res) => {
   const result = User.getByUsername(username);
   console.log(result);
 
+  if (!result) {
+    res.status(401).json({
+      message: "User does not exist.",
+    });
+  }
+
   const user = new User(
-    result[0].id,
-    result[0].name,
-    result[0].username,
-    result[0].email,
-    result[0].password
+    result.name,
+    result.username,
+    result.email,
+    result.password
   );
 
   try {
     // hash password
+    console.log(result.password, password);
     const validPassword = user.comparePassword(password);
     console.log(validPassword);
 
