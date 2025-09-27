@@ -39,7 +39,7 @@ router.post("/signup", (req, res) => {
       token: token,
     });
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   }
 });
 
@@ -52,7 +52,7 @@ router.post("/login", (req, res) => {
   console.log(result);
 
   if (!result) {
-    res.status(401).json({
+    return res.status(401).json({
       message: "User does not exist.",
     });
   }
@@ -86,7 +86,7 @@ router.post("/login", (req, res) => {
       });
     }
   } catch (err) {
-    console.log(err);
+    console.log(err.message);
   }
 });
 

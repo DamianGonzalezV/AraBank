@@ -7,23 +7,41 @@ let user = {
   password: "passwerna",
 };
 
-describe("Login", () => {
+describe("Login - Positive scenario", () => {
   // Seed the db with a user
   beforeEach(() => {
-    // cy.request({
-    //   method: "POST",
-    //   url: "http://localhost:6001/sign-up.html", // baseUrl is prepended
-    //   form: true,
-    //   body: user,
-    // });
-    cy.request("POST", "/auth/signup", user).then((response) => {});
+    cy.request("POST", "/auth/signup", user).then((response) => {
+      expect(response.status).to.eq(201);
+    });
+    cy.visit("/sign-up.html");
+    cy.get('[data-qa="log-in-toggle-btn"]').click();
   });
 
   // Test for login
   it("Should verify user can login with valid credentials", () => {
+    cy.get('[data-qa="username-login"]').type(`${user.username}`);
+    cy.get('[data-qa="password-login"]').type(`${user.password}`);
+    cy.get('[data-qa="login-btn"]').click();
+
+    cy.location("pathname").should("eq", "/app.html");
+    cy.get('[data-qa="welcome-row-user-span"]').should(
+      "have.text",
+      `${user.username}`
+    );
+  });
+});
+
+describe("Login - Negative scenario", () => {
+  beforeEach(() => {
+    cy.request("POST", "/auth/signup", user).then((response) => {
+      expect(response.status).to.eq(201);
+    });
     cy.visit("/sign-up.html");
     cy.get('[data-qa="log-in-toggle-btn"]').click();
-    cy.get('[data-qa="username-login"]').type(`${user.username}`);
+  });
+
+  it("Shuld verify error message for invalid username", () => {
+    cy.get('[data-qa="username-login"]').type("invalidJane");
     cy.get('[data-qa="password-login"]').type(`${user.password}`);
     cy.get('[data-qa="login-btn"]').click();
   });

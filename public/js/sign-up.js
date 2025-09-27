@@ -30,6 +30,7 @@ let toggleAtLoginStatus = false;
 
 // Form toggle
 toggleFormBtn.addEventListener("click", () => {
+  console.log("click toggle");
   toggleAtLoginStatus = !toggleAtLoginStatus;
   signUpForm.classList.toggle("hide");
   loginForm.classList.toggle("hide");
@@ -114,13 +115,24 @@ loginBtn.addEventListener("click", (e) => {
         password: passwordInputLogin.value,
       }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((error) => {
+            throw new Error(error.message);
+          });
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log(data.user);
         localStorage.setItem("activeUser", data.user);
         localStorage.setItem("token", data.token);
         // send user to app
         window.location.href = "/app.html";
+      })
+      .catch((err) => {
+        console.log(err);
+        if (err.message === "User does not exist.") insertHTMLerror(err);
       });
   }
 });
