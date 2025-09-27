@@ -53,7 +53,7 @@ router.post("/login", (req, res) => {
 
   if (!result) {
     return res.status(401).json({
-      message: "User does not exist.",
+      message: "User does not exist",
     });
   }
 
@@ -82,7 +82,7 @@ router.post("/login", (req, res) => {
       });
     } else {
       res.status(401).json({
-        message: "Unauthorized. Password is not valid.",
+        message: "Unauthorized. Password is not valid",
       });
     }
   } catch (err) {

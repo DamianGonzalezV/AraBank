@@ -92,7 +92,7 @@ signUpBtn.addEventListener("click", (e) => {
       .catch((err) => {
         console.log(err);
         if (err.message === "Username or email already in use") {
-          insertHTMLerror(err);
+          insertHTMLerror(err.message);
         }
       });
   } else {
@@ -132,7 +132,7 @@ loginBtn.addEventListener("click", (e) => {
       })
       .catch((err) => {
         console.log(err);
-        if (err.message === "User does not exist.") insertHTMLerror(err);
+        if (err.message === "User does not exist") insertHTMLerror(err.message);
       });
   }
 });
