@@ -41,13 +41,13 @@ toggleFormBtn.addEventListener("click", () => {
 });
 
 // Insert HTML for errors
-function insertHTMLerror(err) {
+function insertHTMLerror(signUpOrLogin, err) {
   let emptyInputsHTML = `
             <span class="sign-up-empty" data-qa="sign-up-empty"
             >${err}</span>
           `;
 
-  signUpForm.insertAdjacentHTML("afterend", emptyInputsHTML);
+  signUpOrLogin.insertAdjacentHTML("afterend", emptyInputsHTML);
 }
 
 // Sign up logic
@@ -92,7 +92,7 @@ signUpBtn.addEventListener("click", (e) => {
       .catch((err) => {
         console.log(err);
         if (err.message === "Username or email already in use") {
-          insertHTMLerror(err.message);
+          insertHTMLerror(signUpForm, err.message);
         }
       });
   } else {
@@ -132,7 +132,8 @@ loginBtn.addEventListener("click", (e) => {
       })
       .catch((err) => {
         console.log(err);
-        if (err.message === "User does not exist") insertHTMLerror(err.message);
+        if (err.message === "User does not exist")
+          insertHTMLerror(loginForm, err.message);
       });
   }
 });
