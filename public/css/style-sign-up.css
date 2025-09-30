@@ -154,7 +154,8 @@ body {
   background-color: #fca311;
 }
 
-.sign-up-btn:hover {
+.sign-up-btn:hover,
+.login-btn:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease;
 }

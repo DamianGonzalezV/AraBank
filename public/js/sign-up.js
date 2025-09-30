@@ -23,8 +23,8 @@ const loginBtn = document.querySelector(".login-btn");
 const usernameInputLogin = document.querySelector("#username-login");
 const passwordInputLogin = document.querySelector("#password-login");
 
-// Bank
-const welcomeMessageUser = document.querySelector(".active-user");
+// // Bank
+// const welcomeMessageUser = document.querySelector(".active-user");
 
 // Variables
 let toggleAtLoginStatus = false;
@@ -45,7 +45,7 @@ toggleFormBtn.addEventListener("click", () => {
     : "New to AraBank?";
 
   toggleAtLoginStatus = !toggleAtLoginStatus;
-  emptyInputsHTML.classList.add("hide");
+  // emptyInputsHTML.classList.add("hide");
 });
 
 // Insert HTML for errors
@@ -94,6 +94,8 @@ signUpBtn.addEventListener("click", (e) => {
 
         // Store the token
         localStorage.setItem("token", data.token);
+        // Save user to local storage
+        localStorage.setItem("activeUser", data.username);
         // send user to app
         window.location.href = "/app.html";
       })
@@ -133,7 +135,7 @@ loginBtn.addEventListener("click", (e) => {
       })
       .then((data) => {
         console.log(data.user);
-        localStorage.setItem("activeUser", data.user);
+        localStorage.setItem("activeUser", data.username);
         localStorage.setItem("token", data.token);
         // send user to app
         window.location.href = "/app.html";

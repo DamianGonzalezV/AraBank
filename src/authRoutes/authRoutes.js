@@ -28,7 +28,7 @@ router.post("/signup", (req, res) => {
     const insertedUser = user.insertUser();
 
     // Confirm insert into DB
-    const getUserId = user.getUser(insertedUser);
+    const userData = user.getUser(insertedUser);
 
     // Create JWT token
     const token = user.createToken();
@@ -36,6 +36,7 @@ router.post("/signup", (req, res) => {
     // Send response
     res.status(201).json({
       message: `User succesfully created`,
+      username: `${userData.username}`,
       token: token,
     });
   } catch (err) {
@@ -77,7 +78,7 @@ router.post("/login", (req, res) => {
       // send response
       res.status(200).json({
         message: `User ${user.username} logged in`,
-        user: `${user.username}`,
+        username: `${user.username}`,
         token: token,
       });
     } else {
