@@ -16,6 +16,8 @@ body {
   justify-content: center;
   align-items: center;
   margin: auto;
+
+  font-family: "Work Sans", sans-serif;
 }
 
 .main-container {
@@ -33,12 +35,30 @@ body {
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   margin-bottom: 1rem;
+}
+
+.ph-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
+  font-size: 1.8rem;
+  color: #fca311;
+  margin-right: 1rem;
+  background-color: #252422;
+  border-radius: 50%;
 }
 
 .welcome-row p {
   font-size: 1.5rem;
   color: #fca311;
+}
+
+.welcome-row-user-span {
+  color: #fca71e;
 }
 
 .grid-row {
