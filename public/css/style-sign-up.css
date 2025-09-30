@@ -101,24 +101,21 @@ body {
   width: 100%;
   height: 2.7rem;
   border: none;
-  /* border-radius: 0.1rem; */
   padding: 0.5rem;
   font-size: 1.2rem;
   letter-spacing: 0.05rem;
-
-  background-color: #ffffff;
-  color: #252422;
+  background-color: #333533;
 }
 
 .sign-up-form-div label {
-  height: 2rem;
+  height: 2.2rem;
 }
 
 .sign-up-form-div label {
-  color: #252422cd;
+  color: #ffffff;
   font-size: 1.2rem;
   font-weight: 500;
-  border-bottom: 2px solid #25242211;
+  border-bottom: 1px solid #fca21107;
 }
 
 .sign-up-form-div input {
