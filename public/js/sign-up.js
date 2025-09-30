@@ -6,6 +6,7 @@ const signUpBtnLandpage = document.querySelector(".sign-up-btn-landpage");
 // Sign up form
 const signUpBtn = document.querySelector(".sign-up-btn");
 const signUpForm = document.querySelector("#sign-up-form");
+const toggleFormText = document.querySelector(".log-in-toggle-span");
 const toggleFormBtn = document.querySelector(".log-in-toggle-btn");
 
 // Sign up inputs
@@ -27,22 +28,29 @@ const welcomeMessageUser = document.querySelector(".active-user");
 
 // Variables
 let toggleAtLoginStatus = false;
+let emptyInputsHTML = null;
 
 // Form toggle
 toggleFormBtn.addEventListener("click", () => {
   console.log("click toggle");
-  toggleAtLoginStatus = !toggleAtLoginStatus;
   signUpForm.classList.toggle("hide");
   loginForm.classList.toggle("hide");
 
   toggleFormBtn.textContent = toggleAtLoginStatus
-    ? "Change to sign up here"
-    : "Change to log in here";
+    ? "Login"
+    : "Create an account";
+
+  toggleFormText.textContent = toggleAtLoginStatus
+    ? "Already have an account?"
+    : "New to AraBank?";
+
+  toggleAtLoginStatus = !toggleAtLoginStatus;
+  emptyInputsHTML.classList.add("hide");
 });
 
 // Insert HTML for errors
 function insertHTMLerror(signUpOrLogin, err) {
-  let emptyInputsHTML = `
+  emptyInputsHTML = `
             <span class="sign-up-empty" data-qa="sign-up-empty"
             >${err}</span>
           `;

@@ -75,11 +75,16 @@ body {
   font-weight: 400;
 }
 
+.log-in-toggle-p {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
 .log-in-toggle-btn {
   border: none;
   background-color: transparent;
-  margin: 1rem;
-  color: #ffffff;
+  color: #00bfff;
   font-size: 1.2rem;
   font-weight: 400;
   text-decoration: underline;
