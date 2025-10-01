@@ -122,14 +122,21 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: baseline;
 }
 
 .account-balance-line {
   font-family: "Work Sans", sans-serif;
   font-size: 2rem;
   color: #252422d0;
-  font-weight: 500;
+  font-weight: 450;
+}
+
+.account-balance-number-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
 }
 
 .account-balance-number {

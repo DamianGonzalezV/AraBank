@@ -5,7 +5,8 @@ import User from "../models/User.js";
 const router = express.Router();
 
 router.post("/balance", (req, res) => {
-  const { username } = req.body;
+  const userId = req.id;
+  const username = req.username;
 
   if (!username)
     return res.status(400).json({
@@ -26,6 +27,8 @@ router.post("/balance", (req, res) => {
     // visualize db
     const accountData = account.getDataByUserId();
     console.log(accountData);
+    account.setInitialBalance(accountData);
+    console.log(account);
 
     res.status(201).json({
       message: "userData was found",
@@ -33,6 +36,7 @@ router.post("/balance", (req, res) => {
     });
   } catch (err) {
     console.log(err);
+    return err;
   }
 });
 

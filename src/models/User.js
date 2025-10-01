@@ -33,9 +33,13 @@ export default class User {
   }
 
   createToken() {
-    return jwt.sign({ id: this.userId }, process.env.JWT_SECRET, {
-      expiresIn: "24h",
-    });
+    return jwt.sign(
+      { id: this.userId, username: this.username },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "24h",
+      }
+    );
   }
 
   static generateSecurePassword(password) {

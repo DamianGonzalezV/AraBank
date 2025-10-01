@@ -38,7 +38,7 @@ app.get("/app", (req, res) => {
 
 app.use("/auth", authRoutes);
 
-app.use("/account", accountRoutes);
+app.use("/account", authMiddleware, accountRoutes);
 
 // Listen for request
 app.listen(PORT, () => {

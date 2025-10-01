@@ -2,6 +2,7 @@
 
 let welcomeUser = document.querySelector(".welcome-row-user-span");
 let storedUsername = localStorage.getItem("activeUser");
+let token = localStorage.getItem("token");
 
 let requestBtn = document.querySelector(".account-balance-request-button");
 let sendBtn = document.querySelector(".account-balance-send-button");
@@ -35,16 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        authorization: token,
       },
-      body: JSON.stringify({
-        username: storedUsername,
-      }),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         console.log(data.data.total_balance);
-        totalBalance.textContent = String(data.data.total_balance);
+        totalBalance.textContent = `$${String(data.data.total_balance)}`;
       })
       .catch((err) => {
         console.log(err);

@@ -15,6 +15,10 @@ export default class Account {
     prepareUserId.run(this.userId, 100);
   }
 
+  setInitialBalance(accountData) {
+    this.balance = accountData.total_balance;
+  }
+
   getDataByUserId() {
     const prepareAccount = db.prepare(
       `SELECT * FROM accounts WHERE user_id = ?`
