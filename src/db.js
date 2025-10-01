@@ -14,11 +14,12 @@ db.exec(`
 
 // Create table for account
 db.exec(`
-  CREATE TABLE account (
+  CREATE TABLE accounts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
     total_balance INTEGER NOT NULL
   )
-  `);
+`);
 
 // Create table for movements
 db.exec(`
