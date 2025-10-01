@@ -1,6 +1,9 @@
 import db from "../db.js";
 
 export default class Account {
+  // Bonus for account opening
+  static REGISTRATION_BONUS = 100;
+
   constructor(username, userId) {
     this.username = username;
     this.userId = userId;
@@ -12,7 +15,7 @@ export default class Account {
       `INSERT INTO accounts(user_id, total_balance) VALUES(?, ?)`
     );
     // set registration bonus to $100
-    prepareUserId.run(this.userId, 100);
+    prepareUserId.run(this.userId, REGISTRATION_BONUS);
   }
 
   setInitialBalance(accountData) {
