@@ -28,7 +28,7 @@ const passwordInputLogin = document.querySelector("#password-login");
 
 // Variables
 let toggleAtLoginStatus = false;
-let emptyInputsHTML = null;
+let errorInputsHTML = null;
 
 // Form toggle
 toggleFormBtn.addEventListener("click", () => {
@@ -116,7 +116,7 @@ signUpBtn.addEventListener("click", (e) => {
 loginBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  if (usernameInputLogin && passwordInputLogin) {
+  if (usernameInputLogin.value && passwordInputLogin.value) {
     fetch("/auth/login", {
       method: "POST",
       headers: {
@@ -147,5 +147,7 @@ loginBtn.addEventListener("click", (e) => {
         if (err.message === "User does not exist")
           insertHTMLerror(loginForm, err.message);
       });
+  } else {
+    insertHTMLerror(loginForm, "Please fill out all inputs!");
   }
 });
