@@ -45,17 +45,16 @@ toggleFormBtn.addEventListener("click", () => {
     : "New to AraBank?";
 
   toggleAtLoginStatus = !toggleAtLoginStatus;
-  // emptyInputsHTML.classList.add("hide");
 });
 
 // Insert HTML for errors
 function insertHTMLerror(signUpOrLogin, err) {
-  emptyInputsHTML = `
-            <span class="sign-up-empty" data-qa="sign-up-empty"
+  errorInputsHTML = `
+            <span class="registration-error-message" data-qa="registration-error-message"
             >${err}</span>
           `;
 
-  signUpOrLogin.insertAdjacentHTML("afterend", emptyInputsHTML);
+  signUpOrLogin.insertAdjacentHTML("afterend", errorInputsHTML);
 }
 
 // Sign up logic
@@ -67,7 +66,8 @@ signUpBtn.addEventListener("click", (e) => {
     nameInput.value &&
     usernameInputSignup.value &&
     emailInput.value &&
-    passwordInputSignup
+    passwordInputSignup.value &&
+    emailInput.value.includes("@")
   ) {
     fetch("/auth/signup", {
       method: "POST",
@@ -105,8 +105,10 @@ signUpBtn.addEventListener("click", (e) => {
           insertHTMLerror(signUpForm, err.message);
         }
       });
+  } else if (!emailInput.value.includes("@")) {
+    insertHTMLerror(signUpForm, "Please add a valid email");
   } else {
-    insertHTMLerror("Please fill out all inputs!");
+    insertHTMLerror(signUpForm, "Please fill out all inputs!");
   }
 });
 
