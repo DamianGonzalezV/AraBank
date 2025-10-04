@@ -3,7 +3,7 @@ import User from "../models/User.js";
 
 const router = express.Router();
 
-// New accounts API
+// New API
 router.post("/signup", (req, res) => {
   const { name, username, email, password } = req.body;
   console.log(name, email);

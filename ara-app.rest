@@ -12,7 +12,18 @@ Content-Type: application/json
   "name": "Jane Doe",
   "username": "Janedoe82v",
   "email": "janedoe82v@email.com",
-  "password": "pasdswerna"
+  "password": "password"
+}
+
+### POST /auth/signup (ADD SECOND USER)
+POST http://localhost:6001/auth/signup
+Content-Type: application/json
+
+{
+  "name": "Joan Alves",
+  "username": "Joan1alves",
+  "email": "Joan1alves@email.com",
+  "password": "password"
 }
 
 ### POST /auth/login -> negative path (INVALID PASSWORD)
@@ -39,7 +50,25 @@ Content-Type: application/json
 
 {
   "username": "Janedoe82v",
-  "password": "pasdswerna"
+  "password": "password"
+}
+
+### POST /auth/login
+POST http://localhost:6001/auth/login
+Content-Type: application/json
+
+{
+  "username": "Janedoe82v",
+  "password": "password"
+}
+
+### POST /auth/login (SECOND USER)
+POST http://localhost:6001/auth/login
+Content-Type: application/json
+
+{
+  "username": "Joan1alves",
+  "password": "password"
 }
 
 ### GET /app.html
@@ -47,8 +76,6 @@ GET http://localhost:6001/app.html
 
 ### POST /account/balance
 POST http://localhost:6001/account/balance
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJKb2FuMWFsdmVzIiwiaWF0IjoxNzU5NTcxODQ1LCJleHAiOjE3NTk2NTgyNDV9.GxEhWSYG0kY7jIhXaw5xSSDOqeipzNx0jrilIDHwne4
 Content-Type: application/json
 
-{
-  "username": "Janedoe82v"
-}

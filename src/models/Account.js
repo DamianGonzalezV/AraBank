@@ -15,7 +15,7 @@ export default class Account {
       `INSERT INTO accounts(user_id, total_balance) VALUES(?, ?)`
     );
     // set registration bonus to $100
-    prepareUserId.run(this.userId, REGISTRATION_BONUS);
+    prepareUserId.run(this.userId, Account.REGISTRATION_BONUS);
   }
 
   setInitialBalance(accountData) {

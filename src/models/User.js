@@ -13,6 +13,13 @@ export default class User {
     this.userId = null;
   }
 
+  static getByUsername(username) {
+    const prepareUsername = db.prepare(
+      `SELECT * FROM users WHERE username = ?`
+    );
+    return prepareUsername.get(username);
+  }
+
   insertUser() {
     const prepareUser = db.prepare(
       `INSERT INTO users(name, username, email, password) VALUES(?, ?, ?, ?)`
@@ -44,13 +51,6 @@ export default class User {
 
   static generateSecurePassword(password) {
     return bcrypt.hashSync(password, 8);
-  }
-
-  static getByUsername(username) {
-    const prepareUsername = db.prepare(
-      `SELECT * FROM users WHERE username = ?`
-    );
-    return prepareUsername.get(username);
   }
 
   comparePassword(password) {
