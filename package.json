@@ -4,8 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "cy-open": "cypress open",
-    "pw-test": "playwright test",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "pw:test": "playwright test",
     "dev": "nodemon --env-file=.env ./src/server.js"
   },
   "keywords": [],

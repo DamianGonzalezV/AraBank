@@ -26,6 +26,17 @@ Content-Type: application/json
   "password": "password"
 }
 
+### POST /auth/signup -> negative path (Invalid email)
+POST http://localhost:6001/auth/signup
+Content-Type: application/json
+
+{
+  "name": "Joan Alves",
+  "username": "Joan1alves",
+  "email": "Joan1alves", 
+  "password": "password"
+}
+
 ### POST /auth/login -> negative path (INVALID PASSWORD)
 POST http://localhost:6001/auth/login
 Content-Type: application/json
@@ -34,6 +45,7 @@ Content-Type: application/json
   "username": "Janedoe82v",
   "password": "passwordfornegativepath"
 }
+
 
 ### POST /auth/login -> negative path (INVALID USER)
 POST http://localhost:6001/auth/login

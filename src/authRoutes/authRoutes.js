@@ -8,6 +8,13 @@ router.post("/signup", (req, res) => {
   const { name, username, email, password } = req.body;
   console.log(name, email);
 
+  // Check for valid email
+  if (!email.includes("@")) {
+    return res.status(400).json({
+      message: "Please add a valid email",
+    });
+  }
+
   // generate password
   const hashedPassword = User.generateSecurePassword(password);
 
