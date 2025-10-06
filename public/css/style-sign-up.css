@@ -22,7 +22,6 @@ body {
   font-weight: 500;
 
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-content: center;
 
@@ -38,10 +37,26 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* SIGN UP side SECTION */
+
+.sign-up-side {
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.sign-up-side-hand {
+  height: 100%;
+  margin: auto;
+}
+
 /* SIGN UP SECTION */
 
 .sign-up-section {
-  height: 80%;
+  height: 95%;
   width: 80%;
   margin: auto;
   background-color: #252422;
@@ -75,11 +90,16 @@ body {
   font-weight: 400;
 }
 
+.log-in-toggle-p {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
 .log-in-toggle-btn {
   border: none;
   background-color: transparent;
-  margin: 1rem;
-  color: #ffffff;
+  color: #00bfff;
   font-size: 1.2rem;
   font-weight: 400;
   text-decoration: underline;
@@ -93,31 +113,33 @@ body {
 
 .sign-up-form-div label,
 .sign-up-form-div input {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: auto;
   width: 100%;
   height: 2.7rem;
   border: none;
-  /* border-radius: 0.1rem; */
-  padding: 0.5rem;
-  font-size: 1.2rem;
+  padding-left: 1rem;
   letter-spacing: 0.05rem;
-
-  background-color: #ffffff;
-  color: #252422;
+  background-color: #333533;
 }
 
 .sign-up-form-div label {
-  height: 2rem;
+  height: 2.2rem;
 }
 
 .sign-up-form-div label {
-  color: #252422cd;
+  color: #ffffffb4;
   font-size: 1.2rem;
   font-weight: 500;
-  border-bottom: 2px solid #25242211;
+  border-bottom: 1px solid #fca21107;
 }
 
 .sign-up-form-div input {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
+  color: #ffffff;
+  font-size: 1.2rem;
 }
 
 .sign-up-btn,
@@ -132,7 +154,8 @@ body {
   background-color: #fca311;
 }
 
-.sign-up-btn:hover {
+.sign-up-btn:hover,
+.login-btn:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease;
 }
@@ -144,7 +167,7 @@ body {
   text-align: center;
 }
 
-.sign-up-empty {
+.registration-error-message {
   color: red;
 }
 
@@ -167,12 +190,10 @@ hr {
 
 @media screen and (min-width: 300px) {
   .sign-up-section {
-    height: 95%;
-    width: 90%;
+    width: 95%;
   }
   .sign-up-form-div {
-    width: 75%;
-    margin-top: 2rem;
+    width: 85%;
   }
 }
 
@@ -181,13 +202,13 @@ hr {
     width: 60%;
   }
   .sign-up-form-div {
-    width: 75%;
+    width: 80%;
   }
 }
 
-@media screen and (width > 900px) {
+@media screen and (width > 800px) {
   .sign-up-section {
-    width: 45%;
+    width: 50%;
   }
 
   .sign-up-form-div {
@@ -196,16 +217,28 @@ hr {
 }
 
 @media screen and (width > 1100px) {
+  .sign-up-side {
+    width: 30%;
+    display: flex;
+  }
+  .sign-up-side-hand {
+    height: 100%;
+    margin: auto;
+  }
   .sign-up-section {
-    width: 35%;
+    width: 40%;
   }
 
   .sign-up-form-div {
-    width: 75%;
+    width: 85%;
   }
 }
 
 @media screen and (width > 1300px) {
+  .sign-up-side {
+    width: 40%;
+    display: flex;
+  }
   .sign-up-section {
     width: 30%;
   }
@@ -215,13 +248,21 @@ hr {
   }
 }
 
-@media screen and (width > 1600px) {
+@media screen and (width > 1800px) {
   .sign-up-section {
     width: 25%;
   }
+}
+/* 
+@media screen and (width > 2200px) {
+  .sign-up-section {
+    width: 25%;
+  }
+} */
 
-  .sign-up-form-div {
-    width: 75%;
+@media screen and (height > 1400px) {
+  .sign-up-section {
+    height: 65%;
   }
 }
 

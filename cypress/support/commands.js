@@ -23,3 +23,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("signUpUser", (user) => {
+  cy.request("POST", "/auth/signup", user).then((response) => {
+    expect(response.status).to.eq(201);
+  });
+});
+
+Cypress.Commands.add("navigateToLogin", () => {
+  cy.visit("/sign-up.html");
+  // Change to login screen
+  cy.get(".log-in-toggle-btn").click();
+});

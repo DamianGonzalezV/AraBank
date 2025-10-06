@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
-import { LandingPage } from "../public/POMs/LandingPage";
+import { LandingPage } from "../page-objects/LandingPage";
 
-test.skip("Should render Landing Page", async ({ page }) => {
+test("Should render Landing Page", async ({ page }) => {
   const landingPage = new LandingPage(page);
   await landingPage.visit();
   // Assertions here
@@ -15,7 +15,7 @@ test.skip("Should render Landing Page", async ({ page }) => {
   await expect(landingPage.heroSmallText).toContainText("Banking made simple");
 });
 
-test.skip("Should go from land page to sign up", async ({ page }) => {
+test("Should go from land page to sign up", async ({ page }) => {
   const landingPage = new LandingPage(page);
   await landingPage.visit();
   await landingPage.goToSignUp();

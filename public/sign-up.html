@@ -15,6 +15,13 @@
     <title>Åra Bank - Sign up</title>
   </head>
   <body>
+    <section class="sign-up-side">
+      <img
+        src="././img/araBank-hand-2-Photoroom.png"
+        alt=""
+        class="sign-up-side-hand"
+      />
+    </section>
     <section class="sign-up-section centered" data-qa="sign-up-section">
       <div class="logo-div centered">
         <p class="brand-p">ÅraBank</p>
@@ -26,7 +33,13 @@
         data-qa="sign-up-form"
       >
         <label for="name">Full name</label>
-        <input type="text" name="name" id="name" autocomplete="name" />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          autocomplete="name"
+          autofocus
+        />
         <label for="username">Create a username</label>
         <input
           type="text"
@@ -35,8 +48,14 @@
           autocomplete="username"
         />
         <label for="email">Add your email</label>
-        <input type="email" name="email" id="email" autocomplete="email" />
-        <label for="password">Password</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          autocomplete="email"
+          required
+        />
+        <label for="password">Add a password</label>
         <input
           type="password"
           name="password"
@@ -51,12 +70,22 @@
         data-qa="sign-up-form"
       >
         <label for="username">Username</label>
-        <input type="text" name="username" id="username-login" />
+        <input
+          type="text"
+          name="username"
+          id="username-login"
+          data-qa="username-login"
+        />
         <label for="password">Password</label>
-        <input type="password" id="password-login" />
+        <input type="password" id="password-login" data-qa="password-login" />
         <button class="login-btn" data-qa="login-btn">Log in</button>
       </form>
-      <button class="log-in-toggle-btn">Change to log in here</button>
+      <p class="log-in-toggle-p">
+        <span class="log-in-toggle-span">Already have an account?</span>
+        <button class="log-in-toggle-btn" data-qa="log-in-toggle-btn">
+          Login
+        </button>
+      </p>
       <hr />
       <span class="sign-up-terms" data-qa="sign-up-terms"
         >By creating an account, you confirm that you are at least 18 years old

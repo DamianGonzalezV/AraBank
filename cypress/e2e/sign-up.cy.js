@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe("Sign up page", () => {
+describe("Sign up", () => {
   beforeEach(() => {
     cy.visit("/sign-up.html");
   });

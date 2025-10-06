@@ -2,6 +2,7 @@ import express from "express";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import authRoutes from "./authRoutes/authRoutes.js";
+import accountRoutes from "./accountRoutes/accountRoutes.js";
 import { authMiddleware } from "./middleware/authMiddleware.js";
 
 // Create the app
@@ -31,7 +32,13 @@ app.get("/sign-up", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "sign-up.html"));
 });
 
+app.get("/app", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "public", "app.html"));
+});
+
 app.use("/auth", authRoutes);
+
+app.use("/account", authMiddleware, accountRoutes);
 
 // Listen for request
 app.listen(PORT, () => {

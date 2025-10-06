@@ -17,7 +17,15 @@
     <!-- First section for mobile with grid -->
     <section class="main-container">
       <div class="welcome-row" data-qa="welcome-row">
-        <p>Welcome <span class="welcome-row-user-span"></span> ⛅</p>
+        <i class="ph-bold ph-user"></i>
+        <p>
+          Welcome
+          <span
+            class="welcome-row-user-span"
+            data-qa="welcome-row-user-span"
+          ></span>
+          ⛅
+        </p>
       </div>
       <div class="grid-row account-balance-row">
         <div class="account-balance-row-add">
@@ -30,9 +38,10 @@
         </div>
         <div class="account-balance-row-number">
           <p class="account-balance-line">Total balance</p>
-          <p class="account-balance-number">
-            €100<span class="account-balance-cents">.00</span>
-          </p>
+          <div class="account-balance-number-container">
+            <p class="account-balance-number"></p>
+            <span class="account-balance-cents">.00</span>
+          </div>
         </div>
       </div>
       <!-- Show send div when send button is clicked -->
