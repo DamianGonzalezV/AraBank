@@ -12,7 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "A full stack bank application that uses a NodeJS backend, a PostreSQL database, a prisma ORM  and JWT authentication",
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cypress": "^14.5.4",
