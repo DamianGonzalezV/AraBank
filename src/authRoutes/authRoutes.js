@@ -26,7 +26,8 @@ router.post("/signup", (req, res) => {
     // Verify uniqueness
     const unique = User.unique(username, email);
     if (unique.length > 0) {
-      return res.status(400).json({
+      // return 409: conflict with the state/date on the server
+      return res.status(409).json({
         message: "Username or email already in use",
       });
     }
@@ -44,6 +45,8 @@ router.post("/signup", (req, res) => {
     res.status(201).json({
       message: `User succesfully created`,
       username: `${userData.username}`,
+      email: `${userData.email}`,
+
       token: token,
     });
   } catch (err) {
