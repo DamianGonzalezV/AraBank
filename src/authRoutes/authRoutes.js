@@ -4,7 +4,7 @@ import User from "../models/User.js";
 const router = express.Router();
 
 // New API
-router.post("/signup", (req, res) => {
+router.post("/signup", async (req, res) => {
   const { name, username, email, password } = req.body;
   console.log(name, email);
 
@@ -31,8 +31,8 @@ router.post("/signup", (req, res) => {
       });
     }
 
-    // Insert user (returns userId)
-    const insertedUser = user.insertUser();
+    // PRISMA Insert user (returns userId)
+    const insertedUser = await user.insertUser();
 
     // Confirm insert into DB
     const userData = user.getUser(insertedUser);

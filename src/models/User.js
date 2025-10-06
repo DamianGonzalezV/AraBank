@@ -20,18 +20,33 @@ export default class User {
     return prepareUsername.get(username);
   }
 
+  // Previous insert with sqlite
+  // insertUser() {
+  //   const prepareUser = db.prepare(
+  //     `INSERT INTO users(name, username, email, password) VALUES(?, ?, ?, ?)`
+  //   );
+  //   const insertedUser = prepareUser.run(
+  //     this.name,
+  //     this.username,
+  //     this.email,
+  //     this.password
+  //   );
+  //   this.userId = insertedUser.lastInsertRowid;
+  //   return this.userId;
+  // }
+
+  // New insert with prisma
   insertUser() {
-    const prepareUser = db.prepare(
-      `INSERT INTO users(name, username, email, password) VALUES(?, ?, ?, ?)`
-    );
-    const insertedUser = prepareUser.run(
-      this.name,
-      this.username,
-      this.email,
-      this.password
-    );
-    this.userId = insertedUser.lastInsertRowid;
-    return this.userId;
+    const user = prisma.user.create({
+      data: {
+        name: this.name,
+        username: this.username,
+        email: this.email,
+        password: this.password,
+      },
+    });
+    // set this.userId to the last insert row id with prisma
+    // return this.userId
   }
 
   getUser() {
