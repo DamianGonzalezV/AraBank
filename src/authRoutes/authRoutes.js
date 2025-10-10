@@ -33,10 +33,14 @@ router.post("/signup", (req, res) => {
     }
 
     // Insert user (returns userId)
-    const insertedUser = user.insertUser();
+    user.insertUser();
 
     // Confirm insert into DB
-    const userData = user.getUser(insertedUser);
+    const userData = user.getUser();
+    // log new record in db
+    console.log(userData);
+    // log to verify that userId is not null
+    console.log(user);
 
     // Create JWT token
     const token = user.createToken();

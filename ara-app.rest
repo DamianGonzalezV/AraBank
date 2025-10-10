@@ -88,6 +88,6 @@ GET http://localhost:6001/app.html
 
 ### POST /account/balance
 POST http://localhost:6001/account/balance
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJKb2FuMWFsdmVzIiwiaWF0IjoxNzU5NTcxODQ1LCJleHAiOjE3NTk2NTgyNDV9.GxEhWSYG0kY7jIhXaw5xSSDOqeipzNx0jrilIDHwne4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6bnVsbCwidXNlcm5hbWUiOiJKb2FuMWFsdmVzIiwiaWF0IjoxNzYwMDU5MDA4LCJleHAiOjE3NjAxNDU0MDh9.UlFxrysY_DQU2zd4tqkLVefrN5wZKddehkSmHeTQ6gM
 Content-Type: application/json
 

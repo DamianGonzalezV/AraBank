@@ -31,7 +31,6 @@ export default class User {
       this.password
     );
     this.userId = insertedUser.lastInsertRowid;
-    return this.userId;
   }
 
   getUser() {
