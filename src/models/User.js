@@ -49,6 +49,10 @@ export default class User {
     return unique;
   }
 
+  static generateSecurePassword(password) {
+    return bcrypt.hashSync(password, 8);
+  }
+
   // Previous insert with sqlite
   // insertUser() {
   //   const prepareUser = db.prepare(
@@ -74,8 +78,7 @@ export default class User {
         password: this.password,
       },
     });
-    this.userId = user.id;
-    return this.userId;
+    this.userId = user.id; // null is replaced with userId of the inserted record
   }
 
   async getUser() {
@@ -97,10 +100,6 @@ export default class User {
         expiresIn: "24h",
       }
     );
-  }
-
-  static generateSecurePassword(password) {
-    return bcrypt.hashSync(password, 8);
   }
 
   comparePassword(password) {

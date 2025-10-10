@@ -32,10 +32,10 @@ router.post("/signup", async (req, res) => {
     }
 
     // PRISMA Insert user (returns userId)
-    const insertedUser = await user.insertUser();
+    await user.insertUser();
 
     // Confirm insert into DB
-    const userData = user.getUser(insertedUser);
+    const userData = await user.getUser(insertedUser);
 
     // Create JWT token
     const token = user.createToken();
@@ -51,13 +51,11 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", async (req, res) => {
   const { username, password } = req.body;
-  console.log(username, typeof username);
 
   // find user by username
   const result = User.getByUsername(username);
-  console.log(result);
 
   if (!result) {
     return res.status(401).json({
@@ -74,9 +72,7 @@ router.post("/login", (req, res) => {
 
   try {
     // hash password
-    console.log(result.password, password);
     const validPassword = user.comparePassword(password);
-    console.log(validPassword);
 
     if (validPassword) {
       // create token
