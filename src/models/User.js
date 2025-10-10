@@ -2,6 +2,12 @@ import db from "../db.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+/* 
+Style guide
+
+- Static Methods should be after the constructor
+
+*/
 export default class User {
   constructor(name, username, email, password) {
     this.name = name;
@@ -13,11 +19,34 @@ export default class User {
     this.userId = null;
   }
 
-  static getByUsername(username) {
-    const prepareUsername = db.prepare(
-      `SELECT * FROM users WHERE username = ?`
-    );
-    return prepareUsername.get(username);
+  static async getByUsername(username) {
+    // const prepareUsername = db.prepare(
+    //   `SELECT * FROM users WHERE username = ?`
+    // );
+    // return prepareUsername.get(username);
+    const user = await prisma.users.findUnique({
+      where: {
+        username: username,
+      },
+    });
+    return user;
+  }
+
+  static async unique(username, email) {
+    // const prepareSearch = db.prepare(
+    //   `SELECT * FROM users WHERE username = ? OR email = ?`
+    // );
+    // console.log(username, email);
+    // const result = prepareSearch.all(username, email);
+    // return result;
+
+    const unique = await prisma.users.findUnique({
+      where: {
+        username: username,
+        email: email,
+      },
+    });
+    return unique;
   }
 
   // Previous insert with sqlite
@@ -36,8 +65,8 @@ export default class User {
   // }
 
   // New insert with prisma
-  insertUser() {
-    const user = prisma.user.create({
+  async insertUser() {
+    const user = await prisma.user.create({
       data: {
         name: this.name,
         username: this.username,
@@ -45,13 +74,19 @@ export default class User {
         password: this.password,
       },
     });
-    // set this.userId to the last insert row id with prisma
-    // return this.userId
+    this.userId = user.id;
+    return this.userId;
   }
 
-  getUser() {
-    const retrieveUser = db.prepare(`SELECT * FROM users WHERE id = ?`);
-    return retrieveUser.get(this.userId);
+  async getUser() {
+    // const retrieveUser = db.prepare(`SELECT * FROM users WHERE id = ?`);
+    // return retrieveUser.get(this.userId);
+    const user = await prisma.users.findUnique({
+      where: {
+        id: this.userId,
+      },
+    });
+    return user;
   }
 
   createToken() {
@@ -71,14 +106,5 @@ export default class User {
   comparePassword(password) {
     console.log(`User model: ${password}, ${this.password}`);
     return bcrypt.compareSync(password, this.password);
-  }
-
-  static unique(username, email) {
-    const prepareSearch = db.prepare(
-      `SELECT * FROM users WHERE username = ? OR email = ?`
-    );
-    console.log(username, email);
-    const result = prepareSearch.all(username, email);
-    return result;
   }
 }
