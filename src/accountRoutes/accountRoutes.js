@@ -4,7 +4,7 @@ import User from "../models/User.js";
 
 const router = express.Router();
 
-router.post("/balance", (req, res) => {
+router.post("/balance", async (req, res) => {
   const userId = req.id;
   const username = req.username;
 
@@ -22,10 +22,10 @@ router.post("/balance", (req, res) => {
     console.log(account);
 
     // iniatialize db with data
-    account.initializeAccount();
+    await account.initializeAccount();
 
     // visualize db
-    const accountData = account.getDataByUserId();
+    const accountData = await account.getDataByUserId();
     console.log(accountData);
     account.setInitialBalance(accountData);
     console.log(account);

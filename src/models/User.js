@@ -1,4 +1,5 @@
-import db from "../db.js";
+// import db from "../db.js";
+import prisma from "../prismaClient";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
