@@ -1,5 +1,5 @@
 // import db from "../db.js";
-import prisma from "../prismaClient";
+import prisma from "../prismaClient.js";
 
 export default class Account {
   // Bonus for account opening
