@@ -35,7 +35,7 @@ router.post("/signup", async (req, res) => {
     await user.insertUser();
 
     // Confirm insert into DB
-    const userData = await user.getUser(insertedUser);
+    const userData = await user.getUser();
 
     // Create JWT token
     const token = user.createToken();

@@ -54,24 +54,9 @@ export default class User {
     return bcrypt.hashSync(password, 8);
   }
 
-  // Previous insert with sqlite
-  // insertUser() {
-  //   const prepareUser = db.prepare(
-  //     `INSERT INTO users(name, username, email, password) VALUES(?, ?, ?, ?)`
-  //   );
-  //   const insertedUser = prepareUser.run(
-  //     this.name,
-  //     this.username,
-  //     this.email,
-  //     this.password
-  //   );
-  //   this.userId = insertedUser.lastInsertRowid;
-  //   return this.userId;
-  // }
-
   // New insert with prisma
   async insertUser() {
-    const user = await prisma.user.create({
+    const user = await prisma.users.create({
       data: {
         name: this.name,
         username: this.username,

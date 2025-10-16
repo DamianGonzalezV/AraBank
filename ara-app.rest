@@ -10,8 +10,8 @@ Content-Type: application/json
 
 {
   "name": "Jane Doe",
-  "username": "Janedoe82v",
-  "email": "janedoe82v@email.com",
+  "username": "Janesdssddoe82v",
+  "email": "janedosddsde82v@email.com",
   "password": "password"
 }
 
