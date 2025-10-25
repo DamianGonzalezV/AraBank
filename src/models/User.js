@@ -21,10 +21,6 @@ export default class User {
   }
 
   static async getByUsername(username) {
-    // const prepareUsername = db.prepare(
-    //   `SELECT * FROM users WHERE username = ?`
-    // );
-    // return prepareUsername.get(username);
     const user = await prisma.users.findUnique({
       where: {
         username: username,
@@ -34,13 +30,6 @@ export default class User {
   }
 
   static async unique(username, email) {
-    // const prepareSearch = db.prepare(
-    //   `SELECT * FROM users WHERE username = ? OR email = ?`
-    // );
-    // console.log(username, email);
-    // const result = prepareSearch.all(username, email);
-    // return result;
-
     const unique = await prisma.users.findUnique({
       where: {
         username: username,
@@ -68,8 +57,6 @@ export default class User {
   }
 
   async getUser() {
-    // const retrieveUser = db.prepare(`SELECT * FROM users WHERE id = ?`);
-    // return retrieveUser.get(this.userId);
     const user = await prisma.users.findUnique({
       where: {
         id: this.userId,
