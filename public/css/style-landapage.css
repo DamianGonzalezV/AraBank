@@ -123,7 +123,7 @@ a:link {
 }
 
 .card-img-hero {
-  width: 110%;
+  width: 100%;
   margin: auto;
 }
 
@@ -254,6 +254,7 @@ h1 {
   }
 
   .card-img-hero {
-    width: 90%;
+    width: 80%;
+    margin-bottom: 2rem;
   }
 }

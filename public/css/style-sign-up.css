@@ -25,7 +25,7 @@ body {
   justify-content: center;
   align-content: center;
 
-  background: linear-gradient(#dee2e6, #fafafa);
+  background: linear-gradient(#eef0f2, #ecebe4);
 }
 
 .centered {
@@ -238,6 +238,20 @@ hr {
   }
   .sign-up-section {
     width: 30%;
+  }
+
+  .sign-up-form-div {
+    width: 75%;
+  }
+}
+
+@media screen and (width > 1700px) {
+  .sign-up-side {
+    width: 40%;
+    display: flex;
+  }
+  .sign-up-section {
+    width: 25%;
   }
 
   .sign-up-form-div {
