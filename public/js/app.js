@@ -40,10 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        console.log(data.data.total_balance);
-        totalBalance.textContent = `$${String(data.data.total_balance)}`;
+      .then((response) => {
+        console.log(response.data);
+        totalBalance.textContent = `$${String(response.data.totalBalance)}`;
       })
       .catch((err) => {
         console.log(err);

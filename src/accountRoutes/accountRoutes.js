@@ -7,28 +7,21 @@ const router = express.Router();
 router.post("/balance", async (req, res) => {
   const userId = req.id;
   const username = req.username;
+  const token = req.headers["authorization"]; // for debug, hide later
 
-  if (!username)
+  console.log(userId);
+  console.log(username);
+  console.log(token); // for debug, hide later
+
+  if (!userId)
     return res.status(400).json({
-      message: "Username was not found",
+      message: `userId ${userId} was not found`,
     });
 
   try {
-    const userData = User.getByUsername(username);
-    console.log(userData);
-
-    // create the instance
-    const account = new Account(userData.username, userData.id);
-    console.log(account);
-
-    // iniatialize db with data
-    await account.initializeAccount();
-
     // visualize db
-    const accountData = await account.getDataByUserId();
+    const accountData = await Account.getAccountByUserId(userId, username);
     console.log(accountData);
-    account.setInitialBalance(accountData);
-    console.log(account);
 
     res.status(201).json({
       message: "userData was found",

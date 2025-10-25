@@ -1,5 +1,6 @@
 import express from "express";
 import User from "../models/User.js";
+import Account from "../models/Account.js";
 
 const router = express.Router();
 
@@ -46,6 +47,19 @@ router.post("/signup", async (req, res) => {
       username: `${userData.username}`,
       token: token,
     });
+
+    // create the instance for the Account
+    const account = new Account(userData.username, userData.id);
+    console.log(account);
+
+    // Add account to accounts table
+    await account.initializeAccount();
+
+    // Set the registration bonus
+    account.setInitialBalance(accountData);
+    console.log(account);
+
+    //
   } catch (err) {
     console.log(err.message);
   }
@@ -53,9 +67,11 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
+  console.log(username);
 
   // find user by username
-  const result = User.getByUsername(username);
+  const result = await User.getByUsername(username);
+  console.log(result);
 
   if (!result) {
     return res.status(401).json({
@@ -67,7 +83,8 @@ router.post("/login", async (req, res) => {
     result.name,
     result.username,
     result.email,
-    result.password
+    result.password,
+    result.id
   );
 
   try {

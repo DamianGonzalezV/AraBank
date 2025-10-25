@@ -11,6 +11,15 @@ export default class Account {
     this.balance = null;
   }
 
+  static async getAccountByUserId(userId) {
+    const result = await prisma.accounts.findUnique({
+      where: {
+        userId: userId,
+      },
+    });
+    return result;
+  }
+
   async initializeAccount() {
     await prisma.accounts.create({
       data: {
@@ -22,14 +31,5 @@ export default class Account {
 
   setInitialBalance(accountData) {
     this.balance = accountData.total_balance;
-  }
-
-  async getDataByUserId() {
-    const user = await prisma.accounts.findUnique({
-      where: {
-        userId: this.userId,
-      },
-    });
-    return user;
   }
 }

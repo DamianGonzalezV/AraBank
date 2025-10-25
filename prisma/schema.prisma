@@ -25,7 +25,7 @@ model Users {
 
 model Accounts {
   id               Int         @id @default(autoincrement())
-  userId           Int
+  userId           Int         @unique
   totalBalance     Int 
   user             Users       @relation(fields: [userId], references: [id])
 }

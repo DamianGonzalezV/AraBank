@@ -10,8 +10,8 @@ Content-Type: application/json
 
 {
   "name": "Jane Doe",
-  "username": "Janesdssddoe82v",
-  "email": "janedosddsde82v@email.com",
+  "username": "Janedoe1.1",
+  "email": "janedoe1.1@email.com",
   "password": "password"
 }
 
@@ -21,8 +21,17 @@ Content-Type: application/json
 
 {
   "name": "Joan Alves",
-  "username": "Joan1alves",
-  "email": "Joan1alves@email.com",
+  "username": "Joan123alves",
+  "email": "Joan124alves@email.com",
+  "password": "password"
+}
+
+### POST /auth/login
+POST http://localhost:6001/auth/login
+Content-Type: application/json
+
+{
+  "username": "Joan123alves",
   "password": "password"
 }
 
@@ -56,14 +65,6 @@ Content-Type: application/json
   "password": "passwordfornegativepath"
 }
 
-### POST /auth/login
-POST http://localhost:6001/auth/login
-Content-Type: application/json
-
-{
-  "username": "Janedoe82v",
-  "password": "password"
-}
 
 ### POST /auth/login
 POST http://localhost:6001/auth/login

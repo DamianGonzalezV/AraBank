@@ -10,14 +10,14 @@ Style guide
 
 */
 export default class User {
-  constructor(name, username, email, password) {
+  constructor(name, username, email, password, userId = null) {
     this.name = name;
     this.username = username;
     this.email = email;
     this.password = password;
 
     // Initialize userId
-    this.userId = null;
+    this.userId = userId;
   }
 
   static async getByUsername(username) {

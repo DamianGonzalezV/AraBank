@@ -4,9 +4,9 @@ services:
   # The APP
   app:
     build: . # build an image from the Dockerfile
-    container_name: ara-app
     ports:
-      - "6001:6001"
+      - "6001:6001" # <--- ADD THIS LINE
+    container_name: ara-app
 
     # only for development
     volumes:
