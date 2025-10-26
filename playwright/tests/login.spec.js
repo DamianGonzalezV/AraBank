@@ -1,13 +1,13 @@
 import { test, expect } from "@playwright/test";
 import { Registration } from "../page-objects/SignUp";
-import { beforeEach } from "node:test";
+import { user } from "../user.json";
 
-let user = {
-  name: "Jane Doe",
-  username: "Janedoe82v",
-  email: "janedoe82v@email.com",
-  password: "passwerna",
-};
+// let user = {
+//   name: "Jane Doe",
+//   username: "Janedoe82v",
+//   email: "janedoe82v@email.com",
+//   password: "passwerna",
+// };
 
 test.describe("Should login a user with valid credentials", () => {
   test.beforeAll(async ({ request }) => {
