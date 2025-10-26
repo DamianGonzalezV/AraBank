@@ -259,6 +259,12 @@ hr {
   }
 }
 
+@media screen and (height > 1400px) {
+  .sign-up-section {
+    height: 70%;
+  }
+}
+
 /* _______________ HIDE _______________ */
 
 .hide {
