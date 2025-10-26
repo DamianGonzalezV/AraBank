@@ -25,8 +25,8 @@ body {
   height: 90vh;
   /* background-color: #e5e5e5; */
   display: grid;
-  grid-template-rows: 0.2fr 1.8fr 1.5fr 2fr;
-  gap: 1rem;
+  grid-template-rows: 0.2fr 1.5fr 1.5fr 1.5fr 0.5fr;
+  gap: 1.8rem;
   place-items: center;
   margin: auto;
   border-radius: 0.5rem;
@@ -47,7 +47,7 @@ body {
   height: 3rem;
   width: 3rem;
   font-size: 1.8rem;
-  color: #fca311;
+  color: #e5e5e5;
   margin-right: 1rem;
   background-color: #252422;
   border-radius: 50%;
@@ -55,11 +55,11 @@ body {
 
 .welcome-row p {
   font-size: 1.5rem;
-  color: #fca311;
+  color: #e5e5e5;
 }
 
 .welcome-row-user-span {
-  color: #fca71e;
+  color: #e5e5e5;
 }
 
 .grid-row {
@@ -72,7 +72,7 @@ body {
   margin: auto;
 
   display: grid;
-  grid-template-rows: 1.5fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .acount-balance-row-container {
@@ -276,6 +276,34 @@ body {
   border: none;
   color: #e5e5e5;
   padding: 1rem;
+}
+
+.cards {
+  height: 100%;
+  width: 90%;
+  margin: auto;
+  background: linear-gradient(#002147, #003262);
+  border-radius: 0.5rem;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 0.3fr;
+
+  padding: 2rem;
+  color: #e5e5e5;
+  font-size: 1.3rem;
+
+  box-shadow: -1px 1px 9px 1px #e5e5e501;
+}
+
+.card-brand {
+  font-size: 2rem;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Mobile first */

@@ -21,10 +21,6 @@ body {
   align-items: center;
   margin: auto;
   background: linear-gradient(#dee2e6, #fafafa);
-  /* background: url(../img/gradient-ultrawide.png);
-  background-position: left;
-  background-repeat: no-repeat;
-  background-size: cover; */
 
   font-family: "Work Sans", sans-serif;
 }
