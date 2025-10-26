@@ -67,7 +67,7 @@ describe("Login - Negative scenario", () => {
     });
   });
 
-  it("Should verify error message for invalid username", () => {
+  it("Should verify error message for invalid password", () => {
     cy.get("@userData").then(({ username }) => {
       cy.get('[data-qa="username-login"]').type(`${username}`);
       cy.get('[data-qa="password-login"]').type("Invalid password");
