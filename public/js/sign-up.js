@@ -144,8 +144,7 @@ loginBtn.addEventListener("click", (e) => {
       })
       .catch((err) => {
         console.log(err);
-        if (err.message === "User does not exist")
-          insertHTMLerror(loginForm, err.message);
+        if (err.message) insertHTMLerror(loginForm, err.message);
       });
   } else {
     insertHTMLerror(loginForm, "Please fill out all inputs!");
