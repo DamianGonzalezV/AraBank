@@ -15,12 +15,12 @@ export class LandingPage {
 
   // Actions here
 
-  // method to visit
+  // visit
   async visit() {
     await this.page.goto("/");
   }
 
-  // method to go to sign up page
+  // go to sign up page
   async goToSignUp() {
     await this.signUpButton.click();
   }
