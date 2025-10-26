@@ -28,45 +28,55 @@
         </p>
       </div>
       <div class="grid-row account-balance-row">
-        <div class="account-balance-row-add">
-          <button class="account-balance-request-button">
-            <i class="ph-light ph-download-simple account-balance-add-icon"></i>
-          </button>
-          <button class="account-balance-send-button">
-            <i class="ph-light ph-export account-balance-add-icon"></i>
-          </button>
-        </div>
-        <div class="account-balance-row-number">
-          <p class="account-balance-line">Total balance</p>
-          <div class="account-balance-number-container">
-            <p class="account-balance-number"></p>
-            <span class="account-balance-cents">.00</span>
+        <div class="acount-balance-row-container">
+          <div class="account-balance-row-add">
+            <button class="account-balance-request-button">
+              <i
+                class="ph-light ph-download-simple account-balance-add-icon"
+              ></i>
+            </button>
+            <button class="account-balance-send-button">
+              <i class="ph-light ph-export account-balance-add-icon"></i>
+            </button>
+          </div>
+          <div class="account-balance-row-number">
+            <p class="account-balance-line">Total balance</p>
+            <div class="account-balance-number-container">
+              <p class="account-balance-number"></p>
+              <span class="account-balance-cents">.00</span>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Show send div when send button is clicked -->
-      <div class="account-balance-display account-balance-send hide">
-        <form action="" class="request">
-          <div class="send-container">
-            <label for="contact">Send to</label>
-            <input type="text" name="contact" id="contact" autofocus />
+        <div class="account-balance-extras">
+          <!-- Show send div when send button is clicked -->
+          <div class="account-balance-display account-balance-send hide">
+            <form action="" class="request">
+              <div class="send-container">
+                <label for="contact">Send to</label>
+                <input type="text" name="contact" id="contact" autofocus />
+              </div>
+              <div class="amount-container">
+                <label for="amount">Amount</label>
+                <input
+                  type="number"
+                  name="amount"
+                  id="amount"
+                  placeholder="30.00"
+                />
+              </div>
+            </form>
           </div>
-          <div class="amount-container">
-            <label for="amount">Amount</label>
-            <input
-              type="number"
-              name="amount"
-              id="amount"
-              placeholder="30.00"
-            />
+          <!-- Show CLABE when request money button is clicked -->
+          <div class="account-balance-display account-balance-request hide">
+            <p>CLABE</p>
+            <p class="clabe-number" data-qa="clabe-number">
+              8000 0000 0000 0000
+            </p>
+            <button class="copy-clabe-btn">
+              <i class="ph-light ph-copy"></i>
+            </button>
           </div>
-        </form>
-      </div>
-      <!-- Show CLABE when request money button is clicked -->
-      <div class="account-balance-display account-balance-request hide">
-        <p>CLABE</p>
-        <p class="clabe-number" data-qa="clabe-number">8000 0000 0000 0000</p>
-        <button class="copy-clabe-btn"><i class="ph-light ph-copy"></i></button>
+        </div>
       </div>
       <!-- Extra grid containers for features -->
       <div></div>
