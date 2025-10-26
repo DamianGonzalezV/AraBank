@@ -10,8 +10,8 @@ Content-Type: application/json
 
 {
   "name": "Jane Doe",
-  "username": "Janedoe1.2",
-  "email": "janedoe1.2@email.com",
+  "username": "Janedoe1.6",
+  "email": "janedoe1.6@email.com",
   "password": "password"
 }
 
@@ -60,8 +60,8 @@ POST http://localhost:6001/auth/login
 Content-Type: application/json
 
 {
-  "username": "Janedoe82v",
-  "password": "passwordfornegativepath"
+  "username": "Janedoe1.2",
+  "password": "passwordnotvalid"
 }
 
 

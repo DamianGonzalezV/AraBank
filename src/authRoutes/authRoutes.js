@@ -19,7 +19,8 @@ router.post("/signup", async (req, res) => {
 
   try {
     // Verify uniqueness
-    const unique = User.unique(username, email);
+    const unique = await User.unique(username, email);
+    console.log(unique);
     if (unique) {
       return res.status(400).json({
         message: "Username or email already in use",
