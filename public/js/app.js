@@ -14,18 +14,16 @@ let totalBalance = document.querySelector(".account-balance-number");
 
 // Create the instance to access settings
 const profileSettings = new ProfileSettings();
-profileSettings.openProfileSettingsBtn.addEventListener("click", () => {
-  profileSettings.displayProfileSettings();
-});
 
-profileSettings.closeProfileSettingsBtn.addEventListener("click", () => {
-  profileSettings.displayProfileSettings();
-});
+// Display profile settings
+profileSettings.settingsEvent();
 
-// display welcome message
-(function setWelcomeMessage() {
-  welcomeUser.textContent = storedUsername ? storedUsername : "";
-})();
+profileSettings()(
+  // display welcome message
+  function setWelcomeMessage() {
+    welcomeUser.textContent = storedUsername ? storedUsername : "";
+  }
+)();
 
 // Display request or send div
 requestBtn.addEventListener("click", () => {

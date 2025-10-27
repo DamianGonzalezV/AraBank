@@ -18,4 +18,16 @@ export default class ProfileSettings {
     this.bankFeaturesContainer.classList.toggle("hide");
     this.profileSettingsContainer.classList.toggle("hide");
   }
+
+  settingsEvent() {
+    // open
+    this.openProfileSettingsBtn.addEventListener("click", () => {
+      this.displayProfileSettings();
+    });
+
+    // close
+    this.closeProfileSettingsBtn.addEventListener("click", () => {
+      this.displayProfileSettings();
+    });
+  }
 }
