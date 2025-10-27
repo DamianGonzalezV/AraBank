@@ -20,10 +20,12 @@ body {
   font-family: "Work Sans", sans-serif;
 }
 
-.main-container {
+.container {
   width: 90vw;
   height: 90vh;
-  /* background-color: #e5e5e5; */
+}
+
+.main-container-bank-features {
   display: grid;
   grid-template-rows: 0.2fr 1.5fr 1.5fr 1.5fr 0.5fr;
   gap: 1.8rem;
@@ -304,6 +306,57 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+/* SECTION 2 - PROFILE SETTINGS */
+
+.container-profile-settings {
+  background-color: #252422;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  color: #e5e5e5;
+  font-size: 1.3rem;
+}
+
+.profile-settings-close-btn {
+  width: 10%;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fca311;
+  margin-left: 90%;
+  margin-bottom: 4rem;
+}
+
+.profile-settings-change-container {
+  margin-bottom: 5rem;
+}
+
+.profile-settings-change-container p {
+  margin-bottom: 0.5rem;
+}
+
+.profile-settings-delete-account {
+  display: flex;
+  text-align: center;
+  justify-self: center;
+}
+
+.profile-settings-delete-account-btn {
+  width: 16rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  background-color: #fca311;
+  color: #1f1c19;
+  border: none;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.profile-settings-delete-account-btn:hover,
+.profile-settings-close-btn:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease;
 }
 
 /* Mobile first */

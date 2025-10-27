@@ -15,7 +15,7 @@
   </head>
   <body>
     <!-- First section for mobile with grid -->
-    <section class="main-container">
+    <section class="container main-container-bank-features hide">
       <div class="welcome-row" data-qa="welcome-row">
         <i class="ph-bold ph-user"></i>
         <p>
@@ -112,7 +112,37 @@
       </div>
     </section>
     <!-- Second section extras  -->
-    <section></section>
+    <section class="container container-profile-settings">
+      <button class="profile-settings-close-btn">X</button>
+      <div
+        class="profile-settings-change-container profile-settings-change-username"
+      >
+        <p>insert_username_here</p>
+        <span
+          >For security reasons, you can only change your username once</span
+        >
+      </div>
+      <div
+        class="profile-settings-change-container profile-settings-change-email"
+      >
+        <p>insert_email_here</p>
+        <span
+          >For security reasons, you can only change your username once</span
+        >
+      </div>
+      <div
+        class="profile-settings-change-container profile-settings-change-password"
+      >
+        <p>insert_password_here</p>
+      </div>
+      <div
+        class="profile-settings-change-container profile-settings-delete-account"
+      >
+        <button class="profile-settings-delete-account-btn">
+          Delete account
+        </button>
+      </div>
+    </section>
   </body>
   <script src="./js/app.js"></script>
 </html>
