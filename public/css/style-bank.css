@@ -42,7 +42,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.ph-user {
+.profile-settings-image-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,6 +53,14 @@ body {
   margin-right: 1rem;
   background-color: #252422;
   border-radius: 50%;
+}
+
+.profile-settings-image-btn:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease;
+  background-color: #fca311;
+  color: #1f1c19;
+  border: #fca2114f;
 }
 
 .welcome-row p {
