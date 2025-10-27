@@ -1,5 +1,7 @@
 "use strict";
 
+import ProfileSettings from "../models/ProfileSettings.js";
+
 let welcomeUser = document.querySelector(".welcome-row-user-span");
 let storedUsername = localStorage.getItem("activeUser");
 let token = localStorage.getItem("token");
@@ -9,6 +11,16 @@ let sendBtn = document.querySelector(".account-balance-send-button");
 let requestDiv = document.querySelector(".account-balance-request");
 let sendDiv = document.querySelector(".account-balance-send");
 let totalBalance = document.querySelector(".account-balance-number");
+
+// Create the instance to access settings
+const profileSettings = new ProfileSettings();
+profileSettings.openProfileSettingsBtn.addEventListener("click", () => {
+  profileSettings.displayProfileSettings();
+});
+
+profileSettings.closeProfileSettingsBtn.addEventListener("click", () => {
+  profileSettings.displayProfileSettings();
+});
 
 // display welcome message
 (function setWelcomeMessage() {

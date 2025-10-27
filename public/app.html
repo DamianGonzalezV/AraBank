@@ -15,9 +15,12 @@
   </head>
   <body>
     <!-- First section for mobile with grid -->
-    <section class="container main-container-bank-features hide">
+    <section class="container main-container-bank-features">
       <div class="welcome-row" data-qa="welcome-row">
-        <i class="ph-bold ph-user"></i>
+        <i
+          class="ph-bold ph-user profile-settings-image-btn"
+          data-qa="profile-settings-image-btn"
+        ></i>
         <p>
           Welcome
           <span
@@ -112,7 +115,7 @@
       </div>
     </section>
     <!-- Second section extras  -->
-    <section class="container container-profile-settings">
+    <section class="container container-profile-settings hide">
       <button class="profile-settings-close-btn">X</button>
       <div
         class="profile-settings-change-container profile-settings-change-username"
@@ -144,5 +147,5 @@
       </div>
     </section>
   </body>
-  <script src="./js/app.js"></script>
+  <script type="module" src="./js/app.js"></script>
 </html>
