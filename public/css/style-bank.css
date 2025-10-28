@@ -340,8 +340,38 @@ body {
   margin-bottom: 5rem;
 }
 
-.profile-settings-change-container p {
-  margin-bottom: 0.5rem;
+.profile-settings-change-username,
+.profile-settings-change-email {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.settings-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #fca311;
+  border: none;
+}
+
+.settings-btn-icon {
+  font-size: 1.5rem;
+  color: #1f1c19;
+}
+
+.profile-settings-input {
+  width: 18rem;
+  height: 2.2rem;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+  padding: 1rem;
+  background-color: #1f1c19;
+  color: #e5e5e5;
+  /* outline: none; */
+  border: none;
 }
 
 .profile-settings-delete-account {
@@ -362,7 +392,8 @@ body {
 }
 
 .profile-settings-delete-account-btn:hover,
-.profile-settings-close-btn:hover {
+.profile-settings-close-btn:hover,
+.settings-btn:hover {
   transform: scale(1.1);
   transition: 0.3s ease;
 }
