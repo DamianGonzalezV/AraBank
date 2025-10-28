@@ -1,5 +1,4 @@
 "use strict";
-
 import ProfileSettings from "../models/ProfileSettings.js";
 
 let welcomeUser = document.querySelector(".welcome-row-user-span");
@@ -18,12 +17,10 @@ const profileSettings = new ProfileSettings();
 // Display profile settings
 profileSettings.settingsEvent();
 
-profileSettings()(
-  // display welcome message
-  function setWelcomeMessage() {
-    welcomeUser.textContent = storedUsername ? storedUsername : "";
-  }
-)();
+// display welcome message
+(function setWelcomeMessage() {
+  welcomeUser.textContent = storedUsername ? storedUsername : "";
+})();
 
 // Display request or send div
 requestBtn.addEventListener("click", () => {

@@ -1,9 +1,10 @@
 import express from "express";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
+import { authMiddleware } from "./middleware/authMiddleware.js";
 import authRoutes from "./authRoutes/authRoutes.js";
 import accountRoutes from "./accountRoutes/accountRoutes.js";
-import { authMiddleware } from "./middleware/authMiddleware.js";
+import settingsRoutes from "./settingsRoutes/settingsRoutes.js";
 
 // Create the app
 const app = express();
@@ -39,6 +40,8 @@ app.get("/app", (req, res) => {
 app.use("/auth", authRoutes);
 
 app.use("/account", authMiddleware, accountRoutes);
+
+app.use("/settings", authMiddleware, settingsRoutes);
 
 // Listen for request
 app.listen(PORT, () => {
