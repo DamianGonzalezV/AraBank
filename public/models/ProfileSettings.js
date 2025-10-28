@@ -15,6 +15,7 @@ export default class ProfileSettings {
     );
 
     this.username = document.querySelector(".profile-settings-username");
+    this.email = document.querySelector(".profile-settings-email");
   }
 
   displayProfileSettings() {
@@ -33,6 +34,8 @@ export default class ProfileSettings {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        this.username.textContent = data.username;
+        this.email.textContent = data.email;
       });
   }
 
