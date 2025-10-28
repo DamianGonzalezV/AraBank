@@ -17,6 +17,10 @@ const profileSettings = new ProfileSettings();
 // Display profile settings
 profileSettings.settingsEvent();
 
+// Display edit username
+profileSettings.editUsername();
+profileSettings.editEmail();
+
 // display welcome message
 (function setWelcomeMessage() {
   welcomeUser.textContent = storedUsername ? storedUsername : "";

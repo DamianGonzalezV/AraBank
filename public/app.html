@@ -118,7 +118,7 @@
     <section class="container container-profile-settings">
       <button class="profile-settings-close-btn">X</button>
       <div
-        class="profile-settings-change-container profile-settings-change-username"
+        class="profile-settings-change-container profile-settings-change-username profile-settings-change-username-edit"
       >
         <p
           class="profile-settings-username"
@@ -126,7 +126,10 @@
         >
           insert_username_here
         </p>
-        <button class="settings-btn settings-edit-btn">
+        <button
+          class="settings-btn settings-edit-btn settings-edit-btn-username"
+          data-qa="settings-edit-btn-username"
+        >
           <i
             class="ph-bold ph-pencil-simple settings-btn-icon settings-edit-btn-icon"
             data-qa="settings-edit-btn-icon"
@@ -134,7 +137,7 @@
         </button>
       </div>
       <div
-        class="profile-settings-change-container profile-settings-change-username"
+        class="profile-settings-change-container profile-settings-change-username profile-settings-change-username-save hide"
       >
         <input
           class="profile-settings-input profile-settings-username-update"
@@ -143,7 +146,9 @@
           autofocus
         />
 
-        <button class="settings-btn settings-save-btn">
+        <button
+          class="settings-btn settings-save-btn settings-save-btn-username"
+        >
           <i
             class="ph-bold ph-check settings-btn-icon settings-save-btn-icon"
             data-qa="settings-save-btn-icon"
@@ -151,12 +156,15 @@
         </button>
       </div>
       <div
-        class="profile-settings-change-container profile-settings-change-email"
+        class="profile-settings-change-container profile-settings-change-email profile-settings-change-email-edit"
       >
         <p class="profile-settings-email" data-qa="profile-settings-email">
           insert_email_here
         </p>
-        <button class="settings-btn settings-edit-btn">
+        <button
+          class="settings-btn settings-edit-btn settings-edit-btn-email"
+          data-qa="settings-edit-btn-email"
+        >
           <i
             class="ph-bold ph-pencil-simple settings-btn-icon settings-edit-btn-icon"
             data-qa="settings-edit-btn-icon"
@@ -164,7 +172,7 @@
         </button>
       </div>
       <div
-        class="profile-settings-change-container profile-settings-change-email"
+        class="profile-settings-change-container profile-settings-change-email profile-settings-change-email-save hide"
       >
         <input
           class="profile-settings-input profile-settings-email-update"
@@ -173,7 +181,7 @@
           autofocus
         />
 
-        <button class="settings-btn settings-save-btn">
+        <button class="settings-btn settings-save-btn settings-save-btn-email">
           <i
             class="ph-bold ph-check settings-btn-icon settings-save-btn-icon"
             data-qa="settings-save-btn-icon"

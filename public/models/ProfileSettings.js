@@ -16,6 +16,52 @@ export default class ProfileSettings {
 
     this.username = document.querySelector(".profile-settings-username");
     this.email = document.querySelector(".profile-settings-email");
+
+    this.editUsernameBtn = document.querySelector(
+      ".settings-edit-btn-username"
+    );
+    this.editEmailBtn = document.querySelector(".settings-edit-btn-email");
+
+    this.saveUsernameBtn = document.querySelector(
+      ".settings-save-btn-username"
+    );
+    this.saveEmailBtn = document.querySelector(".settings-save-btn-email");
+
+    this.editUsernameDiv = document.querySelector(
+      ".profile-settings-change-username-edit"
+    );
+    this.saveUsernameDiv = document.querySelector(
+      ".profile-settings-change-username-save"
+    );
+
+    this.editEmailDiv = document.querySelector(
+      ".profile-settings-change-email-edit"
+    );
+    this.saveEmailDiv = document.querySelector(
+      ".profile-settings-change-email-save"
+    );
+  }
+
+  editUsername() {
+    this.editUsernameBtn.addEventListener("click", () => {
+      this.editUsernameDiv.classList.add("hide");
+      this.saveUsernameDiv.classList.remove("hide");
+    });
+    this.saveUsernameBtn.addEventListener("click", () => {
+      this.editUsernameDiv.classList.remove("hide");
+      this.saveUsernameDiv.classList.add("hide");
+    });
+  }
+
+  editEmail() {
+    this.editEmailBtn.addEventListener("click", () => {
+      this.editEmailDiv.classList.add("hide");
+      this.saveEmailDiv.classList.remove("hide");
+    });
+    this.saveEmailBtn.addEventListener("click", () => {
+      this.editEmailDiv.classList.remove("hide");
+      this.saveEmailDiv.classList.add("hide");
+    });
   }
 
   displayProfileSettings() {
