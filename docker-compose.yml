@@ -5,7 +5,7 @@ services:
   app:
     build: . # build an image from the Dockerfile
     ports:
-      - "6001:6001" # <--- ADD THIS LINE
+      - "6001:6001" # 5555:5555 <--- CHANGE TO THIS LINE FOR PRISMA DEBUGGING
     container_name: ara-app
 
     # only for development

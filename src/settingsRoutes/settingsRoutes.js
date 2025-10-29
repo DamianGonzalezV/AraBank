@@ -57,7 +57,8 @@ router.patch("/username", async (req, res) => {
       console.log(updatedUsername);
 
       res.status(200).json({
-        message: "User was updated successfully",
+        message: `User was updated successfully, id: ${id} from request should be the same, id from response: ${updatedUsername.id}`,
+        id: updatedUsername.id,
         username: updatedUsername.username,
       });
     }
