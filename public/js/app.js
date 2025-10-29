@@ -19,7 +19,6 @@ profileSettings.settingsEvent();
 
 // Display edit username
 profileSettings.editUsername();
-profileSettings.editEmail();
 
 // display welcome message
 (function setWelcomeMessage() {

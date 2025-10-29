@@ -10,8 +10,8 @@ Content-Type: application/json
 
 {
   "name": "Jane Doe",
-  "username": "Janedoe1.6",
-  "email": "janedoe1.6@email.com",
+  "username": "Janedoe1.7",
+  "email": "janedoe1.7@email.com",
   "password": "password"
 }
 
@@ -31,7 +31,7 @@ Content-Type: application/json
 {
   "name": "Joan Alves",
   "username": "Joan123alves",
-  "email": "Joan124alves@email.com",
+  "email": "Joan125alves@email.com",
   "password": "password"
 }
 
@@ -98,6 +98,14 @@ GET http://localhost:6001/app.html
 
 ### POST /account/balance
 POST http://localhost:6001/account/balance
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJKb2FuMWFsdmVzIiwiaWF0IjoxNzU5NTcxODQ1LCJleHAiOjE3NTk2NTgyNDV9.GxEhWSYG0kY7jIhXaw5xSSDOqeipzNx0jrilIDHwne4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJKb2FuMTIzYWx2ZXMiLCJpYXQiOjE3NjE2NTE5MjAsImV4cCI6MTc2MTczODMyMH0.WI_WWFzibVIgTkZsK7-UGsaMD_nbQC5r23lbN6j2j3k
 Content-Type: application/json
 
+### PATCH /settings/username 
+PATCH http://localhost:6001/settings/username 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJKb2FuMTIzYWx2ZXMiLCJpYXQiOjE3NjE2NTE5MjAsImV4cCI6MTc2MTczODMyMH0.WI_WWFzibVIgTkZsK7-UGsaMD_nbQC5r23lbN6j2j3k
+Content-Type: application/json
+
+{
+  "newUsername": "Joan1alvesss",
+}

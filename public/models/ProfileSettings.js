@@ -40,6 +40,10 @@ export default class ProfileSettings {
     this.saveEmailDiv = document.querySelector(
       ".profile-settings-change-email-save"
     );
+
+    this.usernameInput = document.querySelector(
+      ".profile-settings-username-update"
+    );
   }
 
   editUsername() {
@@ -48,9 +52,30 @@ export default class ProfileSettings {
       this.saveUsernameDiv.classList.remove("hide");
     });
     this.saveUsernameBtn.addEventListener("click", () => {
-      this.editUsernameDiv.classList.remove("hide");
+      // this.editUsernameDiv.classList.remove("hide");
+      // this.saveUsernameDiv.classList.add("hide");
+      this.saveUsername(this.usernameInput.value);
       this.saveUsernameDiv.classList.add("hide");
+      this.editUsernameDiv.classList.remove("hide");
     });
+  }
+
+  saveUsername(username) {
+    fetch("/settings/username", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        newUsername: username,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.username.textContent = data.username;
+      });
   }
 
   editEmail() {
