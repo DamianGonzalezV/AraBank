@@ -10,8 +10,8 @@ Content-Type: application/json
 
 {
   "name": "Jane Doe",
-  "username": "Janedoe1",
-  "email": "janedoe1@email.com",
+  "username": "Janedoe1.1",
+  "email": "janedoe1.1@email.com",
   "password": "password"
 }
 
@@ -21,26 +21,6 @@ Content-Type: application/json
 
 {
   "username": "Janedoe1",
-  "password": "password"
-}
-
-### POST /auth/signup (ADD SECOND USER)
-POST http://localhost:6001/auth/signup
-Content-Type: application/json
-
-{
-  "name": "Joan Alves",
-  "username": "Joan123alves",
-  "email": "Joan125alves@email.com",
-  "password": "password"
-}
-
-### POST /auth/login
-POST http://localhost:6001/auth/login
-Content-Type: application/json
-
-{
-  "username": "Joan123alves",
   "password": "password"
 }
 

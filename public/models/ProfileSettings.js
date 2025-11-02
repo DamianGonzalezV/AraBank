@@ -55,8 +55,6 @@ export default class ProfileSettings {
       // this.editUsernameDiv.classList.remove("hide");
       // this.saveUsernameDiv.classList.add("hide");
       this.saveUsername(this.usernameInput.value);
-      this.saveUsernameDiv.classList.add("hide");
-      this.editUsernameDiv.classList.remove("hide");
     });
   }
 
@@ -74,6 +72,8 @@ export default class ProfileSettings {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        this.saveUsernameDiv.classList.add("hide");
+        this.editUsernameDiv.classList.remove("hide");
         this.username.textContent = data.username;
       });
   }
@@ -92,6 +92,7 @@ export default class ProfileSettings {
   displayProfileSettings() {
     this.bankFeaturesContainer.classList.toggle("hide");
     this.profileSettingsContainer.classList.toggle("hide");
+    this.fetchData();
   }
 
   fetchData() {

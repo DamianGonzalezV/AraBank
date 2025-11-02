@@ -11,11 +11,10 @@ export default class Settings {
     return unique;
   }
 
-  static async editUsername(id, username, newUsername) {
+  static async editUsername(id, newUsername) {
     const result = await prisma.users.update({
       where: {
         id: id,
-        username: username,
       },
       data: {
         username: newUsername,

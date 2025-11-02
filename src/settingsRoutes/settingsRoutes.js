@@ -32,7 +32,6 @@ router.get("/form", async (req, res) => {
 
 router.patch("/username", async (req, res) => {
   const { id } = req;
-  const { username } = req;
   const { newUsername } = req.body;
 
   if (!id) {
@@ -45,15 +44,11 @@ router.patch("/username", async (req, res) => {
 
     if (isUsernameTaken) {
       return res.status(400).json({
-        message: "Username or email already in use",
+        message: "Username already in use",
         data: isUsernameTaken,
       });
     } else {
-      const updatedUsername = await Settings.editUsername(
-        id,
-        username,
-        newUsername
-      );
+      const updatedUsername = await Settings.editUsername(id, newUsername);
       console.log(updatedUsername);
 
       res.status(200).json({
