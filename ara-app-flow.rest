@@ -33,5 +33,5 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsInVzZXJuYW1lIjoi
 Content-Type: application/json
 
 {
-  "newUsername": "Valeria1.1.1"
+  "newUsername": "Valeria1.1.3"
 }

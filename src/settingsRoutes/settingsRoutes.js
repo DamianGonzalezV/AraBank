@@ -4,6 +4,29 @@ import Settings from "../models/Settings.js";
 
 const router = express.Router();
 
+router.get("/welcome", async (req, res) => {
+  const { id } = req;
+
+  try {
+    if (!id) {
+      res.status(401).json({
+        message: "Invalid token",
+      });
+    } else {
+      const userData = await Settings.findById(id);
+
+      // send user data
+      res.status(200).json({
+        username: userData.username,
+      });
+    }
+  } catch (err) {
+    res.status(400).json({
+      message: err,
+    });
+  }
+});
+
 router.get("/form", async (req, res) => {
   const { id } = req;
 
@@ -13,7 +36,7 @@ router.get("/form", async (req, res) => {
         message: "Invalid token",
       });
     } else {
-      const userData = await Settings.uniqueById(id);
+      const userData = await Settings.findById(id);
 
       // send user data
       res.status(200).json({
