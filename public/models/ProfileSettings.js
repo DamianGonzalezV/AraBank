@@ -31,6 +31,7 @@ export default class ProfileSettings {
     this.usernameInput = document.querySelector(
       ".profile-settings-username-update"
     );
+    this.emailInput = document.querySelector(".profile-settings-email-update");
 
     // Buttons
     this.editUsernameBtn = document.querySelector(
@@ -44,7 +45,7 @@ export default class ProfileSettings {
     this.saveEmailBtn = document.querySelector(".settings-save-btn-email");
 
     this.cancelUsernameBtn = document.querySelector(
-      ".settings-cancel-btn-email"
+      ".settings-cancel-btn-username"
     );
     this.cancelEmailBtn = document.querySelector(".settings-cancel-btn-email");
 
@@ -90,6 +91,11 @@ export default class ProfileSettings {
       // this.saveUsernameDiv.classList.add("hide");
       this.saveUsername(this.usernameInput.value);
     });
+    this.cancelUsernameBtn.addEventListener("click", () => {
+      console.log("click");
+      this.editUsernameDiv.classList.remove("hide");
+      this.saveUsernameDiv.classList.add("hide");
+    });
   }
 
   saveUsername(username) {
@@ -118,9 +124,33 @@ export default class ProfileSettings {
       this.saveEmailDiv.classList.remove("hide");
     });
     this.saveEmailBtn.addEventListener("click", () => {
+      this.saveEmail(this.emailInput.value);
+    });
+    this.cancelEmailBtn.addEventListener("click", () => {
+      console.log("click");
       this.editEmailDiv.classList.remove("hide");
       this.saveEmailDiv.classList.add("hide");
     });
+  }
+
+  saveEmail(email) {
+    fetch("/settings/email", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        newEmail: email,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.saveEmailDiv.classList.add("hide");
+        this.editEmailDiv.classList.remove("hide");
+        this.email.textContent = data.email;
+      });
   }
 
   displayProfileSettings() {
