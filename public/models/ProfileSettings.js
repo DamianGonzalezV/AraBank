@@ -7,23 +7,32 @@ export default class ProfileSettings {
     // Navigation sidebar message
     this.welcomeUser = document.querySelector(".welcome-row-user-span");
 
-    // Profile settings
+    // Profile settings containers
     this.bankFeaturesContainer = document.querySelector(
       ".main-container-bank-features"
     );
-    this.openProfileSettingsBtn = document.querySelector(
-      ".profile-settings-image-btn"
-    );
     this.profileSettingsContainer = document.querySelector(
       ".container-profile-settings"
+    );
+
+    // Close profile settings containers
+    this.openProfileSettingsBtn = document.querySelector(
+      ".profile-settings-image-btn"
     );
     this.closeProfileSettingsBtn = document.querySelector(
       ".profile-settings-close-btn"
     );
 
+    // Text
     this.username = document.querySelector(".profile-settings-username");
     this.email = document.querySelector(".profile-settings-email");
 
+    // Inputs
+    this.usernameInput = document.querySelector(
+      ".profile-settings-username-update"
+    );
+
+    // Buttons
     this.editUsernameBtn = document.querySelector(
       ".settings-edit-btn-username"
     );
@@ -34,6 +43,12 @@ export default class ProfileSettings {
     );
     this.saveEmailBtn = document.querySelector(".settings-save-btn-email");
 
+    this.cancelUsernameBtn = document.querySelector(
+      ".settings-cancel-btn-email"
+    );
+    this.cancelEmailBtn = document.querySelector(".settings-cancel-btn-email");
+
+    // Features divs
     this.editUsernameDiv = document.querySelector(
       ".profile-settings-change-username-edit"
     );
@@ -46,10 +61,6 @@ export default class ProfileSettings {
     );
     this.saveEmailDiv = document.querySelector(
       ".profile-settings-change-email-save"
-    );
-
-    this.usernameInput = document.querySelector(
-      ".profile-settings-username-update"
     );
   }
 
