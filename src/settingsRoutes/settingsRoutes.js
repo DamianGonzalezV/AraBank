@@ -82,4 +82,34 @@ router.patch("/username", async (req, res) => {
   }
 });
 
+router.patch("/email", async (req, res) => {
+  const { id } = req;
+  const { newEmail } = req.body;
+
+  if (!id) {
+    res.status(401).json({
+      message: "Invalid token",
+    });
+  } else {
+    // Verify data is unique
+    const isEmailTaken = await Settings.isEmailTaken(newEmail);
+
+    if (isEmailTaken) {
+      return res.status(400).json({
+        message: "Email already in use",
+        data: isEmailTaken,
+      });
+    } else {
+      const updatedEmail = await Settings.editEmail(id, newEmail);
+      console.log(updatedEmail);
+
+      res.status(200).json({
+        message: `User was updated successfully, id: ${id} from request should be the same, id from response: ${updatedEmail.id}`,
+        id: updatedEmail.id,
+        email: updatedEmail.email,
+      });
+    }
+  }
+});
+
 export default router;

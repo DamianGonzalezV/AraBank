@@ -3,9 +3,9 @@ POST http://localhost:6001/auth/signup
 Content-Type: application/json
 
 {
-  "name": "Valeria Alves",
-  "username": "Valeria1.2alves",
-  "email": "Valeria1.2@email.com",
+  "name": "RaphaelDias Alves",
+  "username": "RaphaelDias1.1alves",
+  "email": "RaphaelDias1.1@email.com",
   "password": "password"
 }
 
@@ -14,24 +14,24 @@ POST http://localhost:6001/auth/login
 Content-Type: application/json
 
 {
-  "username": "Valeria1.2alves",
+  "username": "RaphaelDias1.1alves",
   "password": "password"
 }
 
 ### PATCH /settings/username 
 PATCH http://localhost:6001/settings/username 
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsInVzZXJuYW1lIjoiVmFsZXJpYTEuMmFsdmVzIiwiaWF0IjoxNzYyMTgyMzA3LCJleHAiOjE3NjIyNjg3MDd9.P1k_TSX9ZyUE2pudeuVcZ3mLJTAI-L880Hwb8aoH7l4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsInVzZXJuYW1lIjoiUmFwaGFlbERpYXMxLjFhbHZlcyIsImlhdCI6MTc2MjE4NDAzOSwiZXhwIjoxNzYyMjcwNDM5fQ.7nkdsT8xYbsK6qu1drtwEs5DwO3hOkET6qbxmFqB1NA
 Content-Type: application/json
 
 {
-  "newUsername": "Valeria1.1alves"
+  "newUsername": "RaphaelDias1.2alves"
 }
 
 ### PATCH /settings/username (SECOND TRY - SHOULD BE SUCCESSFUL FOR NOW - IT IS NOT LIMITED TO ONE YET)
 PATCH http://localhost:6001/settings/username 
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsInVzZXJuYW1lIjoiVmFsZXJpYTEuMmFsdmVzIiwiaWF0IjoxNzYyMTgyMzA3LCJleHAiOjE3NjIyNjg3MDd9.P1k_TSX9ZyUE2pudeuVcZ3mLJTAI-L880Hwb8aoH7l4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsInVzZXJuYW1lIjoiUmFwaGFlbERpYXMxLjFhbHZlcyIsImlhdCI6MTc2MjE4NDAzOSwiZXhwIjoxNzYyMjcwNDM5fQ.7nkdsT8xYbsK6qu1drtwEs5DwO3hOkET6qbxmFqB1NA
 Content-Type: application/json
 
 {
-  "newUsername": "Valeria1.1.3"
+  "newUsername": "RaphaelDias1.2.0"
 }

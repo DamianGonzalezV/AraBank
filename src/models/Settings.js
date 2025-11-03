@@ -11,6 +11,15 @@ export default class Settings {
     return unique;
   }
 
+  static async isEmailTaken(newEmail) {
+    const unique = await prisma.users.findUnique({
+      where: {
+        email: newEmail,
+      },
+    });
+    return unique;
+  }
+
   static async findById(id) {
     const unique = await prisma.users.findUnique({
       where: {
@@ -27,6 +36,18 @@ export default class Settings {
       },
       data: {
         username: newUsername,
+      },
+    });
+    return result;
+  }
+
+  static async editEmail(id, newEmail) {
+    const result = await prisma.users.update({
+      where: {
+        id: id,
+      },
+      data: {
+        email: newEmail,
       },
     });
     return result;

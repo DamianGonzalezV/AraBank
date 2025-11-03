@@ -11,6 +11,8 @@ let requestDiv = document.querySelector(".account-balance-request");
 let sendDiv = document.querySelector(".account-balance-send");
 let totalBalance = document.querySelector(".account-balance-number");
 
+/* ------------- PROFILE SETTINGS SECTION ------------- */
+
 // Create the instance to access settings
 const profileSettings = new ProfileSettings();
 
@@ -19,6 +21,9 @@ profileSettings.settingsEvent();
 
 // Display edit username
 profileSettings.editUsername();
+
+// Display edit email
+profileSettings.editEmail();
 
 // // display welcome message
 // (function setWelcomeMessage() {
