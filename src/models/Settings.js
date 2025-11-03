@@ -2,15 +2,6 @@ import prisma from "../prismaClient.js";
 export default class Settings {
   constructor() {}
 
-  static async unique(username) {
-    const unique = await prisma.users.findUnique({
-      where: {
-        username: username,
-      },
-    });
-    return unique;
-  }
-
   static async uniqueById(id) {
     const unique = await prisma.users.findUnique({
       where: {
