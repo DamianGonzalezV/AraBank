@@ -1,6 +1,5 @@
 export default class ProfileSettings {
   constructor() {
-    this.fetchData();
     this.bankFeaturesContainer = document.querySelector(
       ".main-container-bank-features"
     );
@@ -92,7 +91,6 @@ export default class ProfileSettings {
   displayProfileSettings() {
     this.bankFeaturesContainer.classList.toggle("hide");
     this.profileSettingsContainer.classList.toggle("hide");
-    this.fetchData();
   }
 
   fetchData() {
@@ -114,6 +112,7 @@ export default class ProfileSettings {
   settingsEvent() {
     // open
     this.openProfileSettingsBtn.addEventListener("click", () => {
+      this.fetchData();
       this.displayProfileSettings();
     });
 

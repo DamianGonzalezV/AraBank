@@ -11,6 +11,15 @@ export default class Settings {
     return unique;
   }
 
+  static async uniqueById(id) {
+    const unique = await prisma.users.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    return unique;
+  }
+
   static async editUsername(id, newUsername) {
     const result = await prisma.users.update({
       where: {

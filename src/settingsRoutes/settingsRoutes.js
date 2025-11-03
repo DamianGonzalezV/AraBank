@@ -5,16 +5,15 @@ import Settings from "../models/Settings.js";
 const router = express.Router();
 
 router.get("/form", async (req, res) => {
-  const { username } = req;
+  const { id } = req;
 
   try {
-    if (!username) {
+    if (!id) {
       res.status(401).json({
         message: "Invalid token",
       });
     } else {
-      // search for user data
-      const userData = await User.getByUsername(username);
+      const userData = await Settings.uniqueById(id);
 
       // send user data
       res.status(200).json({
