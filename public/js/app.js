@@ -1,7 +1,7 @@
 "use strict";
 import ProfileSettings from "../models/ProfileSettings.js";
 
-let welcomeUser = document.querySelector(".welcome-row-user-span");
+// let welcomeUser = document.querySelector(".welcome-row-user-span");
 let storedUsername = localStorage.getItem("activeUser");
 let token = localStorage.getItem("token");
 
@@ -20,10 +20,10 @@ profileSettings.settingsEvent();
 // Display edit username
 profileSettings.editUsername();
 
-// display welcome message
-(function setWelcomeMessage() {
-  welcomeUser.textContent = storedUsername ? storedUsername : "";
-})();
+// // display welcome message
+// (function setWelcomeMessage() {
+//   welcomeUser.textContent = storedUsername ? storedUsername : "";
+// })();
 
 // Display request or send div
 requestBtn.addEventListener("click", () => {

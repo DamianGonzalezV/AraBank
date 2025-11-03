@@ -1,5 +1,13 @@
 export default class ProfileSettings {
   constructor() {
+    // Fetch data
+    this.setWelcomeMessage();
+    this.fetchData();
+
+    // Navigation sidebar message
+    this.welcomeUser = document.querySelector(".welcome-row-user-span");
+
+    // Profile settings
     this.bankFeaturesContainer = document.querySelector(
       ".main-container-bank-features"
     );
@@ -45,6 +53,22 @@ export default class ProfileSettings {
     );
   }
 
+  // Show welcome message
+  setWelcomeMessage() {
+    fetch("/settings/welcome", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.welcomeUser.textContent = data.username;
+      });
+  }
+
+  // Edit username and save it
   editUsername() {
     this.editUsernameBtn.addEventListener("click", () => {
       this.editUsernameDiv.classList.add("hide");
@@ -119,6 +143,7 @@ export default class ProfileSettings {
     // close
     this.closeProfileSettingsBtn.addEventListener("click", () => {
       this.displayProfileSettings();
+      this.setWelcomeMessage();
     });
   }
 }
