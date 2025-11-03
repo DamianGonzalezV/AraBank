@@ -362,6 +362,16 @@ body {
   color: #1f1c19;
 }
 
+.settings-cancel-btn-username,
+.settings-cancel-btn-email {
+  background-color: #ce2029;
+}
+
+.settings-save-btn-username,
+.settings-save-btn-email {
+  background-color: #55dd33;
+}
+
 .profile-settings-input {
   width: 18rem;
   height: 2.2rem;

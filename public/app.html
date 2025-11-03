@@ -145,15 +145,24 @@
           placeholder="Type your new username"
           autofocus
         />
-
-        <button
-          class="settings-btn settings-save-btn settings-save-btn-username"
-        >
-          <i
-            class="ph-bold ph-check settings-btn-icon settings-save-btn-icon"
-            data-qa="settings-save-btn-icon"
-          ></i>
-        </button>
+        <div class="settings-btn-container">
+          <button
+            class="settings-btn settings-cancel-btn settings-cancel-btn-username"
+          >
+            <i
+              class="ph-bold ph-x settings-btn-icon settings-cancel-btn-icon"
+              data-qa="settings-cancel-btn-icon"
+            ></i>
+          </button>
+          <button
+            class="settings-btn settings-save-btn settings-save-btn-username"
+          >
+            <i
+              class="ph-bold ph-check settings-btn-icon settings-save-btn-icon"
+              data-qa="settings-save-btn-icon"
+            ></i>
+          </button>
+        </div>
       </div>
       <div
         class="profile-settings-change-container profile-settings-change-email profile-settings-change-email-edit"
@@ -161,6 +170,7 @@
         <p class="profile-settings-email" data-qa="profile-settings-email">
           insert_email_here
         </p>
+
         <button
           class="settings-btn settings-edit-btn settings-edit-btn-email"
           data-qa="settings-edit-btn-email"
@@ -181,12 +191,25 @@
           autofocus
         />
 
-        <button class="settings-btn settings-save-btn settings-save-btn-email">
-          <i
-            class="ph-bold ph-check settings-btn-icon settings-save-btn-icon"
-            data-qa="settings-save-btn-icon"
-          ></i>
-        </button>
+        <div class="settings-btn-container">
+          <button
+            class="settings-btn settings-cancel-btn settings-cancel-btn-email"
+          >
+            <i
+              class="ph-bold ph-x settings-btn-icon settings-cancel-btn-icon"
+              data-qa="settings-cancel-btn-icon"
+            ></i>
+          </button>
+
+          <button
+            class="settings-btn settings-save-btn settings-save-btn-email"
+          >
+            <i
+              class="ph-bold ph-check settings-btn-icon settings-save-btn-icon"
+              data-qa="settings-save-btn-icon"
+            ></i>
+          </button>
+        </div>
       </div>
       <div
         class="profile-settings-change-container profile-settings-change-password"
