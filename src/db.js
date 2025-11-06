@@ -21,15 +21,15 @@ db.exec(`
   )
 `);
 
-// Create table for movements
-db.exec(`
-    CREATE TABLE movements(
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      user_id INTEGER,
-      description TEXT NOT NULL,
-      movement INTEGER NOT NULL,
-      FOREIGN KEY(user_id) REFERENCES users(id)
-  )
-`);
+// // Create table for movements
+// db.exec(`
+//     CREATE TABLE movements(
+//       id INTEGER PRIMARY KEY AUTOINCREMENT,
+//       user_id INTEGER,
+//       description TEXT NOT NULL,
+//       movement INTEGER NOT NULL,
+//       FOREIGN KEY(user_id) REFERENCES users(id)
+//   )
+// `);
 
 export default db;

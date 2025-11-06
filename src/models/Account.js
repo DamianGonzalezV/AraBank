@@ -1,4 +1,5 @@
-import db from "../db.js";
+// import db from "../db.js";
+import prisma from "../prismaClient.js";
 
 export default class Account {
   // Bonus for account opening
@@ -10,22 +11,25 @@ export default class Account {
     this.balance = null;
   }
 
-  initializeAccount() {
-    const prepareUserId = db.prepare(
-      `INSERT INTO accounts(user_id, total_balance) VALUES(?, ?)`
-    );
-    // set registration bonus to $100
-    prepareUserId.run(this.userId, Account.REGISTRATION_BONUS);
+  static async getAccountByUserId(userId) {
+    const result = await prisma.accounts.findUnique({
+      where: {
+        userId: userId,
+      },
+    });
+    return result;
+  }
+
+  async initializeAccount() {
+    await prisma.accounts.create({
+      data: {
+        userId: this.userId,
+        totalBalance: Account.REGISTRATION_BONUS,
+      },
+    });
   }
 
   setInitialBalance(accountData) {
     this.balance = accountData.total_balance;
-  }
-
-  getDataByUserId() {
-    const prepareAccount = db.prepare(
-      `SELECT * FROM accounts WHERE user_id = ?`
-    );
-    return prepareAccount.get(this.userId);
   }
 }

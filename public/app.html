@@ -15,9 +15,12 @@
   </head>
   <body>
     <!-- First section for mobile with grid -->
-    <section class="main-container">
+    <section class="container main-container-bank-features hide">
       <div class="welcome-row" data-qa="welcome-row">
-        <i class="ph-bold ph-user"></i>
+        <i
+          class="ph-bold ph-user profile-settings-image-btn"
+          data-qa="profile-settings-image-btn"
+        ></i>
         <p>
           Welcome
           <span
@@ -28,53 +31,199 @@
         </p>
       </div>
       <div class="grid-row account-balance-row">
-        <div class="account-balance-row-add">
-          <button class="account-balance-request-button">
-            <i class="ph-light ph-download-simple account-balance-add-icon"></i>
-          </button>
-          <button class="account-balance-send-button">
-            <i class="ph-light ph-export account-balance-add-icon"></i>
-          </button>
-        </div>
-        <div class="account-balance-row-number">
-          <p class="account-balance-line">Total balance</p>
-          <div class="account-balance-number-container">
-            <p class="account-balance-number"></p>
-            <span class="account-balance-cents">.00</span>
+        <div class="acount-balance-row-container">
+          <div class="account-balance-row-add">
+            <button class="account-balance-request-button">
+              <i
+                class="ph-light ph-download-simple account-balance-add-icon"
+              ></i>
+            </button>
+            <button class="account-balance-send-button">
+              <i class="ph-light ph-export account-balance-add-icon"></i>
+            </button>
+          </div>
+          <div class="account-balance-row-number">
+            <p class="account-balance-line">Total balance</p>
+            <div class="account-balance-number-container">
+              <p class="account-balance-number"></p>
+              <span class="account-balance-cents">.00</span>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Show send div when send button is clicked -->
-      <div class="account-balance-display account-balance-send hide">
-        <form action="" class="request">
-          <div class="send-container">
-            <label for="contact">Send to</label>
-            <input type="text" name="contact" id="contact" autofocus />
+        <!-- <div class="account-balance-extras">
+     
+          <div class="account-balance-display account-balance-send hide">
+            <form action="" class="request">
+              <div class="send-container">
+                <label for="contact">Send to</label>
+                <input type="text" name="contact" id="contact" autofocus />
+              </div>
+              <div class="amount-container">
+                <label for="amount">Amount</label>
+                <input
+                  type="number"
+                  name="amount"
+                  id="amount"
+                  placeholder="30.00"
+                />
+              </div>
+            </form>
           </div>
-          <div class="amount-container">
-            <label for="amount">Amount</label>
-            <input
-              type="number"
-              name="amount"
-              id="amount"
-              placeholder="30.00"
-            />
+      
+          <div class="account-balance-display account-balance-request hide">
+            <p>CLABE</p>
+            <p class="clabe-number" data-qa="clabe-number">
+              8000 0000 0000 0000
+            </p>
+            <button class="copy-clabe-btn">
+              <i class="ph-light ph-copy"></i>
+            </button>
           </div>
-        </form>
-      </div>
-      <!-- Show CLABE when request money button is clicked -->
-      <div class="account-balance-display account-balance-request hide">
-        <p>CLABE</p>
-        <p class="clabe-number" data-qa="clabe-number">8000 0000 0000 0000</p>
-        <button class="copy-clabe-btn"><i class="ph-light ph-copy"></i></button>
+        </div> -->
       </div>
       <!-- Extra grid containers for features -->
-      <div></div>
-      <div></div>
-      <div></div>
+      <div class="movements">
+        <div class="unique-movement">
+          <div class="movement-details">
+            <p>The coffe store</p>
+            <p>08:25</p>
+          </div>
+          <div class="movement-details-price">-12.99$</div>
+        </div>
+        <div class="unique-movement">
+          <div class="movement-details">
+            <p>Peach Music</p>
+            <p>08:25</p>
+          </div>
+          <div class="movement-details-price">-10.00$</div>
+        </div>
+        <div class="all-movements-div">
+          <button class="all-movements-btn">
+            <p>See all</p>
+          </button>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card-brand">
+          <p>AraBank</p>
+        </div>
+        <div class="card-numbers"><p>**** **** **** **** 4432</p></div>
+        <div class="card-details">
+          <p class="card-amount">0.00$</p>
+          <p class="card-date">11/29</p>
+        </div>
+      </div>
     </section>
     <!-- Second section extras  -->
-    <section></section>
+    <section class="container container-profile-settings">
+      <button class="profile-settings-close-btn">X</button>
+      <div
+        class="profile-settings-change-container profile-settings-change-username profile-settings-change-username-edit"
+      >
+        <p
+          class="profile-settings-username"
+          data-qa="profile-settings-username"
+        >
+          insert_username_here
+        </p>
+        <button
+          class="settings-btn settings-edit-btn settings-edit-btn-username"
+          data-qa="settings-edit-btn-username"
+        >
+          <i
+            class="ph-bold ph-pencil-simple settings-btn-icon settings-edit-btn-icon"
+            data-qa="settings-edit-btn-icon"
+          ></i>
+        </button>
+      </div>
+      <div
+        class="profile-settings-change-container profile-settings-change-username profile-settings-change-username-save hide"
+      >
+        <input
+          class="profile-settings-input profile-settings-username-update"
+          data-qa="profile-settings-username-update"
+          placeholder="Type your new username"
+          autofocus
+        />
+        <div class="settings-btn-container">
+          <button
+            class="settings-btn settings-cancel-btn settings-cancel-btn-username"
+          >
+            <i
+              class="ph-bold ph-x settings-btn-icon settings-cancel-btn-icon"
+              data-qa="settings-cancel-btn-icon"
+            ></i>
+          </button>
+          <button
+            class="settings-btn settings-save-btn settings-save-btn-username"
+          >
+            <i
+              class="ph-bold ph-check settings-btn-icon settings-save-btn-icon"
+              data-qa="settings-save-btn-icon"
+            ></i>
+          </button>
+        </div>
+      </div>
+      <div
+        class="profile-settings-change-container profile-settings-change-email profile-settings-change-email-edit"
+      >
+        <p class="profile-settings-email" data-qa="profile-settings-email">
+          insert_email_here
+        </p>
+
+        <button
+          class="settings-btn settings-edit-btn settings-edit-btn-email"
+          data-qa="settings-edit-btn-email"
+        >
+          <i
+            class="ph-bold ph-pencil-simple settings-btn-icon settings-edit-btn-icon"
+            data-qa="settings-edit-btn-icon"
+          ></i>
+        </button>
+      </div>
+      <div
+        class="profile-settings-change-container profile-settings-change-email profile-settings-change-email-save hide"
+      >
+        <input
+          class="profile-settings-input profile-settings-email-update"
+          data-qa="profile-settings-email-update"
+          placeholder="Type your new email"
+          autofocus
+        />
+
+        <div class="settings-btn-container">
+          <button
+            class="settings-btn settings-cancel-btn settings-cancel-btn-email"
+          >
+            <i
+              class="ph-bold ph-x settings-btn-icon settings-cancel-btn-icon"
+              data-qa="settings-cancel-btn-icon"
+            ></i>
+          </button>
+
+          <button
+            class="settings-btn settings-save-btn settings-save-btn-email"
+          >
+            <i
+              class="ph-bold ph-check settings-btn-icon settings-save-btn-icon"
+              data-qa="settings-save-btn-icon"
+            ></i>
+          </button>
+        </div>
+      </div>
+      <div
+        class="profile-settings-change-container profile-settings-change-password"
+      >
+        <p>insert_change_password_feature_here</p>
+      </div>
+      <div
+        class="profile-settings-change-container profile-settings-delete-account"
+      >
+        <button class="profile-settings-delete-account-btn">
+          Delete account
+        </button>
+      </div>
+    </section>
   </body>
-  <script src="./js/app.js"></script>
+  <script type="module" src="./js/app.js"></script>
 </html>

@@ -1,0 +1,37 @@
+### POST /auth/signup (ADD SECOND USER)
+POST http://localhost:6001/auth/signup
+Content-Type: application/json
+
+{
+  "name": "RaphaelDias Alves",
+  "username": "RaphaelDias1.1.1alves",
+  "email": "RaphaelDias1.1.1@email.com",
+  "password": "password"
+}
+
+### POST /auth/login
+POST http://localhost:6001/auth/login
+Content-Type: application/json
+
+{
+  "username": "RaphaelDias1.1.1alves",
+  "password": "password"
+}
+
+### PATCH /settings/username 
+PATCH http://localhost:6001/settings/username 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsInVzZXJuYW1lIjoiUmFwaGFlbERpYXMxLjFhbHZlcyIsImlhdCI6MTc2MjE4NDAzOSwiZXhwIjoxNzYyMjcwNDM5fQ.7nkdsT8xYbsK6qu1drtwEs5DwO3hOkET6qbxmFqB1NA
+Content-Type: application/json
+
+{
+  "newUsername": "RaphaelDias1.2alves"
+}
+
+### PATCH /settings/username (SECOND TRY - SHOULD BE SUCCESSFUL FOR NOW - IT IS NOT LIMITED TO ONE YET)
+PATCH http://localhost:6001/settings/username 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsInVzZXJuYW1lIjoiUmFwaGFlbERpYXMxLjFhbHZlcyIsImlhdCI6MTc2MjE4NDAzOSwiZXhwIjoxNzYyMjcwNDM5fQ.7nkdsT8xYbsK6qu1drtwEs5DwO3hOkET6qbxmFqB1NA
+Content-Type: application/json
+
+{
+  "newUsername": "RaphaelDias1.2.0"
+}

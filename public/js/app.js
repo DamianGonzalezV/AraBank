@@ -1,6 +1,7 @@
 "use strict";
+import ProfileSettings from "../models/ProfileSettings.js";
 
-let welcomeUser = document.querySelector(".welcome-row-user-span");
+// let welcomeUser = document.querySelector(".welcome-row-user-span");
 let storedUsername = localStorage.getItem("activeUser");
 let token = localStorage.getItem("token");
 
@@ -10,10 +11,24 @@ let requestDiv = document.querySelector(".account-balance-request");
 let sendDiv = document.querySelector(".account-balance-send");
 let totalBalance = document.querySelector(".account-balance-number");
 
-// display welcome message
-(function setWelcomeMessage() {
-  welcomeUser.textContent = storedUsername ? storedUsername : "";
-})();
+/* ------------- PROFILE SETTINGS SECTION ------------- */
+
+// Create the instance to access settings
+const profileSettings = new ProfileSettings();
+
+// Display profile settings
+profileSettings.settingsEvent();
+
+// Display edit username
+profileSettings.editUsername();
+
+// Display edit email
+profileSettings.editEmail();
+
+// // display welcome message
+// (function setWelcomeMessage() {
+//   welcomeUser.textContent = storedUsername ? storedUsername : "";
+// })();
 
 // Display request or send div
 requestBtn.addEventListener("click", () => {
@@ -40,10 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     })
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        console.log(data.data.total_balance);
-        totalBalance.textContent = `$${String(data.data.total_balance)}`;
+      .then((response) => {
+        console.log(response.data);
+        totalBalance.textContent = `$${String(response.data.totalBalance)}`;
       })
       .catch((err) => {
         console.log(err);

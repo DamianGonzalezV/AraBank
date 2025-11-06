@@ -10,19 +10,17 @@ Content-Type: application/json
 
 {
   "name": "Jane Doe",
-  "username": "Janedoe82v",
-  "email": "janedoe82v@email.com",
+  "username": "Janedoe1.1",
+  "email": "janedoe1.1@email.com",
   "password": "password"
 }
 
-### POST /auth/signup (ADD SECOND USER)
-POST http://localhost:6001/auth/signup
+### POST /auth/login
+POST http://localhost:6001/auth/login
 Content-Type: application/json
 
 {
-  "name": "Joan Alves",
-  "username": "Joan1alves",
-  "email": "Joan1alves@email.com",
+  "username": "Janedoe1",
   "password": "password"
 }
 
@@ -42,8 +40,8 @@ POST http://localhost:6001/auth/login
 Content-Type: application/json
 
 {
-  "username": "Janedoe82v",
-  "password": "passwordfornegativepath"
+  "username": "Janedoe1.2",
+  "password": "passwordnotvalid"
 }
 
 
@@ -56,14 +54,6 @@ Content-Type: application/json
   "password": "passwordfornegativepath"
 }
 
-### POST /auth/login
-POST http://localhost:6001/auth/login
-Content-Type: application/json
-
-{
-  "username": "Janedoe82v",
-  "password": "password"
-}
 
 ### POST /auth/login
 POST http://localhost:6001/auth/login
@@ -88,6 +78,18 @@ GET http://localhost:6001/app.html
 
 ### POST /account/balance
 POST http://localhost:6001/account/balance
+<<<<<<< HEAD
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6bnVsbCwidXNlcm5hbWUiOiJKb2FuMWFsdmVzIiwiaWF0IjoxNzYwMDU5MDA4LCJleHAiOjE3NjAxNDU0MDh9.UlFxrysY_DQU2zd4tqkLVefrN5wZKddehkSmHeTQ6gM
+=======
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJKb2FuMTIzYWx2ZXMiLCJpYXQiOjE3NjE2NTE5MjAsImV4cCI6MTc2MTczODMyMH0.WI_WWFzibVIgTkZsK7-UGsaMD_nbQC5r23lbN6j2j3k
+>>>>>>> feature/prisma-db-impl
 Content-Type: application/json
 
+### PATCH /settings/username 
+PATCH http://localhost:6001/settings/username 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJKb2FuMTIzYWx2ZXMiLCJpYXQiOjE3NjE2NTE5MjAsImV4cCI6MTc2MTczODMyMH0.WI_WWFzibVIgTkZsK7-UGsaMD_nbQC5r23lbN6j2j3k
+Content-Type: application/json
+
+{
+  "newUsername": "Joan1alvesss",
+}

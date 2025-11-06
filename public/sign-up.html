@@ -16,16 +16,12 @@
   </head>
   <body>
     <section class="sign-up-side">
-      <img
-        src="././img/araBank-hand-2-Photoroom.png"
-        alt=""
-        class="sign-up-side-hand"
-      />
+      <img src="././img/card.png" alt="" class="sign-up-side-hand" />
     </section>
     <section class="sign-up-section centered" data-qa="sign-up-section">
       <div class="logo-div centered">
-        <p class="brand-p">ÅraBank</p>
-        <span>Minimalist banking</span>
+        <p class="brand-p" data-qa="brand-p">ÅraBank</p>
+        <span data-qa="brand-span">Minimalist banking</span>
       </div>
       <form
         id="sign-up-form"
@@ -39,6 +35,7 @@
           id="name"
           autocomplete="name"
           autofocus
+          data-qa="sign-up-full-name"
         />
         <label for="username">Create a username</label>
         <input

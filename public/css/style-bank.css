@@ -20,12 +20,15 @@ body {
   font-family: "Work Sans", sans-serif;
 }
 
-.main-container {
+.container {
   width: 90vw;
   height: 90vh;
-  /* background-color: #e5e5e5; */
+}
+
+.main-container-bank-features {
   display: grid;
-  grid-template-rows: 0.2fr 1fr 0.6fr 2fr 2fr;
+  grid-template-rows: 0.2fr 1.5fr 1.5fr 1.5fr 0.5fr;
+  gap: 1.8rem;
   place-items: center;
   margin: auto;
   border-radius: 0.5rem;
@@ -39,26 +42,34 @@ body {
   margin-bottom: 1rem;
 }
 
-.ph-user {
+.profile-settings-image-btn {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 3rem;
   width: 3rem;
   font-size: 1.8rem;
-  color: #fca311;
+  color: #e5e5e5;
   margin-right: 1rem;
   background-color: #252422;
   border-radius: 50%;
 }
 
+.profile-settings-image-btn:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease;
+  background-color: #fca311;
+  color: #1f1c19;
+  border: #fca2114f;
+}
+
 .welcome-row p {
   font-size: 1.5rem;
-  color: #fca311;
+  color: #e5e5e5;
 }
 
 .welcome-row-user-span {
-  color: #fca71e;
+  color: #e5e5e5;
 }
 
 .grid-row {
@@ -68,13 +79,19 @@ body {
 }
 
 .account-balance-row {
-  padding: 1rem;
-  background: linear-gradient(#ebac48f7, #f1ad3ff7);
   margin: auto;
+
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.acount-balance-row-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  background: linear-gradient(#ebac48f7, #f1ad3ff7);
+  justify-content: space-evenly;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 .account-balance-row-add {
@@ -232,6 +249,163 @@ body {
 .ph-copy {
   font-size: 2rem;
   color: #1f1c19;
+}
+
+/* Movements */
+.movements {
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  background-color: #1f1c19;
+  border-radius: 0.5rem;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 0.3fr;
+}
+
+.unique-movement {
+  font-size: 1.3rem;
+  padding: 0.5rem 2rem;
+  display: flex;
+  flex-direction: row;
+  color: #e5e5e5;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.all-movements-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.all-movements-btn {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  color: #e5e5e5;
+  padding: 1rem;
+}
+
+.cards {
+  height: 100%;
+  width: 90%;
+  margin: auto;
+  background: linear-gradient(#002147, #003262);
+  border-radius: 0.5rem;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr 0.3fr;
+
+  padding: 2rem;
+  color: #e5e5e5;
+  font-size: 1.3rem;
+
+  box-shadow: -1px 1px 9px 1px #e5e5e501;
+}
+
+.card-brand {
+  font-size: 2rem;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* SECTION 2 - PROFILE SETTINGS */
+
+.container-profile-settings {
+  background-color: #252422;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  color: #e5e5e5;
+  font-size: 1.3rem;
+}
+
+.profile-settings-close-btn {
+  width: 10%;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: #fca311;
+  margin-left: 90%;
+  margin-bottom: 4rem;
+}
+
+.profile-settings-change-container {
+  margin-bottom: 5rem;
+}
+
+.profile-settings-change-username,
+.profile-settings-change-email {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.settings-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #fca311;
+  border: none;
+}
+
+.settings-btn-icon {
+  font-size: 1.5rem;
+  color: #1f1c19;
+}
+
+.settings-cancel-btn-username,
+.settings-cancel-btn-email {
+  background-color: #ce2029;
+}
+
+.settings-save-btn-username,
+.settings-save-btn-email {
+  background-color: #55dd33;
+}
+
+.profile-settings-input {
+  width: 18rem;
+  height: 2.2rem;
+  font-size: 1.2rem;
+  border-radius: 2rem;
+  padding: 1rem;
+  background-color: #1f1c19;
+  color: #e5e5e5;
+  /* outline: none; */
+  border: none;
+}
+
+.profile-settings-delete-account {
+  display: flex;
+  text-align: center;
+  justify-self: center;
+}
+
+.profile-settings-delete-account-btn {
+  width: 16rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  background-color: #fca311;
+  color: #1f1c19;
+  border: none;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.profile-settings-delete-account-btn:hover,
+.profile-settings-close-btn:hover,
+.settings-btn:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease;
 }
 
 /* Mobile first */

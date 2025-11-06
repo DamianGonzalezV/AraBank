@@ -1,0 +1,190 @@
+export default class ProfileSettings {
+  constructor() {
+    // Fetch data
+    this.setWelcomeMessage();
+    this.fetchData();
+
+    // Navigation sidebar message
+    this.welcomeUser = document.querySelector(".welcome-row-user-span");
+
+    // Profile settings containers
+    this.bankFeaturesContainer = document.querySelector(
+      ".main-container-bank-features"
+    );
+    this.profileSettingsContainer = document.querySelector(
+      ".container-profile-settings"
+    );
+
+    // Close profile settings containers
+    this.openProfileSettingsBtn = document.querySelector(
+      ".profile-settings-image-btn"
+    );
+    this.closeProfileSettingsBtn = document.querySelector(
+      ".profile-settings-close-btn"
+    );
+
+    // Text
+    this.username = document.querySelector(".profile-settings-username");
+    this.email = document.querySelector(".profile-settings-email");
+
+    // Inputs
+    this.usernameInput = document.querySelector(
+      ".profile-settings-username-update"
+    );
+    this.emailInput = document.querySelector(".profile-settings-email-update");
+
+    // Buttons
+    this.editUsernameBtn = document.querySelector(
+      ".settings-edit-btn-username"
+    );
+    this.editEmailBtn = document.querySelector(".settings-edit-btn-email");
+
+    this.saveUsernameBtn = document.querySelector(
+      ".settings-save-btn-username"
+    );
+    this.saveEmailBtn = document.querySelector(".settings-save-btn-email");
+
+    this.cancelUsernameBtn = document.querySelector(
+      ".settings-cancel-btn-username"
+    );
+    this.cancelEmailBtn = document.querySelector(".settings-cancel-btn-email");
+
+    // Features divs
+    this.editUsernameDiv = document.querySelector(
+      ".profile-settings-change-username-edit"
+    );
+    this.saveUsernameDiv = document.querySelector(
+      ".profile-settings-change-username-save"
+    );
+
+    this.editEmailDiv = document.querySelector(
+      ".profile-settings-change-email-edit"
+    );
+    this.saveEmailDiv = document.querySelector(
+      ".profile-settings-change-email-save"
+    );
+  }
+
+  // Show welcome message
+  setWelcomeMessage() {
+    fetch("/settings/welcome", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.welcomeUser.textContent = data.username;
+      });
+  }
+
+  // Edit username and save it
+  editUsername() {
+    this.editUsernameBtn.addEventListener("click", () => {
+      this.editUsernameDiv.classList.add("hide");
+      this.saveUsernameDiv.classList.remove("hide");
+    });
+    this.saveUsernameBtn.addEventListener("click", () => {
+      // this.editUsernameDiv.classList.remove("hide");
+      // this.saveUsernameDiv.classList.add("hide");
+      this.saveUsername(this.usernameInput.value);
+    });
+    this.cancelUsernameBtn.addEventListener("click", () => {
+      console.log("click");
+      this.editUsernameDiv.classList.remove("hide");
+      this.saveUsernameDiv.classList.add("hide");
+    });
+  }
+
+  saveUsername(username) {
+    fetch("/settings/username", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        newUsername: username,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.saveUsernameDiv.classList.add("hide");
+        this.editUsernameDiv.classList.remove("hide");
+        this.username.textContent = data.username;
+      });
+  }
+
+  editEmail() {
+    this.editEmailBtn.addEventListener("click", () => {
+      this.editEmailDiv.classList.add("hide");
+      this.saveEmailDiv.classList.remove("hide");
+    });
+    this.saveEmailBtn.addEventListener("click", () => {
+      this.saveEmail(this.emailInput.value);
+    });
+    this.cancelEmailBtn.addEventListener("click", () => {
+      console.log("click");
+      this.editEmailDiv.classList.remove("hide");
+      this.saveEmailDiv.classList.add("hide");
+    });
+  }
+
+  saveEmail(email) {
+    fetch("/settings/email", {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        newEmail: email,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.saveEmailDiv.classList.add("hide");
+        this.editEmailDiv.classList.remove("hide");
+        this.email.textContent = data.email;
+      });
+  }
+
+  displayProfileSettings() {
+    this.bankFeaturesContainer.classList.toggle("hide");
+    this.profileSettingsContainer.classList.toggle("hide");
+  }
+
+  fetchData() {
+    fetch("/settings/form", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: localStorage.getItem("token"),
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.username.textContent = data.username;
+        this.email.textContent = data.email;
+      });
+  }
+
+  settingsEvent() {
+    // open
+    this.openProfileSettingsBtn.addEventListener("click", () => {
+      this.fetchData();
+      this.displayProfileSettings();
+    });
+
+    // close
+    this.closeProfileSettingsBtn.addEventListener("click", () => {
+      this.displayProfileSettings();
+      this.setWelcomeMessage();
+    });
+  }
+}

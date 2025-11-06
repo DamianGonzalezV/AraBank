@@ -7,20 +7,26 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "pw:test": "playwright test",
-    "dev": "nodemon --env-file=.env ./src/server.js"
+    "dev": "nodemon -L --env-file=.env ./src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "A full stack bank application that uses a NodeJS backend, a PostreSQL database, a prisma ORM  and JWT authentication",
   "dependencies": {
+    "@prisma/client": "^6.16.3",
     "bcryptjs": "^3.0.2",
     "cypress": "^14.5.4",
     "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3",
+    "prisma": "^6.16.3",
+    "uid": "^2.0.2",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
+    "@testing-library/cypress": "^10.1.0",
     "@types/node": "^24.3.1",
     "nodemon": "^3.1.10"
   }

@@ -1,11 +1,13 @@
 import express from "express";
 import User from "../models/User.js";
+import Account from "../models/Account.js";
 
 const router = express.Router();
 
 // New API
-router.post("/signup", (req, res) => {
+router.post("/signup", async (req, res) => {
   const { name, username, email, password } = req.body;
+  let user;
   console.log(name, email);
 
   // Check for valid email
@@ -15,75 +17,82 @@ router.post("/signup", (req, res) => {
     });
   }
 
-  // generate password
-  const hashedPassword = User.generateSecurePassword(password);
-
-  // create instance
-  const user = new User(name, username, email, hashedPassword);
-  console.log(user);
-
   try {
     // Verify uniqueness
-    const unique = User.unique(username, email);
-    if (unique.length > 0) {
-      // return 409: conflict with the state/date on the server
-      return res.status(409).json({
+    const unique = await User.unique(username, email);
+    console.log(unique);
+    if (unique) {
+      return res.status(400).json({
         message: "Username or email already in use",
       });
+    } else {
+      // generate password
+      const hashedPassword = User.generateSecurePassword(password);
+
+      // create instance
+      user = new User(name, username, email, hashedPassword);
+      console.log(user);
+
+      // PRISMA Insert user (returns userId)
+      await user.insertUser();
+
+      // Confirm insert into DB
+      const userData = await user.getUser();
+
+      // Create JWT token
+      const token = user.createToken();
+
+      // Send response
+      res.status(201).json({
+        message: `User succesfully created`,
+        username: `${userData.username}`,
+        token: token,
+      });
+
+      // create the instance for the Account
+      const account = new Account(userData.username, userData.id);
+      console.log(account);
+
+      // Add account to accounts table
+      await account.initializeAccount();
+
+      // Set the registration bonus
+      account.setInitialBalance(accountData);
+      console.log(account);
     }
-
-    // Insert user (returns userId)
-    user.insertUser();
-
-    // Confirm insert into DB
-    const userData = user.getUser();
-    // log new record in db
-    console.log(userData);
-    // log to verify that userId is not null
-    console.log(user);
-
-    // Create JWT token
-    const token = user.createToken();
-
-    // Send response
-    res.status(201).json({
-      message: `User succesfully created`,
-      username: `${userData.username}`,
-      email: `${userData.email}`,
-
-      token: token,
-    });
+    //
   } catch (err) {
     console.log(err.message);
   }
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", async (req, res) => {
   const { username, password } = req.body;
-  console.log(username, typeof username);
+  let user;
+  console.log(username);
 
   // find user by username
-  const result = User.getByUsername(username);
+  const result = await User.getByUsername(username);
   console.log(result);
 
   if (!result) {
     return res.status(401).json({
       message: "User does not exist",
     });
+  } else {
+    // Create the instance to access the methods
+    user = new User(
+      result.name,
+      result.username,
+      result.email,
+      result.password,
+      result.id
+    );
   }
-
-  const user = new User(
-    result.name,
-    result.username,
-    result.email,
-    result.password
-  );
 
   try {
     // hash password
-    console.log(result.password, password);
     const validPassword = user.comparePassword(password);
-    console.log(validPassword);
 
     if (validPassword) {
       // create token
