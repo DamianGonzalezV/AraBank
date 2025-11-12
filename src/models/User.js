@@ -29,19 +29,6 @@ export default class User {
     return user;
   }
 
-<<<<<<< HEAD
-  insertUser() {
-    const prepareUser = db.prepare(
-      `INSERT INTO users(name, username, email, password) VALUES(?, ?, ?, ?)`
-    );
-    const insertedUser = prepareUser.run(
-      this.name,
-      this.username,
-      this.email,
-      this.password
-    );
-    this.userId = insertedUser.lastInsertRowid;
-=======
   static async unique(username, email) {
     const unique = await prisma.users.findUnique({
       where: {
@@ -50,7 +37,6 @@ export default class User {
       },
     });
     return unique;
->>>>>>> feature/prisma-db-impl
   }
 
   static generateSecurePassword(password) {
