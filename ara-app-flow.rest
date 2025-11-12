@@ -15,8 +15,8 @@ Content-Type: application/json
 
 {
   "name": "RaphaelDias Alves",
-  "username": "RaphaelDias1.1.sadfasdf1alves",
-  "email": "RaphaelDias1.1.1@email.com",
+  "username": "RaphaelDias1.1.35alves",
+  "email": "RaphaeldsDxcvisfasas1.1.1@email.com",
   "password": "password"
 }
 

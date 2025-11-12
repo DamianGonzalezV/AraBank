@@ -20,7 +20,8 @@ router.post("/signup", async (req, res) => {
   try {
     // Verify uniqueness
     const isUsernameUnique = await User.isUsernameUnique(username);
-    const isEmailUnique = await User.isEmailUnique(username);
+    const isEmailUnique = await User.isEmailUnique(email);
+    console.log(isUsernameUnique, isEmailUnique);
 
     if (isUsernameUnique) {
       return res.status(409).json({
