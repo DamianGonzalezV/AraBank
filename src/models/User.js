@@ -29,10 +29,18 @@ export default class User {
     return user;
   }
 
-  static async unique(username, email) {
+  static async isUsernameUnique(username) {
     const unique = await prisma.users.findUnique({
       where: {
         username: username,
+      },
+    });
+    return unique;
+  }
+
+  static async isEmailUnique(email) {
+    const unique = await prisma.users.findUnique({
+      where: {
         email: email,
       },
     });
