@@ -63,9 +63,9 @@ router.post("/signup", async (req, res) => {
       // Add account to accounts table
       await account.initializeAccount();
 
-      // Set the registration bonus
-      account.setInitialBalance(accountData);
-      console.log(account);
+      // // Set the registration bonus
+      // account.setInitialBalance(accountData);
+      // console.log(account);
     }
     //
   } catch (err) {
@@ -84,7 +84,7 @@ router.post("/login", async (req, res) => {
 
   if (!result) {
     return res.status(401).json({
-      message: "User does not exist",
+      message: "User does not exist", // does this makes sense if theres is already middleware?
     });
   } else {
     // Create the instance to access the methods

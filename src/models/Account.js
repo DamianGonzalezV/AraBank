@@ -21,15 +21,16 @@ export default class Account {
   }
 
   async initializeAccount() {
-    await prisma.accounts.create({
+    const account = await prisma.accounts.create({
       data: {
         userId: this.userId,
         totalBalance: Account.REGISTRATION_BONUS,
       },
     });
+    this.balance = account.totalBalance;
   }
 
-  setInitialBalance(accountData) {
-    this.balance = accountData.total_balance;
-  }
+  // setInitialBalance(accountData) {
+  //   this.balance = accountData.total_balance;
+  // }
 }
