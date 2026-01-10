@@ -48,14 +48,6 @@ router.post("/signup", async (req, res) => {
       // Create JWT token
       const token = user.createToken();
 
-      // Send response
-      res.status(201).json({
-        message: `User successfully created`,
-        username: `${userData.username}`,
-        email: `${userData.email}`,
-        token: token,
-      });
-
       // create the instance for the Account
       const account = new Account(userData.username, userData.id);
       console.log(account);
@@ -63,9 +55,13 @@ router.post("/signup", async (req, res) => {
       // Add account to accounts table
       await account.initializeAccount();
 
-      // // Set the registration bonus
-      // account.setInitialBalance(accountData);
-      // console.log(account);
+      // Send response
+      res.status(201).json({
+        message: `User successfully created`,
+        username: `${userData.username}`,
+        email: `${userData.email}`,
+        token: token,
+      });
     }
     //
   } catch (err) {

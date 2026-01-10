@@ -29,8 +29,4 @@ export default class Account {
     });
     this.balance = account.totalBalance;
   }
-
-  // setInitialBalance(accountData) {
-  //   this.balance = accountData.total_balance;
-  // }
 }
