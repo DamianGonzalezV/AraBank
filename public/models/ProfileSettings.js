@@ -1,26 +1,26 @@
 export default class ProfileSettings {
   constructor() {
     // Fetch data
-    this.setWelcomeMessage();
-    this.fetchData();
+    this._setWelcomeMessage();
+    this._fetchData();
 
     // Navigation sidebar message
     this.welcomeUser = document.querySelector(".welcome-row-user-span");
 
     // Profile settings containers
     this.bankFeaturesContainer = document.querySelector(
-      ".main-container-bank-features"
+      ".main-container-bank-features",
     );
     this.profileSettingsContainer = document.querySelector(
-      ".container-profile-settings"
+      ".container-profile-settings",
     );
 
     // Close profile settings containers
     this.openProfileSettingsBtn = document.querySelector(
-      ".profile-settings-image-btn"
+      ".profile-settings-image-btn",
     );
     this.closeProfileSettingsBtn = document.querySelector(
-      ".profile-settings-close-btn"
+      ".profile-settings-close-btn",
     );
 
     // Text
@@ -29,44 +29,44 @@ export default class ProfileSettings {
 
     // Inputs
     this.usernameInput = document.querySelector(
-      ".profile-settings-username-update"
+      ".profile-settings-username-update",
     );
     this.emailInput = document.querySelector(".profile-settings-email-update");
 
     // Buttons
     this.editUsernameBtn = document.querySelector(
-      ".settings-edit-btn-username"
+      ".settings-edit-btn-username",
     );
     this.editEmailBtn = document.querySelector(".settings-edit-btn-email");
 
     this.saveUsernameBtn = document.querySelector(
-      ".settings-save-btn-username"
+      ".settings-save-btn-username",
     );
     this.saveEmailBtn = document.querySelector(".settings-save-btn-email");
 
     this.cancelUsernameBtn = document.querySelector(
-      ".settings-cancel-btn-username"
+      ".settings-cancel-btn-username",
     );
     this.cancelEmailBtn = document.querySelector(".settings-cancel-btn-email");
 
     // Features divs
     this.editUsernameDiv = document.querySelector(
-      ".profile-settings-change-username-edit"
+      ".profile-settings-change-username-edit",
     );
     this.saveUsernameDiv = document.querySelector(
-      ".profile-settings-change-username-save"
+      ".profile-settings-change-username-save",
     );
 
     this.editEmailDiv = document.querySelector(
-      ".profile-settings-change-email-edit"
+      ".profile-settings-change-email-edit",
     );
     this.saveEmailDiv = document.querySelector(
-      ".profile-settings-change-email-save"
+      ".profile-settings-change-email-save",
     );
   }
 
   // Show welcome message
-  setWelcomeMessage() {
+  _setWelcomeMessage() {
     fetch("/settings/welcome", {
       method: "GET",
       headers: {
@@ -89,7 +89,7 @@ export default class ProfileSettings {
     this.saveUsernameBtn.addEventListener("click", () => {
       // this.editUsernameDiv.classList.remove("hide");
       // this.saveUsernameDiv.classList.add("hide");
-      this.saveUsername(this.usernameInput.value);
+      this._saveUsername(this.usernameInput.value);
     });
     this.cancelUsernameBtn.addEventListener("click", () => {
       console.log("click");
@@ -98,7 +98,7 @@ export default class ProfileSettings {
     });
   }
 
-  saveUsername(username) {
+  _saveUsername(username) {
     fetch("/settings/username", {
       method: "PATCH",
       headers: {
@@ -124,7 +124,7 @@ export default class ProfileSettings {
       this.saveEmailDiv.classList.remove("hide");
     });
     this.saveEmailBtn.addEventListener("click", () => {
-      this.saveEmail(this.emailInput.value);
+      this._saveEmail(this.emailInput.value);
     });
     this.cancelEmailBtn.addEventListener("click", () => {
       console.log("click");
@@ -133,7 +133,7 @@ export default class ProfileSettings {
     });
   }
 
-  saveEmail(email) {
+  _saveEmail(email) {
     fetch("/settings/email", {
       method: "PATCH",
       headers: {
@@ -153,12 +153,12 @@ export default class ProfileSettings {
       });
   }
 
-  displayProfileSettings() {
+  _displayProfileSettings() {
     this.bankFeaturesContainer.classList.toggle("hide");
     this.profileSettingsContainer.classList.toggle("hide");
   }
 
-  fetchData() {
+  _fetchData() {
     fetch("/settings/form", {
       method: "GET",
       headers: {
@@ -177,14 +177,14 @@ export default class ProfileSettings {
   settingsEvent() {
     // open
     this.openProfileSettingsBtn.addEventListener("click", () => {
-      this.fetchData();
-      this.displayProfileSettings();
+      this._fetchData();
+      this._displayProfileSettings();
     });
 
     // close
     this.closeProfileSettingsBtn.addEventListener("click", () => {
-      this.displayProfileSettings();
-      this.setWelcomeMessage();
+      this._displayProfileSettings();
+      this._setWelcomeMessage();
     });
   }
 }

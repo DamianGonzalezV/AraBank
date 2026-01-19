@@ -13,9 +13,9 @@ class App {
     this.storedUsername = localStorage.getItem("activeUser");
     this._token = localStorage.getItem("token");
 
-    // App
-    this.welcomeUser = document.querySelector(".welcome-row-user-span");
-    this._displayWelcomeMessage();
+    // // App
+    // this.welcomeUser = document.querySelector(".welcome-row-user-span");
+    // this._displayWelcomeMessage();
 
     // Components
     this._createProfileSettings();
@@ -34,11 +34,11 @@ class App {
     balanceAndMovements.fetchBalance(this.storedUsername, this._token);
   }
 
-  _displayWelcomeMessage() {
-    this.welcomeUser.textContent = this.storedUsername
-      ? this.storedUsername
-      : "";
-  }
+  // _displayWelcomeMessage() {
+  //   this.welcomeUser.textContent = this.storedUsername
+  //     ? this.storedUsername
+  //     : "";
+  // }
 }
 
 // create app
