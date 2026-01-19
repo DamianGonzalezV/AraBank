@@ -8,7 +8,6 @@ const router = express.Router();
 router.post("/signup", async (req, res) => {
   const { name, username, email, password } = req.body;
   let user;
-  console.log(name, email);
 
   // Check for valid email
   if (!email.includes("@")) {
@@ -21,48 +20,48 @@ router.post("/signup", async (req, res) => {
     // Verify uniqueness
     const isUsernameUnique = await User.isUsernameUnique(username);
     const isEmailUnique = await User.isEmailUnique(email);
-    console.log(isUsernameUnique, isEmailUnique);
 
     if (isUsernameUnique) {
       return res.status(409).json({
         message: "Username already in use",
       });
-    } else if (isEmailUnique) {
+    }
+
+    if (isEmailUnique) {
       return res.status(409).json({
         message: "Email already in use",
       });
-    } else {
-      // generate password
-      const hashedPassword = User.generateSecurePassword(password);
-
-      // create instance
-      user = new User(name, username, email, hashedPassword);
-      console.log(user);
-
-      // PRISMA Insert user (returns userId)
-      await user.insertUser();
-
-      // Confirm insert into DB
-      const userData = await user.getUser();
-
-      // Create JWT token
-      const token = user.createToken();
-
-      // create the instance for the Account
-      const account = new Account(userData.username, userData.id);
-      console.log(account);
-
-      // Add account to accounts table
-      await account.initializeAccount();
-
-      // Send response
-      res.status(201).json({
-        message: `User successfully created`,
-        username: `${userData.username}`,
-        email: `${userData.email}`,
-        token: token,
-      });
     }
+
+    // generate password
+    const hashedPassword = User.generateSecurePassword(password);
+
+    // create instance
+    user = new User(name, username, email, hashedPassword);
+
+    // PRISMA Insert user (returns userId)
+    await user.insertUser();
+
+    // Confirm insert into DB
+    const userData = await user.getUser();
+
+    // Create JWT token
+    const token = user.createToken();
+
+    // create the instance for the Account
+    const account = new Account(userData.username, userData.id);
+
+    // Add account to accounts table
+    await account.initializeAccount();
+
+    // Send response
+    res.status(201).json({
+      message: `User successfully created`,
+      username: `${userData.username}`,
+      email: `${userData.email}`,
+      token: token,
+    });
+
     //
   } catch (err) {
     console.log(err.message);
@@ -72,28 +71,26 @@ router.post("/signup", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   let user;
-  console.log(username);
 
   // find user by username
   const result = await User.getByUsername(username);
-  console.log(result);
 
   if (!result) {
     return res.status(401).json({
       message: "User does not exist", // does this makes sense if theres is already middleware?
     });
-  } else {
+  }
+
+  try {
     // Create the instance to access the methods
     user = new User(
       result.name,
       result.username,
       result.email,
       result.password,
-      result.id
+      result.id,
     );
-  }
 
-  try {
     // hash password
     const validPassword = user.comparePassword(password);
 
