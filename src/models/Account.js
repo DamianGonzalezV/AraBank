@@ -3,7 +3,7 @@ import prisma from "../prismaClient.js";
 
 export default class Account {
   // Bonus for account opening
-  static REGISTRATION_BONUS = 100;
+  static #REGISTRATION_BONUS = 100;
 
   constructor(username, userId) {
     this.username = username;
@@ -24,7 +24,7 @@ export default class Account {
     const account = await prisma.accounts.create({
       data: {
         userId: this.userId,
-        totalBalance: Account.REGISTRATION_BONUS,
+        totalBalance: Account.#REGISTRATION_BONUS,
       },
     });
     this.balance = account.totalBalance;
