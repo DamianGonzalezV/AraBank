@@ -38,7 +38,7 @@ export default class User {
     return unique;
   }
 
-  static async isEmailUnique(email) {
+  static async isEmailTaken(email) {
     const unique = await prisma.users.findUnique({
       where: {
         email: email,
