@@ -7,11 +7,7 @@ const router = express.Router();
 router.post("/balance", async (req, res) => {
   const userId = req.id;
   const username = req.username;
-  const token = req.headers["authorization"]; // for debug, hide later
-
-  console.log(userId);
-  console.log(username);
-  console.log(token); // for debug, hide later
+  // const token = req.headers["authorization"];
 
   if (!userId)
     return res.status(400).json({

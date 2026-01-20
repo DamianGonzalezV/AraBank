@@ -29,7 +29,7 @@ export default class User {
     return user;
   }
 
-  static async isUsernameUnique(username) {
+  static async isUsernameTaken(username) {
     const unique = await prisma.users.findUnique({
       where: {
         username: username,
@@ -79,7 +79,7 @@ export default class User {
       process.env.JWT_SECRET,
       {
         expiresIn: "24h",
-      }
+      },
     );
   }
 
