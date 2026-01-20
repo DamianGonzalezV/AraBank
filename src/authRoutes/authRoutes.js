@@ -9,32 +9,25 @@ router.post("/signup", async (req, res) => {
   const { name, username, email, password } = req.body;
   let user;
 
-  // Check for valid email
-  if (!email.includes("@")) {
-    return res.status(400).json({
-      message: "Please add a valid email",
+  // Verify uniqueness
+  const isUsernameTaken = await User.isUsernameTaken(username);
+  console.log(isUsernameTaken);
+  const isEmailTaken = await User.isEmailTaken(email);
+
+  // if not unique an object is returned
+  if (isUsernameTaken) {
+    return res.status(409).json({
+      message: "Username already in use",
+    });
+  }
+
+  if (isEmailTaken) {
+    return res.status(409).json({
+      message: "Email already in use",
     });
   }
 
   try {
-    // Verify uniqueness
-    const isUsernameTaken = await User.isUsernameTaken(username);
-    console.log(isUsernameTaken);
-    const isEmailTaken = await User.isEmailTaken(email);
-
-    // if not unique an object is returned
-    if (isUsernameTaken) {
-      return res.status(409).json({
-        message: "Username already in use",
-      });
-    }
-
-    if (isEmailTaken) {
-      return res.status(409).json({
-        message: "Email already in use",
-      });
-    }
-
     // generate password
     const hashedPassword = User.generateSecurePassword(password);
 
