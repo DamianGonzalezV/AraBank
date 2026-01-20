@@ -2,7 +2,7 @@ export default class ProfileSettings {
   constructor() {
     // Fetch data
     this._setWelcomeMessage();
-    this._fetchData();
+    // this._fetchData();
 
     // Navigation sidebar message
     this.welcomeUser = document.querySelector(".welcome-row-user-span");
