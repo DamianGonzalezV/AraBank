@@ -60,6 +60,9 @@ router.post("/signup", async (req, res) => {
     //
   } catch (err) {
     console.log(err.message);
+    res.status(500).json({
+      message: "Server issue",
+    });
   }
 });
 
@@ -83,7 +86,7 @@ router.post("/login", async (req, res) => {
       usernameObject.username,
       usernameObject.email,
       usernameObject.password,
-      usernameObject.id,
+      usernameObject.userId,
     );
 
     // hash password
@@ -106,6 +109,9 @@ router.post("/login", async (req, res) => {
     }
   } catch (err) {
     console.log(err.message);
+    res.status(500).json({
+      message: "Server issue",
+    });
   }
 });
 

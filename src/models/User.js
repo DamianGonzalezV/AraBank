@@ -74,8 +74,7 @@ export default class User {
     );
   }
 
-  comparePassword(password) {
-    console.log(`User model: ${password}, ${this.password}`);
-    return bcrypt.compareSync(password, this.password);
+  comparePassword(tryingPassword) {
+    return bcrypt.compareSync(tryingPassword, this.password);
   }
 }
