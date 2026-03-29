@@ -79,11 +79,11 @@ router.post("/login", async (req, res) => {
   try {
     // Create the instance to access the methods
     user = new User(
-      result.name,
-      result.username,
-      result.email,
-      result.password,
-      result.id,
+      usernameObject.name,
+      usernameObject.username,
+      usernameObject.email,
+      usernameObject.password,
+      usernameObject.id,
     );
 
     // hash password
