@@ -68,9 +68,9 @@ router.post("/login", async (req, res) => {
   let user;
 
   // find user by username
-  const result = await User.isUsernameTaken(username);
+  const usernameObject = await User.isUsernameTaken(username);
 
-  if (!result) {
+  if (!usernameObject) {
     return res.status(401).json({
       message: "User does not exist",
     });
