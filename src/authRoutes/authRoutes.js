@@ -68,7 +68,7 @@ router.post("/login", async (req, res) => {
   let user;
 
   // find user by username
-  const result = await User.getByUsername(username);
+  const result = await User.isUsernameTaken(username);
 
   if (!result) {
     return res.status(401).json({
