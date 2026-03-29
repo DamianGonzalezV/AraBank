@@ -12,7 +12,9 @@ export function authMiddleware(req, res, next) {
 
   jwt.verify(token, process.env.JWT_SECRET, function (err, decoded) {
     if (err) {
-      return res.status(401).json({ message: "No token provided" });
+      return res
+        .status(401)
+        .json({ message: "authentication error, pleasy try again once" });
     }
 
     req.id = decoded.id;

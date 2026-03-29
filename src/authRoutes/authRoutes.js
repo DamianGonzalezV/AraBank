@@ -72,7 +72,7 @@ router.post("/login", async (req, res) => {
 
   if (!result) {
     return res.status(401).json({
-      message: "User does not exist", // does this makes sense if theres is already middleware?
+      message: "User does not exist",
     });
   }
 
