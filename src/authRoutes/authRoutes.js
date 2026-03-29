@@ -34,10 +34,10 @@ router.post("/signup", async (req, res) => {
     // create instance
     user = new User(name, username, email, hashedPassword);
 
-    // PRISMA Insert user (returns userId)
+    // PRISMA Insert user (returns userId filled)
     await user.insertUser();
 
-    // Confirm insert into DB
+    // Confirm insert into DB and store user data to use it in account
     const userData = await user.getUser();
 
     // Create JWT token
