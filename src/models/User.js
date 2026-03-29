@@ -20,15 +20,6 @@ export default class User {
     this.userId = userId;
   }
 
-  static async getByUsername(username) {
-    const user = await prisma.users.findUnique({
-      where: {
-        username: username,
-      },
-    });
-    return user;
-  }
-
   static async isUsernameTaken(username) {
     const isUsernameTaken = await prisma.users.findUnique({
       where: {

@@ -101,7 +101,10 @@ signUpBtn.addEventListener("click", (e) => {
       })
       .catch((err) => {
         console.log(err);
-        if (err.message === "Username or email already in use") {
+        if (
+          err.message === "Username already in use" ||
+          "Email already in use"
+        ) {
           insertHTMLerror(signUpForm, err.message);
         }
       });
