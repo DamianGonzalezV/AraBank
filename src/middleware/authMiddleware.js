@@ -19,6 +19,7 @@ export function authMiddleware(req, res, next) {
 
     req.id = decoded.id;
     req.username = decoded.username;
+    console.log(`Middleware debug for ${req.id}`);
     next();
   });
 }

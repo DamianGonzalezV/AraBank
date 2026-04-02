@@ -72,6 +72,7 @@ router.post("/login", async (req, res) => {
 
   // find user by username
   const usernameObject = await User.isUsernameTaken(username);
+  console.log(usernameObject);
 
   if (!usernameObject) {
     return res.status(401).json({
@@ -91,10 +92,11 @@ router.post("/login", async (req, res) => {
 
     // hash password
     const validPassword = user.comparePassword(password);
+    console.log(validPassword);
 
     if (validPassword) {
       // create token
-      const token = user.createToken();
+      const token = user.createTokenForLogin(usernameObject.id);
 
       // send response
       res.status(200).json({

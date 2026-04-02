@@ -53,8 +53,10 @@ router.get("/form", async (req, res) => {
 });
 
 router.patch("/username", async (req, res) => {
-  const { id } = req;
+  const id = req.id;
   const { newUsername } = req.body;
+
+  console.log(`id from /username debug ${id}`);
 
   if (!id) {
     res.status(401).json({
