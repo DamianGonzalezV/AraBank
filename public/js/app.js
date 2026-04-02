@@ -27,7 +27,7 @@ class App {
 
   _createBalanceAndMovements() {
     const balanceAndMovements = new BalanceAndMovements();
-    balanceAndMovements.fetchBalance(this.storedUsername, this._token);
+    balanceAndMovements._fetchBalance(this.storedUsername, this._token);
   }
 }
 

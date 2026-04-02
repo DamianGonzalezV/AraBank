@@ -3,7 +3,7 @@ export default class BalanceAndMovements {
     this.totalBalance = document.querySelector(".account-balance-number");
   }
 
-  fetchBalance(storedUsername, token) {
+  _fetchBalance(storedUsername, token) {
     // Fetch the balance
     document.addEventListener("DOMContentLoaded", () => {
       if (storedUsername) {
