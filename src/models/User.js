@@ -21,12 +21,12 @@ export default class User {
   }
 
   static async isUsernameTaken(username) {
-    const username = await prisma.users.findUnique({
+    const usernameObject = await prisma.users.findUnique({
       where: {
         username: username,
       },
     });
-    return username;
+    return usernameObject;
   }
 
   static async isEmailTaken(email) {
