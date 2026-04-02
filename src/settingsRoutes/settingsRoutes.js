@@ -104,7 +104,7 @@ router.patch("/email", async (req, res) => {
       console.log(updatedEmail);
 
       res.status(200).json({
-        message: `User was updated successfully, id: ${id} from request should be the same, id from response: ${updatedEmail.id}`,
+        message: `Email was updated successfully, id: ${id} from request should be the same, id from response: ${updatedEmail.id}`,
         id: updatedEmail.id,
         email: updatedEmail.email,
       });
