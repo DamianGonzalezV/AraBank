@@ -21,13 +21,13 @@ describe("Login - Positive scenario", () => {
     // toggle to login
 
     cy.get("@userData").then(({ username, password }) => {
-      cy.get('[data-qa="username-login"]').type(`${username}`);
-      cy.get('[data-qa="password-login"]').type(`${password}`);
-      cy.get('[data-qa="login-btn"]').click();
+      cy.getByTestId("username-login").type(`${username}`);
+      cy.getByTestId("password-login").type(`${password}`);
+      cy.getByTestId("login-btn").click();
       cy.location("pathname").should("eq", "/app.html");
-      cy.get('[data-qa="welcome-row-user-span"]').should(
+      cy.getByTestId("welcome-row-user-span").should(
         "have.text",
-        `${username}`
+        `${username}`,
       );
     });
   });
@@ -48,33 +48,33 @@ describe("Login - Negative scenario", () => {
   });
 
   it("Should verify error message for empty inputs", () => {
-    cy.get('[data-qa="login-btn"]').click();
-    cy.get('[data-qa="registration-error-message"]').should(
+    cy.getByTestId("login-btn").click();
+    cy.getByTestId("registration-error-message").should(
       "have.text",
-      "Please fill out all inputs!"
+      "Please fill out all inputs!",
     );
   });
 
   it("Should verify error message for invalid username", () => {
     cy.get("@userData").then(({ password }) => {
-      cy.get('[data-qa="username-login"]').type("invaliduser");
-      cy.get('[data-qa="password-login"]').type(`${password}`);
-      cy.get('[data-qa="login-btn"]').click();
-      cy.get('[data-qa="registration-error-message"]').should(
+      cy.getByTestId("username-login").type("invaliduser");
+      cy.getByTestId("password-login").type(`${password}`);
+      cy.getByTestId("login-btn").click();
+      cy.getByTestId("registration-error-message").should(
         "have.text",
-        "User does not exist"
+        "User does not exist",
       );
     });
   });
 
   it("Should verify error message for invalid password", () => {
     cy.get("@userData").then(({ username }) => {
-      cy.get('[data-qa="username-login"]').type(`${username}`);
-      cy.get('[data-qa="password-login"]').type("Invalid password");
-      cy.get('[data-qa="login-btn"]').click();
-      cy.get('[data-qa="registration-error-message"]').should(
+      cy.getByTestId("username-login").type(`${username}`);
+      cy.getByTestId("password-login").type("Invalid password");
+      cy.getByTestId("login-btn").click();
+      cy.getByTestId("registration-error-message").should(
         "have.text",
-        "Unauthorized. Password is not valid"
+        "Unauthorized. Password is not valid",
       );
     });
   });

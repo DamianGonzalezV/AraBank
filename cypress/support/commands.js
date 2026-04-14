@@ -24,6 +24,10 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+Cypress.Commands.add("getByTestId", (selector) => {
+  return cy.get(`[data-qa="${selector}"]`);
+});
+
 Cypress.Commands.add("signUpUser", (user) => {
   cy.request("POST", "/auth/signup", user).then((response) => {
     expect(response.status).to.eq(201);
