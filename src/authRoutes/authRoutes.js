@@ -68,7 +68,6 @@ router.post("/signup", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
-  let user;
 
   // find user by username
   const usernameObject = await User.isUsernameTaken(username);
@@ -81,27 +80,35 @@ router.post("/login", async (req, res) => {
   }
 
   try {
-    // Create the instance to access the methods
-    user = new User(
-      usernameObject.name,
-      usernameObject.username,
-      usernameObject.email,
-      usernameObject.password,
-      usernameObject.userId,
-    );
+    // // Create the instance to access the methods
+    // user = new User(
+    //   usernameObject.name,
+    //   usernameObject.username,
+    //   usernameObject.email,
+    //   usernameObject.password,
+    //   usernameObject.userId,
+    // );
 
     // hash password
-    const validPassword = user.comparePassword(password);
+    // here i was using the instance so: user.compare
+    const validPassword = User.comparePassword(
+      password,
+      usernameObject.password,
+    );
     console.log(validPassword);
 
+    // here i was using the instance so: user.createToken
     if (validPassword) {
       // create token
-      const token = user.createTokenForLogin(usernameObject.id);
+      const token = User.createTokenForLogin(
+        usernameObject.id,
+        usernameObject.username,
+      );
 
       // send response
       res.status(200).json({
-        message: `User ${user.username} logged in`,
-        username: `${user.username}`,
+        message: `User ${usernameObject.username} logged in`,
+        username: `${usernameObject.username}`,
         token: token,
       });
     } else {

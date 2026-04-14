@@ -5,6 +5,8 @@ CREATE TABLE "Users" (
     "username" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
+    "isUsernameMutated" BOOLEAN NOT NULL DEFAULT false,
+    "isEmailMutated" BOOLEAN NOT NULL DEFAULT false,
 
     CONSTRAINT "Users_pkey" PRIMARY KEY ("id")
 );
@@ -23,6 +25,9 @@ CREATE UNIQUE INDEX "Users_username_key" ON "Users"("username");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Users_email_key" ON "Users"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Accounts_userId_key" ON "Accounts"("userId");
 
 -- AddForeignKey
 ALTER TABLE "Accounts" ADD CONSTRAINT "Accounts_userId_fkey" FOREIGN KEY ("userId") REFERENCES "Users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

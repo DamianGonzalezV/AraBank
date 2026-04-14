@@ -74,9 +74,9 @@ export default class User {
     );
   }
 
-  createTokenForLogin(idFromDb) {
+  static createTokenForLogin(idFromDb, usernameFromDb) {
     return jwt.sign(
-      { id: idFromDb, username: this.username },
+      { id: idFromDb, username: usernameFromDb },
       process.env.JWT_SECRET,
       {
         expiresIn: "24h",
@@ -84,7 +84,7 @@ export default class User {
     );
   }
 
-  comparePassword(tryingPassword) {
-    return bcrypt.compareSync(tryingPassword, this.password);
+  static comparePassword(tryingPassword, existingPassword) {
+    return bcrypt.compareSync(tryingPassword, existingPassword);
   }
 }
